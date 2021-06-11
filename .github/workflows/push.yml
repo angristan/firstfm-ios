@@ -1,0 +1,58 @@
+name: Push workflow
+
+on: [push]
+
+jobs:
+  # build:
+  #   name: build
+  #   runs-on: macos-latest
+  #   strategy:
+  #     matrix:
+  #       destination:
+  #         - 'platform=iOS Simulator,OS=14.5,name=iPhone 12'
+  #         - 'platform=iOS Simulator,OS=14.5,name=iPhone 12 Mini'
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@master
+  #     - name: Build
+  #       run: |
+  #         xcodebuild clean build -project first.fm.xcodeproj -scheme first.fm -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  #       env:
+  #         destination: ${{ matrix.destination }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Lint Commit
+        uses: wagoid/commitlint-github-action@v3
+
+  release:
+    name: Publish new release
+    needs:
+      # - build
+      - lint
+      - commitlint
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release
