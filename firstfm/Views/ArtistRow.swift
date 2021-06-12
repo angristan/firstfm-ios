@@ -6,18 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ArtistRow: View {
     var artist: Artist
-
+    var image = "https://lastfm.freetls.fastly.net/i/u/770x0/f87e3e186c83d808d7e40c0f608ff50d.webp#f87e3e186c83d808d7e40c0f608ff50d"
 
     var body: some View {
         HStack {
-            AsyncImage(
-                url: URL(string: "https://lastfm.freetls.fastly.net/i/u/770x0/f87e3e186c83d808d7e40c0f608ff50d.webp#f87e3e186c83d808d7e40c0f608ff50d")!,
-                placeholder: { Text("Loading ...") },
-                image: { Image(uiImage: $0).resizable() }
-            )
+            KFImage(URL(string: image )!).resizable()
             .frame(width: 50, height: 50)
             Text(artist.name)
 
