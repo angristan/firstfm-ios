@@ -11,6 +11,8 @@
 		82505CE02675074E00CCCB58 /* CharList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* CharList.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
 		82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 82505CE32675178B00CCCB58 /* Kingfisher */; };
+		82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */; };
+		82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE82675368400CCCB58 /* LastFMImage.swift */; };
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
 		82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E072673992200578DD4 /* Preview Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* CharList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharList.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchResponse.swift; sourceTree = "<group>"; };
+		82505CE82675368400CCCB58 /* LastFMImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMImage.swift; sourceTree = "<group>"; };
 		82844DFD2673991F00578DD4 /* firstfm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstfm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82844E002673991F00578DD4 /* FirstfmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstfmApp.swift; sourceTree = "<group>"; };
 		82844E042673992200578DD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +61,14 @@
 			name = Views;
 			path = firstfm/Views;
 			sourceTree = SOURCE_ROOT;
+		};
+		82505CE526752FEC00CCCB58 /* Spotify */ = {
+			isa = PBXGroup;
+			children = (
+				82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */,
+			);
+			path = Spotify;
+			sourceTree = "<group>";
 		};
 		82844DF42673991F00578DD4 = {
 			isa = PBXGroup;
@@ -98,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				82FBAE462674B8FC000D8E29 /* Artist.swift */,
+				82505CE82675368400CCCB58 /* LastFMImage.swift */,
 				82D512F12674FE9D00206EBB /* API */,
 			);
 			path = Entities;
@@ -106,6 +119,7 @@
 		82D512F12674FE9D00206EBB /* API */ = {
 			isa = PBXGroup;
 			children = (
+				82505CE526752FEC00CCCB58 /* Spotify */,
 				82FBAE4D2674BD02000D8E29 /* TopArtistsResponseArtistContainer.swift */,
 				82FBAE4B2674BCB7000D8E29 /* ArtistResponse.swift */,
 			);
@@ -178,6 +192,7 @@
 			mainGroup = 82844DF42673991F00578DD4;
 			packageReferences = (
 				82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				82505CEA267545F300CCCB58 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -207,12 +222,14 @@
 			files = (
 				82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */,
 				82505CE12675074E00CCCB58 /* ContentView.swift in Sources */,
+				82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */,
 				82FBAE4E2674BD02000D8E29 /* TopArtistsResponseArtistContainer.swift in Sources */,
 				82FBAE4C2674BCB7000D8E29 /* ArtistResponse.swift in Sources */,
 				82505CE02675074E00CCCB58 /* CharList.swift in Sources */,
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */,
 				82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */,
+				82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +424,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.3.0;
+			};
+		};
+		82505CEA267545F300CCCB58 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/belozierov/SwiftCoroutine";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
