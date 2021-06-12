@@ -192,7 +192,6 @@
 			mainGroup = 82844DF42673991F00578DD4;
 			packageReferences = (
 				82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				82505CEA267545F300CCCB58 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -424,14 +423,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.3.0;
-			};
-		};
-		82505CEA267545F300CCCB58 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/belozierov/SwiftCoroutine";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

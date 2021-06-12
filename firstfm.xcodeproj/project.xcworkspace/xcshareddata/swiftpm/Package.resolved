@@ -9,15 +9,6 @@
           "revision": "44450a8f564d7c0165f736ba2250649ff8d3e556",
           "version": "6.3.0"
         }
-      },
-      {
-        "package": "SwiftCoroutine",
-        "repositoryURL": "https://github.com/belozierov/SwiftCoroutine",
-        "state": {
-          "branch": null,
-          "revision": "9c395df3ced77e50bf420a819de2c6d72d350471",
-          "version": "2.1.10"
-        }
       }
     ]
   },
