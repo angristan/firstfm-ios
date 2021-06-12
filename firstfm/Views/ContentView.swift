@@ -1,9 +1,9 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A view showing the list of landmarks.
-*/
+//
+//  ChartData.swift
+//  firstfm
+//
+//  Created by Stanislas Lange on 12/06/2021.
+//
 
 import SwiftUI
 
