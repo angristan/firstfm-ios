@@ -22,26 +22,33 @@ class ChartViewModel: ObservableObject {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
         request.httpBody = data
 
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                let nsHTTPResponse = response as! HTTPURLResponse
-                let statusCode = nsHTTPResponse.statusCode
-                print ("status code = \(statusCode)")
-                // TODO
-            }
-            if let error = error {
-                print (error)
-                // TODO
-            }
-            if let data = data {
-                do{
-                    let jsonResponse = try! JSONDecoder().decode(ArtistResponse.self, from: data)
+        URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
+            do {
+                if let response = response {
+                    let nsHTTPResponse = response as? HTTPURLResponse
+                    if let statusCode = nsHTTPResponse?.statusCode {
+                        print ("status code = \(statusCode)")
+                    }
+                    // TODO
+                }
+                if let error = error {
+                    print (error)
+                    // TODO
+                }
+                if let data = data {
+                    do{
+                        let jsonResponse = try JSONDecoder().decode(ArtistResponse.self, from: data)
 
-                    DispatchQueue.main.async {
-                        self.artists = jsonResponse.artists.artist
-                        self.isLoading = false
+                        DispatchQueue.main.async {
+                            self.artists = jsonResponse.artists.artist
+                            self.isLoading = false
+                        }
                     }
                 }
+            }
+            catch {
+                print(error)
+                // TODO
             }
         }.resume()
     }

@@ -1,9 +1,9 @@
-/*
- See LICENSE folder for this sample’s licensing information.
-
- Abstract:
- A single row to be displayed in a list of landmarks.
- */
+//
+//  ChartData.swift
+//  firstfm
+//
+//  Created by Stanislas Lange on 12/06/2021.
+//
 
 import SwiftUI
 
