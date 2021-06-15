@@ -13,7 +13,8 @@
 		82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 82505CE32675178B00CCCB58 /* Kingfisher */; };
 		82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */; };
 		82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE82675368400CCCB58 /* LastFMImage.swift */; };
-		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
+		826CBA992678EB8800B11170 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBA982678EB8800B11170 /* ArtistView.swift */; };
+		82844E012673991F00578DD4 /* firstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* firstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
 		82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E072673992200578DD4 /* Preview Assets.xcassets */; };
 		82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE462674B8FC000D8E29 /* Artist.swift */; };
@@ -28,8 +29,9 @@
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchResponse.swift; sourceTree = "<group>"; };
 		82505CE82675368400CCCB58 /* LastFMImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMImage.swift; sourceTree = "<group>"; };
+		826CBA982678EB8800B11170 /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		82844DFD2673991F00578DD4 /* firstfm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstfm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		82844E002673991F00578DD4 /* FirstfmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstfmApp.swift; sourceTree = "<group>"; };
+		82844E002673991F00578DD4 /* firstfmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstfmApp.swift; sourceTree = "<group>"; };
 		82844E042673992200578DD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82844E072673992200578DD4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82844E092673992200578DD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				82505CDC2675074E00CCCB58 /* ArtistRow.swift */,
 				82505CDD2675074E00CCCB58 /* CharList.swift */,
 				82505CDE2675074E00CCCB58 /* ContentView.swift */,
+				826CBA982678EB8800B11170 /* ArtistView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -90,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				82FBAE282673B5F5000D8E29 /* Data */,
-				82844E002673991F00578DD4 /* FirstfmApp.swift */,
+				82844E002673991F00578DD4 /* firstfmApp.swift */,
 				82844E042673992200578DD4 /* Assets.xcassets */,
 				82844E092673992200578DD4 /* Info.plist */,
 				82844E062673992200578DD4 /* Preview Content */,
@@ -227,8 +230,9 @@
 				82505CE02675074E00CCCB58 /* CharList.swift in Sources */,
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */,
-				82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */,
+				82844E012673991F00578DD4 /* firstfmApp.swift in Sources */,
 				82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */,
+				826CBA992678EB8800B11170 /* ArtistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
