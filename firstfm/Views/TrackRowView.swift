@@ -8,20 +8,20 @@
 import SwiftUI
 import Kingfisher
 
-struct ArtistRow: View {
-    var artist: Artist
-    
+struct TrackRow: View {
+    var track: Track
+
     var body: some View {
         HStack() {
             //            KFImage(URL(string: artist.image[0].url )!).resizable()
             //                .frame(width: 50, height: 50)
-            KFImage.url(URL(string: artist.image[0].url )!)
+            KFImage.url(URL(string: track.image[0].url )!)
                 .resizable()
                 .onSuccess { r in
-                    print("Success: \(self.artist.name) - \(r.cacheType)")
+                    print("Success: \(self.track.name) - \(r.cacheType)")
                 }
                 .onFailure { e in
-                    print("Error \(self.artist): \(e)")
+                    print("Error \(self.track.name): \(e)")
                 }
 //                .placeholder {
 //                    ProgressView()
@@ -34,22 +34,12 @@ struct ArtistRow: View {
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading) {
                 Spacer()
-                Text(artist.name).font(.headline)
+                Text(track.name).font(.headline)
                 Spacer()
-                Text("\(String(format: "%ld", locale: Locale.current, (artist.listeners as NSString).integerValue) ) listeners")
+                Text("\(String(format: "%ld", locale: Locale.current, (track.listeners as NSString).integerValue) ) listeners")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
-        }
-    }
-}
-
-struct ArtistRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(["iPhone 12"], id: \.self) { deviceName in
-            ChartList()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
         }
     }
 }

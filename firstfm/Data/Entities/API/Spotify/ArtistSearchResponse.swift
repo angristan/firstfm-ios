@@ -21,8 +21,3 @@ struct SpotifyArtist: Codable {
     var images: [SpotifyImage]
 }
 
-struct SpotifyImage: Codable {
-    var url: String
-    var height: Int
-    var width: Int
-}

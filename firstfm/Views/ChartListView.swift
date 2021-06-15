@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ChartList: View {
     @ObservedObject var charts = ChartViewModel()
-    @State var loaded = false
+    @State var artistsLoaded = false
+    @State var tracksLoaded = false
     @State private var selectedChartsIndex = 0
 
     var body: some View {
@@ -24,20 +25,39 @@ struct ChartList: View {
                            }).padding(.horizontal, 20)
                         .padding(.vertical, 5)
                         .pickerStyle(SegmentedPickerStyle())
-
-                    List(charts.artists) { artist in
-                        NavigationLink(
-                            destination: ArtistView(artist: artist),
-                            label: {
-                                ArtistRow(artist: artist)
-                            })
-                    }.navigationTitle("Global charts").onAppear {
-                        if !loaded {
-                            self.charts.getChartingArtists()
-                            // Prevent loading artits again when navigating
-                            self.loaded = true
+                    
+                    if selectedChartsIndex == 0 {
+                        List(charts.artists) { artist in
+                            NavigationLink(
+                                destination: ArtistView(artist: artist),
+                                label: {
+                                    ArtistRow(artist: artist)
+                                })
+                        }.navigationTitle("Global charts").onAppear {
+                            if !artistsLoaded {
+                                self.charts.getChartingArtists()
+                                // Prevent loading artits again when navigating
+                                self.artistsLoaded = true
+                            }
                         }
                     }
+                    if selectedChartsIndex == 1 {
+                        List(charts.tracks) { track in
+                            NavigationLink(
+                                destination: Color(.blue),
+                                label: {
+                                    TrackRow(track: track)
+                                })
+                        }.navigationTitle("Global charts").onAppear {
+                            if !tracksLoaded {
+                                self.charts.getChartingTracks()
+                                // Prevent loading artits again when navigating
+                                self.tracksLoaded = true
+                            }
+                        }
+                    }
+
+
                 }
                 // Show loader above the rest of the ZStack
                 if charts.isLoading {
