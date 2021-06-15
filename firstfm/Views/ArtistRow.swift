@@ -10,20 +10,41 @@ import Kingfisher
 
 struct ArtistRow: View {
     var artist: Artist
-    var image = "https://lastfm.freetls.fastly.net/i/u/770x0/f87e3e186c83d808d7e40c0f608ff50d.webp#f87e3e186c83d808d7e40c0f608ff50d"
-    
+
     var body: some View {
         HStack() {
-            KFImage(URL(string: artist.image[0].url )!).resizable()
+            //            KFImage(URL(string: artist.image[0].url )!).resizable()
+            //                .frame(width: 50, height: 50)
+            KFImage.url(URL(string: artist.image[0].url )!)
+                .resizable()
+                .onSuccess { r in
+                    print("Success: \(self.artist.name) - \(r.cacheType)")
+                }
+                .onFailure { e in
+                    print("Error \(self.artist): \(e)")
+                }
+                .placeholder {
+                    HStack {
+                        Image(systemName: "arrow.2.circlepath.circle")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .padding(10)
+                        Text("Loading...").font(.title)
+                    }
+                    .foregroundColor(.gray)
+                }
+                .fade(duration: 5)
+                .cancelOnDisappear(true)
+                .cornerRadius(5)
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading) {
-                Text(artist.name)
+                Spacer()
+                Text(artist.name).font(.headline)
+                Spacer()
                 Text("\(String(format: "%ld", locale: Locale.current, (artist.listeners as NSString).integerValue) ) listeners")
-                    .font(.system(size: 14,weight: .light))
+                    .font(.subheadline)
                     .foregroundColor(.gray)
-                    .padding(.top, 5)
             }
-            Spacer()
         }
     }
 }
@@ -37,4 +58,3 @@ struct ArtistRow_Previews: PreviewProvider {
         }
     }
 }
-
