@@ -16,7 +16,7 @@ class ChartViewModel: ObservableObject {
         self.isLoading = true
         
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-        let data : Data = "api_key=d404c94c63e190519d70002332f09509&method=chart.getTopArtists&limit=10".data(using: .utf8)!
+        let data : Data = "api_key=d404c94c63e190519d70002332f09509&method=chart.getTopArtists&limit=50".data(using: .utf8)!
         
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
@@ -39,8 +39,14 @@ class ChartViewModel: ObservableObject {
                     do{
                         var jsonResponse = try JSONDecoder().decode(ArtistResponse.self, from: data)
                         
-                        let myGroup = DispatchGroup()
+                        DispatchQueue.main.async {
+                            self.artists = jsonResponse.artists.artist
+                            self.isLoading = false
+                        }
+
                         
+                        let myGroup = DispatchGroup()
+
                         for (index, artist) in jsonResponse.artists.artist.enumerated() {
                             myGroup.enter()
                             getImageForArtist(artistName: artist.name) { imageURL in
@@ -51,7 +57,7 @@ class ChartViewModel: ObservableObject {
                                 }
                             }
                         }
-                        
+
                         myGroup.notify(queue: .main) {
                             print("Finished all requests.")
                             DispatchQueue.main.async {
