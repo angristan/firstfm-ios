@@ -79,7 +79,8 @@ class ChartViewModel: ObservableObject {
 
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
                 // TODO: handle token renewing
-                request.setValue("Bearer BQDV4dfAZ2ed8tK7gnO26Dk444Hm2JE4ZQO8x9Tos0gPhSphuVVGFgeINMMMHO6a6rwFFpC6C1UirxO710W4axgHnO0fVcvylxnWGWcPWnrk4oAHhNEXFNP8xiIzkjUfEEzr06vhKALL2oX0D4w", forHTTPHeaderField:"Authorization");
+                request.setValue("Bearer BQDV4dfAZ2ed8tK7gnO26Dk444Hm2JE4ZQO8x9Tos0gPhSphuVVGFgeINMMMHO6a6rwFFpC6C1UirxO710W4axgHnO0fVcvylxnWGWcPWnrk4oAHhNEXFNP8xiIzkjUfEEzr06vhKALL2oX0D4w",
+                                 forHTTPHeaderField:"Authorization");
 
                 URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
                     do {
@@ -180,8 +181,8 @@ class ChartViewModel: ObservableObject {
 
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
                 // TODO: handle token renewing
-                request.setValue("Bearer BQDV4dfAZ2ed8tK7gnO26Dk444Hm2JE4ZQO8x9Tos0gPhSphuVVGFgeINMMMHO6a6rwFFpC6C1UirxO710W4axgHnO0fVcvylxnWGWcPWnrk4oAHhNEXFNP8xiIzkjUfEEzr06vhKALL2oX0D4w", forHTTPHeaderField:"Authorization");
-
+                request.setValue("Bearer BQDV4dfAZ2ed8tK7gnO26Dk444Hm2JE4ZQO8x9Tos0gPhSphuVVGFgeINMMMHO6a6rwFFpC6C1UirxO710W4axgHnO0fVcvylxnWGWcPWnrk4oAHhNEXFNP8xiIzkjUfEEzr06vhKALL2oX0D4w",
+                                 forHTTPHeaderField:"Authorization");
                 URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
                     do {
                         if let response = response {

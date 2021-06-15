@@ -17,11 +17,11 @@ struct ArtistRow: View {
             //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: artist.image[0].url )!)
                 .resizable()
-                .onSuccess { r in
-                    print("Success: \(self.artist.name) - \(r.cacheType)")
+                .onSuccess { res in
+                    print("Success: \(self.artist.name) - \(res.cacheType)")
                 }
-                .onFailure { e in
-                    print("Error \(self.artist): \(e)")
+                .onFailure { err in
+                    print("Error \(self.artist): \(err)")
                 }
 //                .placeholder {
 //                    ProgressView()

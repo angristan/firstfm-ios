@@ -17,11 +17,11 @@ struct TrackRow: View {
             //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: track.image[0].url )!)
                 .resizable()
-                .onSuccess { r in
-                    print("Success: \(self.track.name) - \(r.cacheType)")
+                .onSuccess { res in
+                    print("Success: \(self.track.name) - \(res.cacheType)")
                 }
-                .onFailure { e in
-                    print("Error \(self.track.name): \(e)")
+                .onFailure { err in
+                    print("Error \(self.track.name): \(err)")
                 }
 //                .placeholder {
 //                    ProgressView()
