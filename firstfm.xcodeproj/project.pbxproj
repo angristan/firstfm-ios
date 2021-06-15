@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
-		82505CE02675074E00CCCB58 /* CharList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* CharList.swift */; };
+		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
 		82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 82505CE32675178B00CCCB58 /* Kingfisher */; };
 		82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */; };
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
-		82505CDD2675074E00CCCB58 /* CharList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharList.swift; sourceTree = "<group>"; };
+		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchResponse.swift; sourceTree = "<group>"; };
 		82505CE82675368400CCCB58 /* LastFMImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMImage.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				82505CDC2675074E00CCCB58 /* ArtistRow.swift */,
-				82505CDD2675074E00CCCB58 /* CharList.swift */,
+				82505CDD2675074E00CCCB58 /* ChartListView.swift */,
 				82505CDE2675074E00CCCB58 /* ContentView.swift */,
 				826CBA982678EB8800B11170 /* ArtistView.swift */,
 			);
@@ -227,7 +227,7 @@
 				82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */,
 				82FBAE4E2674BD02000D8E29 /* TopArtistsResponseArtistContainer.swift in Sources */,
 				82FBAE4C2674BCB7000D8E29 /* ArtistResponse.swift in Sources */,
-				82505CE02675074E00CCCB58 /* CharList.swift in Sources */,
+				82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */,
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */,
 				82844E012673991F00578DD4 /* firstfmApp.swift in Sources */,
