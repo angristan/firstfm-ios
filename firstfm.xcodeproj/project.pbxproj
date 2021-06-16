@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820455DA267A72390009A418 /* SpotifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455D9267A72390009A418 /* SpotifyToken.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		820455D9267A72390009A418 /* SpotifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyToken.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				82505CE62675300400CCCB58 /* ArtistSearchResponse.swift */,
 				82A006BD2679636F0009BD71 /* TrackSearchResponse.swift */,
 				82A006C0267963BB0009BD71 /* SpotifyImage.swift */,
+				820455D9267A72390009A418 /* SpotifyToken.swift */,
 			);
 			path = Spotify;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */,
+				820455DA267A72390009A418 /* SpotifyToken.swift in Sources */,
 				82505CE12675074E00CCCB58 /* ContentView.swift in Sources */,
 				82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */,
 				82FBAE4E2674BD02000D8E29 /* TopArtistsResponseArtistContainer.swift in Sources */,
@@ -405,6 +409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.esgi.firstfm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPOTIFY_API_TOKEN = YjBhNzA1N2M5MGNlNGNiZGI2Njc5N2I4Zjk0MDg5ODg6MDlhNGY4YzVkMmJlNGI0Mjg3ZWRlMTVmYmNhZjBlNzM;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -428,6 +433,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.esgi.firstfm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPOTIFY_API_TOKEN = YjBhNzA1N2M5MGNlNGNiZGI2Njc5N2I4Zjk0MDg5ODg6MDlhNGY4YzVkMmJlNGI0Mjg3ZWRlMTVmYmNhZjBlNzM;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

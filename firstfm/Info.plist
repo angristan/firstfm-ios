@@ -48,5 +48,7 @@
 	</array>
 	<key>LastFMAPIKey</key>
 	<string>$(LAST_FM_KEY)</string>
+	<key>SpotifyAPIToken</key>
+	<string>$(SPOTIFY_API_TOKEN)</string>
 </dict>
 </plist>

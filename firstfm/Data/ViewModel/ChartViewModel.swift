@@ -78,40 +78,42 @@ class ChartViewModel: ObservableObject {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedArtistName)&type=artist&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
-
+                
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
-                // TODO: handle token renewing
-                request.setValue("Bearer BQDV4dfAZ2ed8tK7gnO26Dk444Hm2JE4ZQO8x9Tos0gPhSphuVVGFgeINMMMHO6a6rwFFpC6C1UirxO710W4axgHnO0fVcvylxnWGWcPWnrk4oAHhNEXFNP8xiIzkjUfEEzr06vhKALL2oX0D4w",
-                                 forHTTPHeaderField:"Authorization");
-
-                URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
-                    do {
-                        if let response = response {
-                            let nsHTTPResponse = response as? HTTPURLResponse
-                            if let statusCode = nsHTTPResponse?.statusCode {
-                                print ("spotify status code = \(statusCode)")
+                
+                getSpotifyToken() { spotifyToken in
+                    request.setValue("Bearer \(spotifyToken)",
+                                     forHTTPHeaderField:"Authorization");
+                    
+                    URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
+                        do {
+                            if let response = response {
+                                let nsHTTPResponse = response as? HTTPURLResponse
+                                if let statusCode = nsHTTPResponse?.statusCode {
+                                    print ("spotify status code = \(statusCode)")
+                                }
+                                // TODO
                             }
+                            if let error = error {
+                                print (error)
+                                // TODO
+                                completion("")
+                            }
+                            if let data = data {
+                                do{
+                                    let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
+                                    
+                                    // TODO: match image sizes
+                                    completion(jsonResponse.artists.items[0].images[0].url)
+                                }
+                            }
+                        }
+                        catch {
+                            print(error)
                             // TODO
                         }
-                        if let error = error {
-                            print (error)
-                            // TODO
-                            completion("")
-                        }
-                        if let data = data {
-                            do{
-                                let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
-
-                                // TODO: match image sizes
-                                completion(jsonResponse.artists.items[0].images[0].url)
-                            }
-                        }
-                    }
-                    catch {
-                        print(error)
-                        // TODO
-                    }
-                }).resume()
+                    }).resume()
+                }
             }
         }
     }
@@ -120,17 +122,17 @@ class ChartViewModel: ObservableObject {
     //
     // Track
     //
-
+    
     func getChartingTracks() {
         self.isLoading = true
-
+        
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
         let data : Data = "api_key=\(lastFMAPIKey)&method=chart.getTopTracks&limit=30".data(using: .utf8)!
-
+        
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
         request.httpBody = data
-
+        
         URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
             do {
                 if let response = response {
@@ -179,42 +181,45 @@ class ChartViewModel: ObservableObject {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedTrackName)&type=track&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
-
+                
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
-                // TODO: handle token renewing
-                request.setValue("Bearer BQDV4dfAZ2ed8tK7gnO26Dk444Hm2JE4ZQO8x9Tos0gPhSphuVVGFgeINMMMHO6a6rwFFpC6C1UirxO710W4axgHnO0fVcvylxnWGWcPWnrk4oAHhNEXFNP8xiIzkjUfEEzr06vhKALL2oX0D4w",
-                                 forHTTPHeaderField:"Authorization");
-                URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
-                    do {
-                        if let response = response {
-                            let nsHTTPResponse = response as? HTTPURLResponse
-                            if let statusCode = nsHTTPResponse?.statusCode {
-                                print ("spotify status code = \(statusCode)")
-                            }
-                            // TODO
-                        }
-                        if let error = error {
-                            print (error)
-                            // TODO
-                            completion("")
-                        }
-                        if let data = data {
-                            do{
-                                let jsonResponse = try JSONDecoder().decode(SpotifyTrackSearchResponse.self, from: data)
 
-                                // TODO: match image sizes
-                                completion(jsonResponse.tracks.items[0].album.images[0].url)
+                getSpotifyToken() { spotifyToken in
+                    print("spotifyToken: \(spotifyToken)")
+                    request.setValue("Bearer \(spotifyToken)",
+                                     forHTTPHeaderField:"Authorization");
+                    URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
+                        do {
+                            if let response = response {
+                                let nsHTTPResponse = response as? HTTPURLResponse
+                                if let statusCode = nsHTTPResponse?.statusCode {
+                                    print ("spotify status code = \(statusCode)")
+                                }
+                                // TODO
+                            }
+                            if let error = error {
+                                print (error)
+                                // TODO
+                                completion("")
+                            }
+                            if let data = data {
+                                do{
+                                    let jsonResponse = try JSONDecoder().decode(SpotifyTrackSearchResponse.self, from: data)
+                                    
+                                    // TODO: match image sizes
+                                    completion(jsonResponse.tracks.items[0].album.images[0].url)
+                                }
                             }
                         }
-                    }
-                    catch {
-                        print(error)
-                        // TODO
-                    }
-                }).resume()
+                        catch {
+                            print(error)
+                            // TODO
+                        }
+                    }).resume()
+                }
             }
         }
     }
-
+    
 }
 
