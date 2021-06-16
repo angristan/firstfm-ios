@@ -20,6 +20,7 @@ struct ChartList: View {
                     Picker("Favorite Color",
                            selection: $selectedChartsIndex,
                            content: {
+                            // TODO use enum
                             Text("Artists").tag(0)
                             Text("Tracks").tag(1)
                            }).padding(.horizontal, 20)

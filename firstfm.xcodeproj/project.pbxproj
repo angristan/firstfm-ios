@@ -23,6 +23,7 @@
 		82A006BC2679631A0009BD71 /* TopTracksResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006BB2679631A0009BD71 /* TopTracksResponseContainer.swift */; };
 		82A006BE2679636F0009BD71 /* TrackSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006BD2679636F0009BD71 /* TrackSearchResponse.swift */; };
 		82A006C1267963BB0009BD71 /* SpotifyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006C0267963BB0009BD71 /* SpotifyImage.swift */; };
+		82A006C3267973D30009BD71 /* SampleArtist.json in Resources */ = {isa = PBXBuildFile; fileRef = 82A006C2267973D30009BD71 /* SampleArtist.json */; };
 		82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE462674B8FC000D8E29 /* Artist.swift */; };
 		82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE482674BB55000D8E29 /* ChartViewModel.swift */; };
 		82FBAE4C2674BCB7000D8E29 /* ArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE4B2674BCB7000D8E29 /* ArtistResponse.swift */; };
@@ -47,6 +48,7 @@
 		82A006BB2679631A0009BD71 /* TopTracksResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTracksResponseContainer.swift; sourceTree = "<group>"; };
 		82A006BD2679636F0009BD71 /* TrackSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSearchResponse.swift; sourceTree = "<group>"; };
 		82A006C0267963BB0009BD71 /* SpotifyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyImage.swift; sourceTree = "<group>"; };
+		82A006C2267973D30009BD71 /* SampleArtist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleArtist.json; sourceTree = "<group>"; };
 		82FBAE462674B8FC000D8E29 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		82FBAE482674BB55000D8E29 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		82FBAE4B2674BCB7000D8E29 /* ArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResponse.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				82844E072673992200578DD4 /* Preview Assets.xcassets */,
+				82A006C2267973D30009BD71 /* SampleArtist.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */,
+				82A006C3267973D30009BD71 /* SampleArtist.json in Resources */,
 				82844E052673992200578DD4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

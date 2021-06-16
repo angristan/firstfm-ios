@@ -1,0 +1,31 @@
+
+{
+    "name": "Weeekly",
+    "playcount": "181652156",
+    "listeners": "2025059",
+    "mbid": "",
+    "url": "https://www.last.fm/music/Weeekly",
+    "streamable": "0",
+    "image": [
+        {
+            "#text": "https://i.scdn.co/image/327c99a2e32a6fd08f95dd3a104e00fffb6ff529",
+            "size": "small"
+        },
+        {
+            "#text": "https://i.scdn.co/image/327c99a2e32a6fd08f95dd3a104e00fffb6ff529",
+            "size": "medium"
+        },
+        {
+            "#text": "https://i.scdn.co/image/327c99a2e32a6fd08f95dd3a104e00fffb6ff529",
+            "size": "large"
+        },
+        {
+            "#text": "https://i.scdn.co/image/327c99a2e32a6fd08f95dd3a104e00fffb6ff529",
+            "size": "extralarge"
+        },
+        {
+            "#text": "https://i.scdn.co/image/327c99a2e32a6fd08f95dd3a104e00fffb6ff529",
+            "size": "mega"
+        }
+    ]
+}
