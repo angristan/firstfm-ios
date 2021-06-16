@@ -13,6 +13,8 @@ class ChartViewModel: ObservableObject {
     @Published var tracks: [Track] = []
     var isLoading = true
     
+    let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
+    
     //
     // Artist
     //
@@ -21,8 +23,8 @@ class ChartViewModel: ObservableObject {
         self.isLoading = true
 
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-        // TODO: extract API key
-        let data : Data = "api_key=d404c94c63e190519d70002332f09509&method=chart.getTopArtists&limit=30".data(using: .utf8)!
+
+        let data : Data = "api_key=\(lastFMAPIKey)&method=chart.getTopArtists&limit=30".data(using: .utf8)!
 
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
@@ -123,8 +125,7 @@ class ChartViewModel: ObservableObject {
         self.isLoading = true
 
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-        // TODO: extract API key
-        let data : Data = "api_key=d404c94c63e190519d70002332f09509&method=chart.getTopTracks&limit=30".data(using: .utf8)!
+        let data : Data = "api_key=\(lastFMAPIKey)&method=chart.getTopTracks&limit=30".data(using: .utf8)!
 
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
