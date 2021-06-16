@@ -12,9 +12,11 @@ struct ArtistView: View {
     let artist: Artist
     
     var body: some View {
-        HStack {
-            KFImage(URL(string: artist.image[0].url )!).resizable().aspectRatio(1, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+        VStack {
+            KFImage(URL(string: artist.image[0].url )!).resizable().aspectRatio(1, contentMode: .fit)
+            Spacer()
         }.navigationTitle(artist.name)
+        
     }
 }
 

@@ -32,6 +32,11 @@ struct FirstfmApp: App {
                         Text("Reports")
                         Image(systemName: "chart.pie.fill")
                     }
+                SearchView()
+                    .tabItem {
+                        Text("Search")
+                        Image(systemName: "magnifyingglass")
+                    }
             }
         }
     }
