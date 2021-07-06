@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		820455DA267A72390009A418 /* SpotifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455D9267A72390009A418 /* SpotifyToken.swift */; };
+		820455DC267AA8E70009A418 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DB267AA8E70009A418 /* LoginView.swift */; };
+		820455DE267AB7D70009A418 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DD267AB7D70009A418 /* ProfileView.swift */; };
+		820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DF267ABC930009A418 /* AuthViewModel.swift */; };
+		8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939C2694A4C2007A21C8 /* LoginGuardView.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -34,6 +38,10 @@
 
 /* Begin PBXFileReference section */
 		820455D9267A72390009A418 /* SpotifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyToken.swift; sourceTree = "<group>"; };
+		820455DB267AA8E70009A418 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		820455DD267AB7D70009A418 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		820455DF267ABC930009A418 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		8214939C2694A4C2007A21C8 /* LoginGuardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuardView.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,15 +79,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		82505CDB2675074E00CCCB58 /* Views */ = {
+		8214939E2694BA75007A21C8 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				82505CDC2675074E00CCCB58 /* ArtistRow.swift */,
+				82A006B5267960710009BD71 /* TrackRowView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		82505CDB2675074E00CCCB58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8214939E2694BA75007A21C8 /* SubViews */,
 				82505CDD2675074E00CCCB58 /* ChartListView.swift */,
 				82505CDE2675074E00CCCB58 /* ContentView.swift */,
 				826CBA982678EB8800B11170 /* ArtistView.swift */,
-				82A006B5267960710009BD71 /* TrackRowView.swift */,
 				82A006C426797C3E0009BD71 /* SearchView.swift */,
+				820455DB267AA8E70009A418 /* LoginView.swift */,
+				820455DD267AB7D70009A418 /* ProfileView.swift */,
+				8214939C2694A4C2007A21C8 /* LoginGuardView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -160,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				82FBAE482674BB55000D8E29 /* ChartViewModel.swift */,
+				820455DF267ABC930009A418 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */,
 				82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */,
 				820455DA267A72390009A418 /* SpotifyToken.swift in Sources */,
 				82505CE12675074E00CCCB58 /* ContentView.swift in Sources */,
@@ -268,6 +289,9 @@
 				82A006BC2679631A0009BD71 /* TopTracksResponseContainer.swift in Sources */,
 				82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */,
 				82A006BE2679636F0009BD71 /* TrackSearchResponse.swift in Sources */,
+				820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */,
+				820455DC267AA8E70009A418 /* LoginView.swift in Sources */,
+				820455DE267AB7D70009A418 /* ProfileView.swift in Sources */,
 				826CBA992678EB8800B11170 /* ArtistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

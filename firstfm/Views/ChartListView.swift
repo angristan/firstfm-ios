@@ -28,16 +28,22 @@ struct ChartList: View {
                         .pickerStyle(SegmentedPickerStyle())
                     
                     if selectedChartsIndex == 0 {
-                        List(charts.artists) { artist in
-                            NavigationLink(
-                                destination: ArtistView(artist: artist),
-                                label: {
-                                    ArtistRow(artist: artist)
-                                })
-                        }.navigationTitle("Global charts").onAppear {
+                        List {
+                            ForEach(charts.artists) { artist in
+                                ZStack {
+                                    Button("") {}
+                                    NavigationLink(
+                                        destination: ArtistView(artist: artist),
+                                        label: {
+                                            ArtistRow(artist: artist)
+                                        })
+                                }
+                            }
+                        }
+                        .navigationTitle("Global charts").onAppear {
                             if !artistsLoaded {
                                 self.charts.getChartingArtists()
-                                // Prevent loading artits again when navigating
+                                // Prevent loading artists again when navigating
                                 self.artistsLoaded = true
                             }
                         }
@@ -52,7 +58,7 @@ struct ChartList: View {
                         }.navigationTitle("Global charts").onAppear {
                             if !tracksLoaded {
                                 self.charts.getChartingTracks()
-                                // Prevent loading artits again when navigating
+                                // Prevent loading artists again when navigating
                                 self.tracksLoaded = true
                             }
                         }
