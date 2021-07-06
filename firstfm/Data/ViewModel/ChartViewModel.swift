@@ -12,9 +12,10 @@ class ChartViewModel: ObservableObject {
     @Published var artists: [Artist] = []
     @Published var tracks: [Track] = []
     var isLoading = true
-    
+
+    // swiftlint:disable force_cast
     let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
-    
+
     //
     // Artist
     //
@@ -72,19 +73,19 @@ class ChartViewModel: ObservableObject {
             }
         }.resume()
     }
-    
+
     func getImageForArtist(artistName: String, completion: @escaping (String?) -> ()) {
         if let encodedArtistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedArtistName)&type=artist&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
-                
+
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
-                
+
                 getSpotifyToken() { spotifyToken in
                     request.setValue("Bearer \(spotifyToken)",
                                      forHTTPHeaderField:"Authorization");
-                    
+
                     URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
                         do {
                             if let response = response {
@@ -102,7 +103,7 @@ class ChartViewModel: ObservableObject {
                             if let data = data {
                                 do{
                                     let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
-                                    
+
                                     // TODO: match image sizes
                                     completion(jsonResponse.artists.items[0].images[0].url)
                                 }
@@ -117,22 +118,22 @@ class ChartViewModel: ObservableObject {
             }
         }
     }
-    
-    
+
+
     //
     // Track
     //
-    
+
     func getChartingTracks() {
         self.isLoading = true
-        
+
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
         let data : Data = "api_key=\(lastFMAPIKey)&method=chart.getTopTracks&limit=30".data(using: .utf8)!
-        
+
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
         request.httpBody = data
-        
+
         URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
             do {
                 if let response = response {
@@ -175,13 +176,13 @@ class ChartViewModel: ObservableObject {
             }
         }.resume()
     }
-    
+
     func getImageForTrack(trackName: String, completion: @escaping (String?) -> ()) {
         if let encodedTrackName = trackName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedTrackName)&type=track&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
-                
+
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
 
                 getSpotifyToken() { spotifyToken in
@@ -205,7 +206,7 @@ class ChartViewModel: ObservableObject {
                             if let data = data {
                                 do{
                                     let jsonResponse = try JSONDecoder().decode(SpotifyTrackSearchResponse.self, from: data)
-                                    
+
                                     // TODO: match image sizes
                                     completion(jsonResponse.tracks.items[0].album.images[0].url)
                                 }
@@ -220,6 +221,5 @@ class ChartViewModel: ObservableObject {
             }
         }
     }
-    
-}
 
+}

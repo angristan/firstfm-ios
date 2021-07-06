@@ -10,21 +10,22 @@ import Foundation
 class ProfileViewModel: ObservableObject {
     @Published var user: User?
     var isLoading = true
-    
+
+    // swiftlint:disable force_cast
     let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
-    
+
     func getProfile(username: String) {
         self.isLoading = true
-        
+
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-        
+
         let data : Data = "api_key=\(lastFMAPIKey)&method=user.getInfo&user=\(username)".data(using: .utf8)!
-        
+
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
         request.httpBody = data
-        
-        
+
+
         URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
             do {
                 if let response = response {
@@ -41,7 +42,7 @@ class ProfileViewModel: ObservableObject {
                 if let data = data {
                     do{
                         let jsonResponse = try JSONDecoder().decode(UserInfoResponse.self, from: data)
-                        
+
                         DispatchQueue.main.async {
                             self.user = jsonResponse.user
                             self.isLoading = false
