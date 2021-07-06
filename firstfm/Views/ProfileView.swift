@@ -6,27 +6,49 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileView: View {
-    
-    let defaults = UserDefaults.standard
-    
     @EnvironmentObject var auth: AuthViewModel
     @AppStorage("lastfm_username") var storedUsername: String?
+    @ObservedObject var profile = ProfileViewModel()
     
     @ViewBuilder
     var body: some View {
         ZStack {
             if auth.isLoggedIn {
-                VStack {
-                    if let username = storedUsername {
-                    Text("Hello, \(username)")
+                ZStack {
+                    VStack {
+                        if let user = profile.user {
+                            KFImage.url(URL(string: user.image[3].url )!)
+                                .resizable()
+                                .onSuccess { res in
+                                    print("Success: \(user.name) - \(res.cacheType)")
+                                }
+                                .onFailure { err in
+                                    print("Error \(user.name): \(err)")
+                                }
+                                .fade(duration: 1)
+                                .cancelOnDisappear(true)
+                                .cornerRadius(5)
+                                .frame(width: 200, height: 200)
+                            Text("Hello, \(user.name)")
+                            Text("Playcount: \(user.playcount)")
+                            Button(action: {
+                                storedUsername = ""
+                                auth.isLoggedIn = false
+                            }) {
+                                LogoutButton()
+                            }
+                        }
                     }
-                    Button(action: {
-                        defaults.removeObject(forKey: "lastfm_username")
-                        auth.isLoggedIn = false
-                    }) {
-                        LogoutButton()
+                    // Show loader above the rest of the ZStack
+                    if profile.isLoading {
+                        ProgressView()
+                    }
+                }.onAppear {
+                    if let username = storedUsername {
+                        self.profile.getProfile(username: username)
                     }
                 }
             } else {

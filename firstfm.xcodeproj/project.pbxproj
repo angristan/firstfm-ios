@@ -12,6 +12,9 @@
 		820455DE267AB7D70009A418 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DD267AB7D70009A418 /* ProfileView.swift */; };
 		820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DF267ABC930009A418 /* AuthViewModel.swift */; };
 		8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939C2694A4C2007A21C8 /* LoginGuardView.swift */; };
+		821493A02694C349007A21C8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939F2694C349007A21C8 /* UserViewModel.swift */; };
+		821493A22694C38E007A21C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A12694C38E007A21C8 /* User.swift */; };
+		821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A32694C427007A21C8 /* UserInfoResponse.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -42,6 +45,9 @@
 		820455DD267AB7D70009A418 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		820455DF267ABC930009A418 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8214939C2694A4C2007A21C8 /* LoginGuardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuardView.swift; sourceTree = "<group>"; };
+		8214939F2694C349007A21C8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		821493A12694C38E007A21C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		821493A32694C427007A21C8 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 		82D512F02674FE9600206EBB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				821493A12694C38E007A21C8 /* User.swift */,
 				82A006B7267960D90009BD71 /* Track.swift */,
 				82FBAE462674B8FC000D8E29 /* Artist.swift */,
 				82505CE82675368400CCCB58 /* LastFMImage.swift */,
@@ -171,6 +178,7 @@
 				82FBAE4B2674BCB7000D8E29 /* ArtistResponse.swift */,
 				82A006B9267963010009BD71 /* TrackResponse.swift */,
 				82A006BB2679631A0009BD71 /* TopTracksResponseContainer.swift */,
+				821493A32694C427007A21C8 /* UserInfoResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 			children = (
 				82FBAE482674BB55000D8E29 /* ChartViewModel.swift */,
 				820455DF267ABC930009A418 /* AuthViewModel.swift */,
+				8214939F2694C349007A21C8 /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -271,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */,
+				821493A02694C349007A21C8 /* UserViewModel.swift in Sources */,
 				82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */,
+				821493A22694C38E007A21C8 /* User.swift in Sources */,
 				820455DA267A72390009A418 /* SpotifyToken.swift in Sources */,
 				82505CE12675074E00CCCB58 /* ContentView.swift in Sources */,
 				82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */,
@@ -283,6 +294,7 @@
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */,
 				82A006C526797C3E0009BD71 /* SearchView.swift in Sources */,
+				821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */,
 				82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */,
 				82A006B6267960710009BD71 /* TrackRowView.swift in Sources */,
 				82A006B8267960D90009BD71 /* Track.swift in Sources */,
