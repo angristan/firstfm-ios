@@ -12,14 +12,16 @@ struct ProfileView: View {
     let defaults = UserDefaults.standard
     
     @EnvironmentObject var auth: AuthViewModel
-    
+    @AppStorage("lastfm_username") var storedUsername: String?
     
     @ViewBuilder
     var body: some View {
         ZStack {
             if auth.isLoggedIn {
                 VStack {
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                    if let username = storedUsername {
+                    Text("Hello, \(username)")
+                    }
                     Button(action: {
                         defaults.removeObject(forKey: "lastfm_username")
                         auth.isLoggedIn = false

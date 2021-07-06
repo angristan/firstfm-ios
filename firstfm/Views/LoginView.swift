@@ -21,16 +21,17 @@ struct LoginView : View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var password: String = ""
+    @State var username: String = ""
     @State private var isShowingProfile = false
     @EnvironmentObject var auth: AuthViewModel
-    @AppStorage("lastfm_username") var storedUsername: String = ""
+    @AppStorage("lastfm_username") var storedUsername: String?
     
     var body: some View {
         VStack {
             WelcomeText().onTapGesture {
                 self.hideKeyboard()
             }
-            TextField("Username", text: $storedUsername)
+            TextField("Username", text: $username)
                 .textContentType(.username)
                 .padding()
                 .background(Color(UIColor.secondarySystemBackground))
@@ -44,6 +45,7 @@ struct LoginView : View {
                 .padding(.bottom, 20)
             Button(action: {
                 auth.isLoggedIn = true
+                storedUsername = username
                 presentationMode.wrappedValue.dismiss()
                 print("login clicked")
                 
