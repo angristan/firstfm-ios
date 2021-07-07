@@ -44,7 +44,6 @@ struct LoginView : View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             Button(action: {
-                auth.isLoggedIn = true
                 storedUsername = username
                 presentationMode.wrappedValue.dismiss()
                 print("login clicked")

@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AuthViewModel: ObservableObject {
-    @Published var isLoggedIn = false
+    @AppStorage("lastfm_username") var storedUsername: String?
+    
+    func isLoggedIn() -> Bool {
+        return storedUsername != nil
+    }
 }

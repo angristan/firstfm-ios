@@ -16,7 +16,7 @@ struct ProfileView: View {
     @ViewBuilder
     var body: some View {
         ZStack {
-            if auth.isLoggedIn {
+            if auth.isLoggedIn() {
                 ZStack {
                     VStack {
                         if let user = profile.user {
@@ -35,8 +35,7 @@ struct ProfileView: View {
                             Text("Hello, \(user.name)")
                             Text("Playcount: \(user.playcount)")
                             Button(action: {
-                                storedUsername = ""
-                                auth.isLoggedIn = false
+                                storedUsername = nil
                             }) {
                                 LogoutButton()
                             }
