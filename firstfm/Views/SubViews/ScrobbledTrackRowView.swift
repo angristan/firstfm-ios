@@ -30,10 +30,9 @@ struct ScrobbledTrackRow: View {
             Spacer()
             Text(track.name).font(.headline)
             Spacer()
-            Text(track.date.getRelative())
+            Text(track.date?.getRelative() ?? "Now Playing")
                 .font(.subheadline)
                 .foregroundColor(.gray)
         }
     }
-}
 }
