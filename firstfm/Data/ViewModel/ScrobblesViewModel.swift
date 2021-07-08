@@ -122,7 +122,6 @@ class ScrobblesViewModel: ObservableObject {
                                     // TODO: match image sizes
                                     if jsonResponse.tracks.items.count > 0 {
                                         if jsonResponse.tracks.items[0].album.images.count > 0 {
-                                            print("ok")
                                             print(jsonResponse.tracks.items[0].album.images[0].url)
                                             completion(jsonResponse.tracks.items[0].album.images[0].url)
                                         }

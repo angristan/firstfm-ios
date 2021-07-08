@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    
+    @ObservedObject var search = SearchViewModel()
     @State var searchString: String = ""
     
     var body: some View {
@@ -22,12 +22,24 @@ struct SearchView: View {
                     Image(systemName: "magnifyingglass")
                 }
             }.padding()
-            Spacer()
+            List {
+                ForEach(search.artists) { artist in
+                    ZStack {
+                        Button("") {}
+                        NavigationLink(
+                            destination: ArtistView(artist: artist),
+                            label: {
+                                ArtistRow(artist: artist)
+                            })
+                    }
+                }
+            }
         }
     }
     
     func performSearch() {
-        
+        print("searching for \(searchString)")
+        self.search.searchForArtist(artist: searchString)
     }
 }
 

@@ -48,8 +48,16 @@ class ChartViewModel: ObservableObject {
                     do{
                         let jsonResponse = try JSONDecoder().decode(ArtistResponse.self, from: data)
 
+                        var artists = jsonResponse.artists.artist
+                        
+                        for (index, _) in artists.enumerated() {
+                            if artists[index].image[0].url == "" {
+                                artists[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
+                            }
+                        }
+                        
                         DispatchQueue.main.async {
-                            self.artists = jsonResponse.artists.artist
+                            self.artists = artists
                             // Let's stop the loader, the images will be loaded aynchronously
                             self.isLoading = false
                         }
@@ -105,7 +113,18 @@ class ChartViewModel: ObservableObject {
                                     let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
 
                                     // TODO: match image sizes
-                                    completion(jsonResponse.artists.items[0].images[0].url)
+                                    if jsonResponse.artists.items.count > 0 {
+                                        if jsonResponse.artists.items[0].images.count > 0 {
+                                            print(jsonResponse.artists.items[0].images[0].url)
+                                            completion(jsonResponse.artists.items[0].images[0].url)
+                                        } else {
+                                            completion("https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")
+                                        }
+                                    } else {
+                                        completion("https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")
+                                    }
+                                    
+                                
                                 }
                             }
                         }
