@@ -37,6 +37,7 @@
 		82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */; };
 		82D5B4D42696DC7800716931 /* RecentTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D32696DC7800716931 /* RecentTracks.swift */; };
 		82D5B4D62696E0E100716931 /* ScrobbledTrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */; };
+		82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 82E80C38269777C60098DC3C /* SwiftUIRefresh */; };
 		82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE462674B8FC000D8E29 /* Artist.swift */; };
 		82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE482674BB55000D8E29 /* ChartViewModel.swift */; };
 		82FBAE4C2674BCB7000D8E29 /* ArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE4B2674BCB7000D8E29 /* ArtistResponse.swift */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */,
 				82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +235,7 @@
 			name = firstfm;
 			packageProductDependencies = (
 				82505CE32675178B00CCCB58 /* Kingfisher */,
+				82E80C38269777C60098DC3C /* SwiftUIRefresh */,
 			);
 			productName = firstfm;
 			productReference = 82844DFD2673991F00578DD4 /* firstfm.app */;
@@ -263,6 +266,7 @@
 			mainGroup = 82844DF42673991F00578DD4;
 			packageReferences = (
 				82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -523,6 +527,14 @@
 				minimumVersion = 6.3.0;
 			};
 		};
+		82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -530,6 +542,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		82E80C38269777C60098DC3C /* SwiftUIRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			productName = SwiftUIRefresh;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

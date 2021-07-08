@@ -12,6 +12,7 @@ struct ChartList: View {
     @State var artistsLoaded = false
     @State var tracksLoaded = false
     @State private var selectedChartsIndex = 0
+    @State private var isPullLoaderShowing = false
 
     var body: some View {
         NavigationView {
@@ -47,6 +48,10 @@ struct ChartList: View {
                                 self.artistsLoaded = true
                             }
                         }
+                        .pullToRefresh(isShowing: $isPullLoaderShowing) {
+                            self.charts.getChartingArtists()
+                            self.isPullLoaderShowing = false
+                        }
                     }
                     if selectedChartsIndex == 1 {
                         List(charts.tracks) { track in
@@ -61,6 +66,10 @@ struct ChartList: View {
                                 // Prevent loading artists again when navigating
                                 self.tracksLoaded = true
                             }
+                        }
+                        .pullToRefresh(isShowing: $isPullLoaderShowing) {
+                            self.charts.getChartingTracks()
+                            self.isPullLoaderShowing = false
                         }
                     }
 

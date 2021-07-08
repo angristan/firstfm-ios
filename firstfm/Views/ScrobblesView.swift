@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
 
 struct Scrobbles: View {
     @ObservedObject var vm = ScrobblesViewModel()
     @State var scrobblesLoaded = false
     @State private var selectedChartsIndex = 0
+    @State private var isPullLoaderShowing = false
     
     var body: some View {
         NavigationView {
@@ -20,14 +22,18 @@ struct Scrobbles: View {
                         NavigationLink(
                             destination: Color(.blue),
                             label: {
-                            ScrobbledTrackRow(track: track)
-                        })
+                                ScrobbledTrackRow(track: track)
+                            })
                     }.navigationTitle("Scrobbles").onAppear {
                         if !scrobblesLoaded {
                             vm.getUserScrobbles()
                             // Prevent loading again when navigating
                             scrobblesLoaded = true
                         }
+                    }
+                    .pullToRefresh(isShowing: $isPullLoaderShowing) {
+                        vm.getUserScrobbles()
+                        self.isPullLoaderShowing = false
                     }
                 }
                 // Show loader above the rest of the ZStack
