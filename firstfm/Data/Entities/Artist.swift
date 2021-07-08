@@ -15,3 +15,9 @@ struct Artist: Codable, Identifiable {
     var listeners: String
     var image: [LastFMImage]
 }
+
+struct ScrobbledArtist: Codable {
+    let mbid: String
+//    let image: [LastFMImage]
+    let name: String?
+}

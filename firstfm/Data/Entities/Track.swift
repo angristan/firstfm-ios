@@ -26,7 +26,9 @@ struct ScrobbledTrack: Codable, Identifiable {
     var name: String
     var url: String
     var image: [LastFMImage]
-    let date: LastFMDate
+    var artist: ScrobbledArtist
+    var loved: String?
+    let date: LastFMDate?
 }
 
 struct LastFMDate: Codable {

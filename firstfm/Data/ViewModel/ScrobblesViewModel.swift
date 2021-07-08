@@ -69,7 +69,7 @@ class ScrobblesViewModel: ObservableObject {
                         
                         for (index, track) in jsonResponse.recentTracks.track.enumerated() {
                             // Get image URL for each track and trigger a View update through the observed object
-                            self.getImageForTrack(trackName: track.name) { imageURL in
+                            self.getImageForTrack(trackName: track.name, artistName: track.artist.name ?? "") { imageURL in
                                 if let imageURL = imageURL {
                                     DispatchQueue.main.async {
                                         self.scrobbles[index].image[0].url = imageURL
@@ -87,8 +87,8 @@ class ScrobblesViewModel: ObservableObject {
         }.resume()
     }
     
-    func getImageForTrack(trackName: String, completion: @escaping (String?) -> ()) {
-        if let encodedTrackName = trackName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+    func getImageForTrack(trackName: String, artistName: String, completion: @escaping (String?) -> ()) {
+        if let encodedTrackName = "\(trackName) \(artistName)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedTrackName)&type=track&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
