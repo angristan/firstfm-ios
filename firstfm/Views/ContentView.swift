@@ -21,7 +21,7 @@ struct ContentView: View {
                 Text("Profile")
                 Image(systemName: "person.crop.circle")
             }
-        Color(.purple)
+        Scrobbles()
             .tabItem {
                 Text("Scrobbles")
                 Image(systemName: "music.note.list")
