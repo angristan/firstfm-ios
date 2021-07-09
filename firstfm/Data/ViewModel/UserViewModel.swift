@@ -14,7 +14,7 @@ class ProfileViewModel: ObservableObject {
     func getProfile(username: String) {
         self.isLoading = true
         
-        LastFMAPI.request(method: "POST", lastFMMethod: "user.getInfo", config: ["user": username]) { (data: UserInfoResponse?, error) -> Void in
+        LastFMAPI.request(lastFMMethod: "user.getInfo", config: ["user": username]) { (data: UserInfoResponse?, error) -> Void in
             self.isLoading = false
             
             if let data = data {
