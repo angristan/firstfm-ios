@@ -16,7 +16,7 @@ class ChartViewModel: ObservableObject {
     func getChartingArtists() {
         self.isLoading = true
         
-        LastFMAPI.request(method: "POST", lastFMMethod: "chart.getTopArtists", config: ["limit": "30"]) { (data: ArtistResponse?, error) -> Void in
+        LastFMAPI.request(lastFMMethod: "chart.getTopArtists", config: ["limit": "30"]) { (data: ArtistResponse?, error) -> Void in
             self.isLoading = false
             
             if let data = data {
@@ -112,7 +112,7 @@ class ChartViewModel: ObservableObject {
     func getChartingTracks() {
         self.isLoading = true
         
-        LastFMAPI.request(method: "POST", lastFMMethod: "chart.getTopTracks", config: ["limit": "30"]) { (data: TrackResponse?, error) -> Void in
+        LastFMAPI.request(lastFMMethod: "chart.getTopTracks", config: ["limit": "30"]) { (data: TrackResponse?, error) -> Void in
             self.isLoading = false
             
             if let data = data {

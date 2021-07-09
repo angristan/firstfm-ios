@@ -14,7 +14,7 @@ class SearchViewModel: ObservableObject {
     func searchForArtist(artist: String) {
         self.isLoading = true
         
-        LastFMAPI.request(method: "POST", lastFMMethod: "artist.search", config: ["artist": artist]) { (data: ArtistSearchResponse?, error) -> Void in
+        LastFMAPI.request(lastFMMethod: "artist.search", config: ["artist": artist]) { (data: ArtistSearchResponse?, error) -> Void in
             self.isLoading = false
             
             if let data = data {

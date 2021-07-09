@@ -16,7 +16,7 @@ class ScrobblesViewModel: ObservableObject {
     func getUserScrobbles() {
         self.isLoading = true
         
-        LastFMAPI.request(method: "POST", lastFMMethod: "user.getRecentTracks", config: [
+        LastFMAPI.request(lastFMMethod: "user.getRecentTracks", config: [
             "limit": "30",
             "user": storedUsername ?? "",
         ]) { (data: RecentTracksResponse?, error) -> Void in
