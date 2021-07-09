@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C296026983B7300F55ECC /* LastFMAPI.swift */; };
 		820455DA267A72390009A418 /* SpotifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455D9267A72390009A418 /* SpotifyToken.swift */; };
 		820455DC267AA8E70009A418 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DB267AA8E70009A418 /* LoginView.swift */; };
 		820455DE267AB7D70009A418 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DD267AB7D70009A418 /* ProfileView.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A8C296026983B7300F55ECC /* LastFMAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMAPI.swift; sourceTree = "<group>"; };
 		820455D9267A72390009A418 /* SpotifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyToken.swift; sourceTree = "<group>"; };
 		820455DB267AA8E70009A418 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		820455DD267AB7D70009A418 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A8C295F26983B6700F55ECC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4A8C296026983B7300F55ECC /* LastFMAPI.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8214939E2694BA75007A21C8 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 		82FBAE282673B5F5000D8E29 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4A8C295F26983B6700F55ECC /* Utils */,
 				82505CDB2675074E00CCCB58 /* Views */,
 				82D512F22674FEB600206EBB /* ViewModel */,
 				82D512F02674FE9600206EBB /* Entities */,
@@ -330,6 +341,7 @@
 				82F0D54F2697AC66007CEA98 /* ArtistSearch.swift in Sources */,
 				82A006BE2679636F0009BD71 /* TrackSearchResponse.swift in Sources */,
 				820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */,
+				4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */,
 				820455DC267AA8E70009A418 /* LoginView.swift in Sources */,
 				820455DE267AB7D70009A418 /* ProfileView.swift in Sources */,
 				826CBA992678EB8800B11170 /* ArtistView.swift in Sources */,
