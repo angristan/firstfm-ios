@@ -12,79 +12,52 @@ class ScrobblesViewModel: ObservableObject {
     @Published var scrobbles: [ScrobbledTrack] = []
     @AppStorage("lastfm_username") var storedUsername: String?
     var isLoading = true
-    
-    // swiftlint:disable force_cast
-    let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
-    
+
     func getUserScrobbles() {
         self.isLoading = true
         
-        var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-        let data : Data = "api_key=\(lastFMAPIKey)&method=user.getRecentTracks&user=\(storedUsername ?? "")&limit=30".data(using: .utf8)!
-        
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
-        request.httpBody = data
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
-            do {
-                if let response = response {
-                    let nsHTTPResponse = response as? HTTPURLResponse
-                    if let statusCode = nsHTTPResponse?.statusCode {
-                        print ("status code = \(statusCode)")
+        LastFMAPI.request(method: "POST", lastFMMethod: "user.getRecentTracks", config: [
+            "limit": "30",
+            "user": storedUsername ?? "",
+        ]) { (data: RecentTracksResponse?, error) -> Void in
+            self.isLoading = false
+            
+            if let data = data {
+                var tracks = data.recentTracks.track
+                
+                // Fix tracks that don't have images
+                
+                for (index, _) in tracks.enumerated() {
+                    if tracks[index].image[0].url == "" {
+                        tracks[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
                     }
-                    // TODO
+                    
+                    if tracks[index].image[3].url == "" {
+                        tracks[index].image[3].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
+                    }
                 }
-                if let error = error {
-                    print (error)
-                    // TODO
+                
+                
+                DispatchQueue.main.async {
+                    self.scrobbles = tracks
+                    print(self.scrobbles)
+                    
+                    // Let's stop the loader, the images will be loaded aynchronously
+                    self.isLoading = false
                 }
-                if let data = data {
-                    do{
-                        let jsonResponse = try JSONDecoder().decode(RecentTracksResponse.self, from: data)
-                        
-                        
-                        var tracks = jsonResponse.recentTracks.track
-                        
-                        // Fix tracks that don't have images
-                        
-                        for (index, _) in jsonResponse.recentTracks.track.enumerated() {
-                            if jsonResponse.recentTracks.track[index].image[0].url == "" {
-                                tracks[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
-                            }
-                            
-                            if jsonResponse.recentTracks.track[index].image[3].url == "" {
-                                tracks[index].image[3].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
-                            }
-                        }
-                        
-                        
-                        DispatchQueue.main.async {
-                            self.scrobbles = tracks
-                            print(self.scrobbles)
-                            
-                            // Let's stop the loader, the images will be loaded aynchronously
-                            self.isLoading = false
-                        }
-                        
-                        for (index, track) in jsonResponse.recentTracks.track.enumerated() {
-                            // Get image URL for each track and trigger a View update through the observed object
-                            self.getImageForTrack(trackName: track.name, artistName: track.artist.name ?? "") { imageURL in
-                                if let imageURL = imageURL {
-                                    DispatchQueue.main.async {
-                                        self.scrobbles[index].image[0].url = imageURL
-                                    }
-                                }
+                
+                for (index, track) in tracks.enumerated() {
+                    // Get image URL for each track and trigger a View update through the observed object
+                    self.getImageForTrack(trackName: track.name, artistName: track.artist.name ?? "") { imageURL in
+                        if let imageURL = imageURL {
+                            DispatchQueue.main.async {
+                                self.scrobbles[index].image[0].url = imageURL
                             }
                         }
                     }
                 }
             }
-            catch {
-                print(error)
-                // TODO
-            }
-        }.resume()
+        }
     }
     
     func getImageForTrack(trackName: String, artistName: String, completion: @escaping (String?) -> ()) {
