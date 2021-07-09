@@ -12,88 +12,57 @@ class ChartViewModel: ObservableObject {
     @Published var artists: [Artist] = []
     @Published var tracks: [Track] = []
     var isLoading = true
-
+    
     // swiftlint:disable force_cast
     let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
-
-    //
-    // Artist
-    //
-
+    
     func getChartingArtists() {
         self.isLoading = true
-
-        var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-
-        let data : Data = "api_key=\(lastFMAPIKey)&method=chart.getTopArtists&limit=30".data(using: .utf8)!
-
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
-        request.httpBody = data
-
-        URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
-            do {
-                if let response = response {
-                    let nsHTTPResponse = response as? HTTPURLResponse
-                    if let statusCode = nsHTTPResponse?.statusCode {
-                        print ("status code = \(statusCode)")
+        
+        LastFMAPI.request(method: "POST", lastFMMethod: "chart.getTopArtists", config: ["limit": "30"]) { (data: ArtistResponse?, error) -> Void in
+            self.isLoading = false
+            
+            if let data = data {
+                var artists = data.artists.artist
+                
+                for (index, _) in artists.enumerated() {
+                    if artists[index].image[0].url == "" {
+                        artists[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
                     }
-                    // TODO
                 }
-                if let error = error {
-                    print (error)
-                    // TODO
+                
+                DispatchQueue.main.async {
+                    self.artists = artists
+                    // Let's stop the loader, the images will be loaded aynchronously
+                    self.isLoading = false
                 }
-                if let data = data {
-                    do{
-                        let jsonResponse = try JSONDecoder().decode(ArtistResponse.self, from: data)
-
-                        var artists = jsonResponse.artists.artist
-                        
-                        for (index, _) in artists.enumerated() {
-                            if artists[index].image[0].url == "" {
-                                artists[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
-                            }
-                        }
-                        
-                        DispatchQueue.main.async {
-                            self.artists = artists
-                            // Let's stop the loader, the images will be loaded aynchronously
-                            self.isLoading = false
-                        }
-
-                        for (index, artist) in jsonResponse.artists.artist.enumerated() {
-                            // Get image URL for each artist and trigger a View update through the observed object
-                            self.getImageForArtist(artistName: artist.name) { imageURL in
-                                if let imageURL = imageURL {
-                                    DispatchQueue.main.async {
-                                        self.artists[index].image[0].url = imageURL
-                                    }
-                                }
+                
+                for (index, artist) in data.artists.artist.enumerated() {
+                    // Get image URL for each artist and trigger a View update through the observed object
+                    self.getImageForArtist(artistName: artist.name) { imageURL in
+                        if let imageURL = imageURL {
+                            DispatchQueue.main.async {
+                                self.artists[index].image[0].url = imageURL
                             }
                         }
                     }
                 }
             }
-            catch {
-                print(error)
-                // TODO
-            }
-        }.resume()
+        }
     }
-
+    
     func getImageForArtist(artistName: String, completion: @escaping (String?) -> ()) {
         if let encodedArtistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedArtistName)&type=artist&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
-
+                
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
-
+                
                 getSpotifyToken() { spotifyToken in
                     request.setValue("Bearer \(spotifyToken)",
                                      forHTTPHeaderField:"Authorization");
-
+                    
                     URLSession.shared.dataTask(with: request , completionHandler : { data, response, error in
                         do {
                             if let response = response {
@@ -111,7 +80,7 @@ class ChartViewModel: ObservableObject {
                             if let data = data {
                                 do{
                                     let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
-
+                                    
                                     // TODO: match image sizes
                                     if jsonResponse.artists.items.count > 0 {
                                         if jsonResponse.artists.items[0].images.count > 0 {
@@ -124,7 +93,7 @@ class ChartViewModel: ObservableObject {
                                         completion("https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")
                                     }
                                     
-                                
+                                    
                                 }
                             }
                         }
@@ -137,73 +106,45 @@ class ChartViewModel: ObservableObject {
             }
         }
     }
-
-
+    
+    
     //
     // Track
     //
-
+    
     func getChartingTracks() {
         self.isLoading = true
-
-        var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
-        let data : Data = "api_key=\(lastFMAPIKey)&method=chart.getTopTracks&limit=30".data(using: .utf8)!
-
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");
-        request.httpBody = data
-
-        URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
-            do {
-                if let response = response {
-                    let nsHTTPResponse = response as? HTTPURLResponse
-                    if let statusCode = nsHTTPResponse?.statusCode {
-                        print ("status code = \(statusCode)")
-                    }
-                    // TODO
+        
+        LastFMAPI.request(method: "POST", lastFMMethod: "chart.getTopTracks", config: ["limit": "30"]) { (data: TrackResponse?, error) -> Void in
+            self.isLoading = false
+            
+            if let data = data {
+                DispatchQueue.main.async {
+                    self.tracks = data.tracks.track
                 }
-                if let error = error {
-                    print (error)
-                    // TODO
-                }
-                if let data = data {
-                    do{
-                        let jsonResponse = try JSONDecoder().decode(TrackResponse.self, from: data)
-
-                        DispatchQueue.main.async {
-                            self.tracks = jsonResponse.tracks.track
-                            // Let's stop the loader, the images will be loaded aynchronously
-                            self.isLoading = false
-                        }
-
-                        for (index, track) in jsonResponse.tracks.track.enumerated() {
-                            // Get image URL for each track and trigger a View update through the observed object
-                            self.getImageForTrack(trackName: track.name) { imageURL in
-                                if let imageURL = imageURL {
-                                    DispatchQueue.main.async {
-                                        self.tracks[index].image[0].url = imageURL
-                                    }
-                                }
+                
+                for (index, track) in data.tracks.track.enumerated() {
+                    // Get image URL for each track and trigger a View update through the observed object
+                    self.getImageForTrack(trackName: track.name) { imageURL in
+                        if let imageURL = imageURL {
+                            DispatchQueue.main.async {
+                                self.tracks[index].image[0].url = imageURL
                             }
                         }
                     }
                 }
             }
-            catch {
-                print(error)
-                // TODO
-            }
-        }.resume()
+        }
     }
-
+    
     func getImageForTrack(trackName: String, completion: @escaping (String?) -> ()) {
         if let encodedTrackName = trackName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedTrackName)&type=track&limit=1"
             if let queryURL = URL(string: queryURLString) {
                 var request = URLRequest(url: queryURL)
-
+                
                 request.setValue("application/json", forHTTPHeaderField:"Content-Type");
-
+                
                 getSpotifyToken() { spotifyToken in
                     print("spotifyToken: \(spotifyToken)")
                     request.setValue("Bearer \(spotifyToken)",
@@ -225,7 +166,7 @@ class ChartViewModel: ObservableObject {
                             if let data = data {
                                 do{
                                     let jsonResponse = try JSONDecoder().decode(SpotifyTrackSearchResponse.self, from: data)
-
+                                    
                                     // TODO: match image sizes
                                     completion(jsonResponse.tracks.items[0].album.images[0].url)
                                 }
@@ -240,5 +181,5 @@ class ChartViewModel: ObservableObject {
             }
         }
     }
-
+    
 }
