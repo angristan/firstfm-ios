@@ -28,7 +28,9 @@ struct ScrobbledTrackRow: View {
         
         VStack(alignment: .leading) {
             Spacer()
-            Text(track.name).font(.headline)
+            Text(track.name)
+                .font(.headline)
+                .lineLimit(1)
             Spacer()
             Text(track.date?.getRelative() ?? "Now Playing")
                 .font(.subheadline)

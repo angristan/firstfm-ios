@@ -35,6 +35,7 @@ struct ArtistRow: View {
             VStack(alignment: .leading) {
                 Spacer()
                 Text(artist.name).font(.headline)
+                    .lineLimit(1)
                 Spacer()
                 Text("\(String(format: "%ld", locale: Locale.current, (artist.listeners as NSString).integerValue) ) listeners")
                     .font(.subheadline)

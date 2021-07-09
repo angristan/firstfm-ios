@@ -34,7 +34,9 @@ struct TrackRow: View {
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading) {
                 Spacer()
-                Text(track.name).font(.headline)
+                Text(track.name)
+                    .font(.headline)
+                    .lineLimit(1)
                 Spacer()
                 Text("\(String(format: "%ld", locale: Locale.current, (track.listeners as NSString).integerValue) ) listeners")
                     .font(.subheadline)
