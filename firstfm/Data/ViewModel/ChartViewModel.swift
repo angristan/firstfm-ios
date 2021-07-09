@@ -13,9 +13,6 @@ class ChartViewModel: ObservableObject {
     @Published var tracks: [Track] = []
     var isLoading = true
     
-    // swiftlint:disable force_cast
-    let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
-    
     func getChartingArtists() {
         self.isLoading = true
         
