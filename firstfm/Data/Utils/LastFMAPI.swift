@@ -11,7 +11,7 @@ class LastFMAPI {
     // swiftlint:disable force_cast
     static let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
     
-    static func request<T: Decodable>(method: String, lastFMMethod: String, config: [String : String], callback: @escaping (_ Data: T?, Error?) -> Void) -> Void {
+    static func request<T: Decodable>(method: String, lastFMMethod: String, config: [String : String] = [:], callback: @escaping (_ Data: T?, Error?) -> Void) -> Void {
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
         
         var configString = ""
