@@ -12,27 +12,28 @@ struct SearchView: View {
     @State var searchString: String = ""
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("Start typing",
-                          text: $searchString,
-                          onCommit: { self.performSearch() })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button(action: { self.performSearch() }) {
-                    Image(systemName: "magnifyingglass")
-                }
-            }.padding()
-            List {
-                ForEach(search.artists) { artist in
-                    ZStack {
-                        Button("") {}
+        NavigationView {
+            VStack {
+                HStack {
+                    TextField("Start typing",
+                              text: $searchString,
+                              onCommit: { self.performSearch() })
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button(action: { self.performSearch() }) {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }.padding()
+                List {
+                    ForEach(search.artists) { artist in
                         NavigationLink(
                             destination: ArtistView(artist: artist),
                             label: {
-                                ArtistRow(artist: artist)
-                            })
+                            ArtistRow(artist: artist)
+                        })
                     }
                 }
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             }
         }
     }
