@@ -18,6 +18,7 @@ class ScrobblesViewModel: ObservableObject {
         
         LastFMAPI.request(lastFMMethod: "user.getRecentTracks", args: [
             "limit": "30",
+            "extended": "1",
             "user": storedUsername ?? "",
         ]) { (data: RecentTracksResponse?, error) -> Void in
             self.isLoading = false

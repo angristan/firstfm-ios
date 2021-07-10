@@ -43,7 +43,7 @@ struct LastFMDate: Codable {
         let unixTimestamp = Double(self.uts)!
         let date = Date(timeIntervalSince1970: unixTimestamp)
         let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
+        formatter.unitsStyle = .abbreviated
         let relativeDate = formatter.localizedString(for: date, relativeTo: Date())
         return relativeDate
     }

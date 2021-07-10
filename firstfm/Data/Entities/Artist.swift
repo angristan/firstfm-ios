@@ -19,5 +19,5 @@ struct Artist: Codable, Identifiable {
 struct ScrobbledArtist: Codable {
     let mbid: String
 //    let image: [LastFMImage]
-    let name: String?
+    let name: String
 }

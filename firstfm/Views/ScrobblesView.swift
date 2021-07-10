@@ -11,7 +11,6 @@ import SwiftUIRefresh
 struct Scrobbles: View {
     @ObservedObject var vm = ScrobblesViewModel()
     @State var scrobblesLoaded = false
-    @State private var selectedChartsIndex = 0
     @State private var isPullLoaderShowing = false
     
     var body: some View {
