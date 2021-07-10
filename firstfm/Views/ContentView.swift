@@ -26,10 +26,10 @@ struct ContentView: View {
                 Text("Scrobbles")
                 Image(systemName: "music.note.list")
             }
-        Color(.purple)
+        TrendsMapView()
             .tabItem {
-                Text("Reports")
-                Image(systemName: "chart.pie.fill")
+                Text("Trends")
+                Image(systemName: "map")
             }
         SearchView()
             .tabItem {

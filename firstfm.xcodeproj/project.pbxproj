@@ -16,6 +16,8 @@
 		821493A02694C349007A21C8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939F2694C349007A21C8 /* UserViewModel.swift */; };
 		821493A22694C38E007A21C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A12694C38E007A21C8 /* User.swift */; };
 		821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A32694C427007A21C8 /* UserInfoResponse.swift */; };
+		8226AB2226998A86007ECE5F /* TopCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */; };
+		8226AB2426998FAB007ECE5F /* TopCountryArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2326998FAB007ECE5F /* TopCountryArtists.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -26,6 +28,7 @@
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
 		82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E072673992200578DD4 /* Preview Assets.xcassets */; };
+		82861BE526984FBA009E52AC /* TrendsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82861BE426984FBA009E52AC /* TrendsMapView.swift */; };
 		82A006B6267960710009BD71 /* TrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006B5267960710009BD71 /* TrackRowView.swift */; };
 		82A006B8267960D90009BD71 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006B7267960D90009BD71 /* Track.swift */; };
 		82A006BA267963010009BD71 /* TrackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006B9267963010009BD71 /* TrackResponse.swift */; };
@@ -34,6 +37,9 @@
 		82A006C1267963BB0009BD71 /* SpotifyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006C0267963BB0009BD71 /* SpotifyImage.swift */; };
 		82A006C3267973D30009BD71 /* SampleArtist.json in Resources */ = {isa = PBXBuildFile; fileRef = 82A006C2267973D30009BD71 /* SampleArtist.json */; };
 		82A006C526797C3E0009BD71 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006C426797C3E0009BD71 /* SearchView.swift */; };
+		82BBD2462698B13B009B42FC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2452698B13B009B42FC /* Country.swift */; };
+		82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2472698B37F009B42FC /* TrendsViewModel.swift */; };
+		82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2492698C33D009B42FC /* TopCountryView.swift */; };
 		82D5B4D02696DB8500716931 /* ScrobblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4CF2696DB8400716931 /* ScrobblesView.swift */; };
 		82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */; };
 		82D5B4D42696DC7800716931 /* RecentTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D32696DC7800716931 /* RecentTracks.swift */; };
@@ -57,6 +63,8 @@
 		8214939F2694C349007A21C8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		821493A12694C38E007A21C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		821493A32694C427007A21C8 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
+		8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryViewModel.swift; sourceTree = "<group>"; };
+		8226AB2326998FAB007ECE5F /* TopCountryArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryArtists.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +76,7 @@
 		82844E042673992200578DD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82844E072673992200578DD4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82844E092673992200578DD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82861BE426984FBA009E52AC /* TrendsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsMapView.swift; sourceTree = "<group>"; };
 		82A006B5267960710009BD71 /* TrackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRowView.swift; sourceTree = "<group>"; };
 		82A006B7267960D90009BD71 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		82A006B9267963010009BD71 /* TrackResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackResponse.swift; sourceTree = "<group>"; };
@@ -76,6 +85,9 @@
 		82A006C0267963BB0009BD71 /* SpotifyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyImage.swift; sourceTree = "<group>"; };
 		82A006C2267973D30009BD71 /* SampleArtist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleArtist.json; sourceTree = "<group>"; };
 		82A006C426797C3E0009BD71 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		82BBD2452698B13B009B42FC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		82BBD2472698B37F009B42FC /* TrendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewModel.swift; sourceTree = "<group>"; };
+		82BBD2492698C33D009B42FC /* TopCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryView.swift; sourceTree = "<group>"; };
 		82D5B4CF2696DB8400716931 /* ScrobblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesView.swift; sourceTree = "<group>"; };
 		82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesViewModel.swift; sourceTree = "<group>"; };
 		82D5B4D32696DC7800716931 /* RecentTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTracks.swift; sourceTree = "<group>"; };
@@ -115,6 +127,7 @@
 				82505CDC2675074E00CCCB58 /* ArtistRow.swift */,
 				82A006B5267960710009BD71 /* TrackRowView.swift */,
 				82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */,
+				82BBD2492698C33D009B42FC /* TopCountryView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -131,6 +144,7 @@
 				820455DD267AB7D70009A418 /* ProfileView.swift */,
 				8214939C2694A4C2007A21C8 /* LoginGuardView.swift */,
 				82D5B4CF2696DB8400716931 /* ScrobblesView.swift */,
+				82861BE426984FBA009E52AC /* TrendsMapView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -192,6 +206,7 @@
 				82FBAE462674B8FC000D8E29 /* Artist.swift */,
 				82505CE82675368400CCCB58 /* LastFMImage.swift */,
 				82D512F12674FE9D00206EBB /* API */,
+				82BBD2452698B13B009B42FC /* Country.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 				821493A32694C427007A21C8 /* UserInfoResponse.swift */,
 				82D5B4D32696DC7800716931 /* RecentTracks.swift */,
 				82F0D54E2697AC66007CEA98 /* ArtistSearch.swift */,
+				8226AB2326998FAB007ECE5F /* TopCountryArtists.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -219,6 +235,8 @@
 				8214939F2694C349007A21C8 /* UserViewModel.swift */,
 				82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */,
 				82F0D54C2697AAC7007CEA98 /* SearchViewModel.swift */,
+				82BBD2472698B37F009B42FC /* TrendsViewModel.swift */,
+				8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -318,6 +336,7 @@
 				821493A22694C38E007A21C8 /* User.swift in Sources */,
 				820455DA267A72390009A418 /* SpotifyToken.swift in Sources */,
 				82505CE12675074E00CCCB58 /* ContentView.swift in Sources */,
+				8226AB2426998FAB007ECE5F /* TopCountryArtists.swift in Sources */,
 				82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */,
 				82FBAE4E2674BD02000D8E29 /* TopArtistsResponseArtistContainer.swift in Sources */,
 				82A006BA267963010009BD71 /* TrackResponse.swift in Sources */,
@@ -336,14 +355,19 @@
 				82A006B8267960D90009BD71 /* Track.swift in Sources */,
 				82A006BC2679631A0009BD71 /* TopTracksResponseContainer.swift in Sources */,
 				82505CE72675300400CCCB58 /* ArtistSearchResponse.swift in Sources */,
+				82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */,
 				82F0D54D2697AAC7007CEA98 /* SearchViewModel.swift in Sources */,
 				82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */,
 				82F0D54F2697AC66007CEA98 /* ArtistSearch.swift in Sources */,
 				82A006BE2679636F0009BD71 /* TrackSearchResponse.swift in Sources */,
+				82BBD2462698B13B009B42FC /* Country.swift in Sources */,
 				820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */,
 				4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */,
+				82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */,
 				820455DC267AA8E70009A418 /* LoginView.swift in Sources */,
 				820455DE267AB7D70009A418 /* ProfileView.swift in Sources */,
+				8226AB2226998A86007ECE5F /* TopCountryViewModel.swift in Sources */,
+				82861BE526984FBA009E52AC /* TrendsMapView.swift in Sources */,
 				826CBA992678EB8800B11170 /* ArtistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
