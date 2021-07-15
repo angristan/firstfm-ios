@@ -49,7 +49,7 @@ class ScrobblesViewModel: ObservableObject {
                 
                 for (index, track) in tracks.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
-                    self.getImageForTrack(trackName: track.name, artistName: track.artist.name ?? "") { imageURL in
+                    self.getImageForTrack(trackName: track.name, artistName: track.artist.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.scrobbles[index].image[0].url = imageURL
