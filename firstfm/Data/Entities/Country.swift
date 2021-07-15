@@ -26,11 +26,11 @@ struct Country: Codable {
     
     func flag(country:String) -> String {
         let base : UInt32 = 127397
-        var s = ""
-        for v in country.unicodeScalars {
-            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        var fullString = ""
+        for scalar in country.unicodeScalars {
+            fullString.unicodeScalars.append(UnicodeScalar(base + scalar.value)!)
         }
-        return String(s)
+        return String(fullString)
     }
     
     func emoji() -> String {

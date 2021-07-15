@@ -220,6 +220,7 @@ class TrendsViewModel: ObservableObject {
                     coordinate: CLLocationCoordinate2D(
                         latitude: country.lat,
                         longitude: country.long
+                        // swiftlint:disable force_cast
                     ), country: country.copy() as! Country
                 )
             )
