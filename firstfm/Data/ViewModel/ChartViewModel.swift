@@ -6,18 +6,32 @@
 //
 
 import Foundation
-
+import NotificationBannerSwift
 
 class ChartViewModel: ObservableObject {
     @Published var artists: [Artist] = []
     @Published var tracks: [Track] = []
     var isLoading = true
     
-    func getChartingArtists() {
+    func reset() {
         self.isLoading = true
+    }
+    
+    func getChartingArtists() {
+        reset()
         
         LastFMAPI.request(lastFMMethod: "chart.getTopArtists", args: ["limit": "30"]) { (data: ArtistResponse?, error) -> Void in
             self.isLoading = false
+            
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
+                    // Force refresh, otherwise pull loader doesn't dismiss itself
+                    self.artists = self.artists
+                }
+            }
+            
             
             if let data = data {
                 var artists = data.artists.artist
@@ -30,8 +44,6 @@ class ChartViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.artists = artists
-                    // Let's stop the loader, the images will be loaded aynchronously
-                    self.isLoading = false
                 }
                 
                 for (index, artist) in data.artists.artist.enumerated() {
@@ -110,10 +122,18 @@ class ChartViewModel: ObservableObject {
     //
     
     func getChartingTracks() {
-        self.isLoading = true
+        reset()
         
         LastFMAPI.request(lastFMMethod: "chart.getTopTracks", args: ["limit": "30"]) { (data: TrackResponse?, error) -> Void in
             self.isLoading = false
+            if error != nil {
+                DispatchQueue.main.async {
+                    FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
+                    // Force refresh, otherwise pull loader doesn't dismiss itself
+                    self.tracks = self.tracks
+                }
+            }
+            
             
             if let data = data {
                 DispatchQueue.main.async {

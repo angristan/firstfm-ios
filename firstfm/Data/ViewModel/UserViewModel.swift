@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NotificationBannerSwift
 
 class ProfileViewModel: ObservableObject {
     @Published var user: User?
@@ -15,6 +16,11 @@ class ProfileViewModel: ObservableObject {
         self.isLoading = true
         
         LastFMAPI.request(lastFMMethod: "user.getInfo", args: ["user": username]) { (data: UserInfoResponse?, error) -> Void in
+            if error != nil {
+                DispatchQueue.main.async {
+                    FloatingNotificationBanner(title: "Failed to load profile", subtitle: error?.localizedDescription, style: .danger).show()
+                }
+            }
             self.isLoading = false
             
             if let data = data {
