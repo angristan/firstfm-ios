@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import NotificationBannerSwift
 
 class ScrobblesViewModel: ObservableObject {
     @Published var scrobbles: [ScrobbledTrack] = []
@@ -22,6 +23,15 @@ class ScrobblesViewModel: ObservableObject {
             "user": storedUsername ?? "",
         ]) { (data: RecentTracksResponse?, error) -> Void in
             self.isLoading = false
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    FloatingNotificationBanner(title: "Failed to load scrobbles", subtitle: error?.localizedDescription, style: .danger).show()
+                    // Force refresh, otherwise pull loader doesn't dismiss itself
+                    self.scrobbles = self.scrobbles
+                }
+            }
+            
             
             if let data = data {
                 var tracks = data.recentTracks.track
@@ -41,22 +51,22 @@ class ScrobblesViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.scrobbles = tracks
-                    print(self.scrobbles)
-                    
-                    // Let's stop the loader, the images will be loaded aynchronously
-                    self.isLoading = false
                 }
                 
                 for (index, track) in tracks.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
                     self.getImageForTrack(trackName: track.name, artistName: track.artist.name) { imageURL in
                         if let imageURL = imageURL {
-                            DispatchQueue.main.async {
-                                self.scrobbles[index].image[0].url = imageURL
-                            }
+                            tracks[index].image[0].url = imageURL
                         }
                     }
                 }
+                
+                
+                DispatchQueue.main.async {
+                    self.scrobbles = tracks
+                }
+                
             }
         }
     }
