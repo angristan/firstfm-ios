@@ -12,6 +12,7 @@ import NotificationBannerSwift
 class ScrobblesViewModel: ObservableObject {
     @Published var scrobbles: [ScrobbledTrack] = []
     @AppStorage("lastfm_username") var storedUsername: String?
+    @AppStorage("lastfm_sk") var storedToken: String?
     var isLoading = true
 
     func getUserScrobbles() {
@@ -21,6 +22,7 @@ class ScrobblesViewModel: ObservableObject {
             "limit": "30",
             "extended": "1",
             "user": storedUsername ?? "",
+            "sk": storedToken ?? ""
         ]) { (data: RecentTracksResponse?, error) -> Void in
             self.isLoading = false
             
