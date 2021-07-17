@@ -16,9 +16,9 @@ extension String {
         let length = Int(CC_MD5_DIGEST_LENGTH)
         var digest = [UInt8](repeating: 0, count: length)
 
-        if let d = self.data(using: .utf8) {
-            _ = d.withUnsafeBytes { body -> String in
-                CC_MD5(body.baseAddress, CC_LONG(d.count), &digest)
+        if let data = self.data(using: .utf8) {
+            _ = data.withUnsafeBytes { body -> String in
+                CC_MD5(body.baseAddress, CC_LONG(data.count), &digest)
 
                 return ""
             }
