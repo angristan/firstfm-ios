@@ -10,17 +10,41 @@ import Foundation
 class LastFMAPI {
     // swiftlint:disable force_cast
     static let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
+    // swiftlint:disable force_cast
+    static let lastFMSharedSecret = Bundle.main.object(forInfoDictionaryKey: "LastFMSharedSecret") as! String
     
     static func request<T: Decodable>(method: String = "POST", lastFMMethod: String, args: [String : String] = [:], callback: @escaping (_ Data: T?, Error?) -> Void) -> Void {
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)
         
+        // We need to add these into the dict to compute the signature
+        var fullArgs = args
+        fullArgs["method"] = lastFMMethod
+        fullArgs["api_key"] = lastFMAPIKey
+        
         var argsString = ""
         
-        for (key, value) in args {
-            argsString += "&\(key)=\(value)"
+        // Final format will be md5([param1][value1]..[paramN][valueN][shared_secret])
+        // https://www.last.fm/api/mobileauth
+        var toSign = ""
+        
+        for key in Array(fullArgs.keys).sorted(by:<) {
+            if argsString != "" {
+                // Not first param
+                argsString += "&"
+            }
+            argsString += "\(key)=\(fullArgs[key] ?? "")"
+            
+            toSign += key
+            toSign += fullArgs[key] ?? ""
         }
         
-        let data : Data = "api_key=\(lastFMAPIKey)&method=\(lastFMMethod)\(argsString)".data(using: .utf8)!
+        toSign += lastFMSharedSecret
+        
+        let data : Data = "\(argsString)&api_sig=\(toSign.md5Value)".data(using: .utf8)!
+        
+        print("argsString: \(argsString)")
+        print("toSign: \(toSign)")
+        print("api_sig: \(toSign.md5Value)")
         
         request.httpMethod = method
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField:"Content-Type");

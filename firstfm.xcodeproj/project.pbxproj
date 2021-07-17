@@ -41,6 +41,8 @@
 		82BBD2462698B13B009B42FC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2452698B13B009B42FC /* Country.swift */; };
 		82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2472698B37F009B42FC /* TrendsViewModel.swift */; };
 		82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2492698C33D009B42FC /* TopCountryView.swift */; };
+		82C282E026A2E474000E5F41 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282DF26A2E474000E5F41 /* LoginResponse.swift */; };
+		82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E126A31CFD000E5F41 /* StringMD5.swift */; };
 		82D5B4D02696DB8500716931 /* ScrobblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4CF2696DB8400716931 /* ScrobblesView.swift */; };
 		82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */; };
 		82D5B4D42696DC7800716931 /* RecentTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D32696DC7800716931 /* RecentTracks.swift */; };
@@ -89,6 +91,8 @@
 		82BBD2452698B13B009B42FC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		82BBD2472698B37F009B42FC /* TrendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewModel.swift; sourceTree = "<group>"; };
 		82BBD2492698C33D009B42FC /* TopCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryView.swift; sourceTree = "<group>"; };
+		82C282DF26A2E474000E5F41 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		82C282E126A31CFD000E5F41 /* StringMD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMD5.swift; sourceTree = "<group>"; };
 		82D5B4CF2696DB8400716931 /* ScrobblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesView.swift; sourceTree = "<group>"; };
 		82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesViewModel.swift; sourceTree = "<group>"; };
 		82D5B4D32696DC7800716931 /* RecentTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTracks.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8C296026983B7300F55ECC /* LastFMAPI.swift */,
+				82C282E126A31CFD000E5F41 /* StringMD5.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				82D5B4D32696DC7800716931 /* RecentTracks.swift */,
 				82F0D54E2697AC66007CEA98 /* ArtistSearch.swift */,
 				8226AB2326998FAB007ECE5F /* TopCountryArtists.swift */,
+				82C282DF26A2E474000E5F41 /* LoginResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */,
 				82D5B4D42696DC7800716931 /* RecentTracks.swift in Sources */,
 				82A006C1267963BB0009BD71 /* SpotifyImage.swift in Sources */,
+				82C282E026A2E474000E5F41 /* LoginResponse.swift in Sources */,
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				82D5B4D02696DB8500716931 /* ScrobblesView.swift in Sources */,
 				82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */,
@@ -365,6 +372,7 @@
 				82F0D54F2697AC66007CEA98 /* ArtistSearch.swift in Sources */,
 				82A006BE2679636F0009BD71 /* TrackSearchResponse.swift in Sources */,
 				82BBD2462698B13B009B42FC /* Country.swift in Sources */,
+				82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */,
 				820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */,
 				4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */,
 				82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */,
@@ -511,6 +519,7 @@
 				INFOPLIST_FILE = firstfm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LAST_FM_KEY = d404c94c63e190519d70002332f09509;
+				LAST_FM_SHARED_SECRET = e4e1eb5bf14d2418f51ed6ea6ae5d91a;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,6 +544,7 @@
 				INFOPLIST_FILE = firstfm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LAST_FM_KEY = d404c94c63e190519d70002332f09509;
+				LAST_FM_SHARED_SECRET = e4e1eb5bf14d2418f51ed6ea6ae5d91a;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

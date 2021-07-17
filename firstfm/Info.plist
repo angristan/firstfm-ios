@@ -50,5 +50,7 @@
 	<string>$(LAST_FM_KEY)</string>
 	<key>SpotifyAPIToken</key>
 	<string>$(SPOTIFY_API_TOKEN)</string>
+	<key>LastFMSharedSecret</key>
+	<string>$(LAST_FM_SHARED_SECRET)</string>
 </dict>
 </plist>
