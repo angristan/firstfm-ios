@@ -12,43 +12,54 @@ struct ProfileView: View {
     @EnvironmentObject var auth: AuthViewModel
     @AppStorage("lastfm_username") var storedUsername: String?
     @ObservedObject var profile = ProfileViewModel()
+    @State private var showingSheet = false
     
     @ViewBuilder
     var body: some View {
         ZStack {
             if auth.isLoggedIn() {
-                ZStack {
-                    VStack {
-                        if let user = profile.user {
-                            KFImage.url(URL(string: user.image[3].url )!)
-                                .resizable()
-                                .onSuccess { res in
-                                    print("Success: \(user.name) - \(res.cacheType)")
+                NavigationView {
+                    ZStack {
+                        VStack {
+                            if let user = profile.user {
+                                KFImage.url(URL(string: user.image[3].url )!)
+                                    .resizable()
+                                    .onSuccess { res in
+                                        print("Success: \(user.name) - \(res.cacheType)")
+                                    }
+                                    .onFailure { err in
+                                        print("Error \(user.name): \(err)")
+                                    }
+                                    .fade(duration: 1)
+                                    .cancelOnDisappear(true)
+                                    .cornerRadius(5)
+                                    .frame(width: 200, height: 200)
+                                Text("Hello, \(user.name)")
+                                Text("Playcount: \(user.playcount)")
+                                Button(action: {
+                                    storedUsername = nil
+                                }) {
+                                    LogoutButton()
                                 }
-                                .onFailure { err in
-                                    print("Error \(user.name): \(err)")
-                                }
-                                .fade(duration: 1)
-                                .cancelOnDisappear(true)
-                                .cornerRadius(5)
-                                .frame(width: 200, height: 200)
-                            Text("Hello, \(user.name)")
-                            Text("Playcount: \(user.playcount)")
-                            Button(action: {
-                                storedUsername = nil
-                            }) {
-                                LogoutButton()
                             }
                         }
-                    }
-                    // Show loader above the rest of the ZStack
-                    if profile.isLoading {
-                        ProgressView()
-                    }
-                }.onAppear {
-                    if let username = storedUsername {
-                        self.profile.getProfile(username: username)
-                    }
+                        // Show loader above the rest of the ZStack
+                        if profile.isLoading {
+                            ProgressView()
+                        }
+                    }.onAppear {
+                        if let username = storedUsername {
+                            self.profile.getProfile(username: username)
+                        }
+                    }.navigationTitle("Your profile")
+                        .navigationBarItems(trailing: Button(action: {
+                            showingSheet.toggle()
+                        }) {
+                            Image(systemName: "gear").imageScale(.large)
+                        }
+                        ).sheet(isPresented: $showingSheet) {
+                            Text("Here settings aka logout button")
+                        }
                 }
             } else {
                 LoginGuardView()
