@@ -43,6 +43,10 @@
 		82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2492698C33D009B42FC /* TopCountryView.swift */; };
 		82C282E026A2E474000E5F41 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282DF26A2E474000E5F41 /* LoginResponse.swift */; };
 		82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E126A31CFD000E5F41 /* StringMD5.swift */; };
+		82C282E426A32B07000E5F41 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E326A32B07000E5F41 /* FriendsView.swift */; };
+		82C282E626A32E94000E5F41 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E526A32E94000E5F41 /* Friend.swift */; };
+		82C282E826A3332E000E5F41 /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E726A3332E000E5F41 /* FriendsResponse.swift */; };
+		82C282EA26A3354E000E5F41 /* FriendRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E926A3354E000E5F41 /* FriendRow.swift */; };
 		82D5B4D02696DB8500716931 /* ScrobblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4CF2696DB8400716931 /* ScrobblesView.swift */; };
 		82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */; };
 		82D5B4D42696DC7800716931 /* RecentTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D32696DC7800716931 /* RecentTracks.swift */; };
@@ -93,6 +97,10 @@
 		82BBD2492698C33D009B42FC /* TopCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryView.swift; sourceTree = "<group>"; };
 		82C282DF26A2E474000E5F41 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		82C282E126A31CFD000E5F41 /* StringMD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMD5.swift; sourceTree = "<group>"; };
+		82C282E326A32B07000E5F41 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		82C282E526A32E94000E5F41 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		82C282E726A3332E000E5F41 /* FriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
+		82C282E926A3354E000E5F41 /* FriendRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRow.swift; sourceTree = "<group>"; };
 		82D5B4CF2696DB8400716931 /* ScrobblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesView.swift; sourceTree = "<group>"; };
 		82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesViewModel.swift; sourceTree = "<group>"; };
 		82D5B4D32696DC7800716931 /* RecentTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTracks.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 				82A006B5267960710009BD71 /* TrackRowView.swift */,
 				82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */,
 				82BBD2492698C33D009B42FC /* TopCountryView.swift */,
+				82C282E926A3354E000E5F41 /* FriendRow.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 				8214939C2694A4C2007A21C8 /* LoginGuardView.swift */,
 				82D5B4CF2696DB8400716931 /* ScrobblesView.swift */,
 				82861BE426984FBA009E52AC /* TrendsMapView.swift */,
+				82C282E326A32B07000E5F41 /* FriendsView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -214,6 +224,7 @@
 				82505CE82675368400CCCB58 /* LastFMImage.swift */,
 				82D512F12674FE9D00206EBB /* API */,
 				82BBD2452698B13B009B42FC /* Country.swift */,
+				82C282E526A32E94000E5F41 /* Friend.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -231,6 +242,7 @@
 				82F0D54E2697AC66007CEA98 /* ArtistSearch.swift */,
 				8226AB2326998FAB007ECE5F /* TopCountryArtists.swift */,
 				82C282DF26A2E474000E5F41 /* LoginResponse.swift */,
+				82C282E726A3332E000E5F41 /* FriendsResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -340,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82C282E426A32B07000E5F41 /* FriendsView.swift in Sources */,
 				8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */,
 				821493A02694C349007A21C8 /* UserViewModel.swift in Sources */,
 				82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */,
@@ -361,6 +374,7 @@
 				82D5B4D62696E0E100716931 /* ScrobbledTrackRowView.swift in Sources */,
 				82A006C526797C3E0009BD71 /* SearchView.swift in Sources */,
 				821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */,
+				82C282EA26A3354E000E5F41 /* FriendRow.swift in Sources */,
 				82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */,
 				82A006B6267960710009BD71 /* TrackRowView.swift in Sources */,
 				82A006B8267960D90009BD71 /* Track.swift in Sources */,
@@ -373,11 +387,13 @@
 				82A006BE2679636F0009BD71 /* TrackSearchResponse.swift in Sources */,
 				82BBD2462698B13B009B42FC /* Country.swift in Sources */,
 				82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */,
+				82C282E826A3332E000E5F41 /* FriendsResponse.swift in Sources */,
 				820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */,
 				4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */,
 				82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */,
 				820455DC267AA8E70009A418 /* LoginView.swift in Sources */,
 				820455DE267AB7D70009A418 /* ProfileView.swift in Sources */,
+				82C282E626A32E94000E5F41 /* Friend.swift in Sources */,
 				8226AB2226998A86007ECE5F /* TopCountryViewModel.swift in Sources */,
 				82861BE526984FBA009E52AC /* TrendsMapView.swift in Sources */,
 				826CBA992678EB8800B11170 /* ArtistView.swift in Sources */,

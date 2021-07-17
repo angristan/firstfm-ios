@@ -12,7 +12,8 @@ struct ProfileView: View {
     @EnvironmentObject var auth: AuthViewModel
     @AppStorage("lastfm_username") var storedUsername: String?
     @ObservedObject var profile = ProfileViewModel()
-    @State private var showingSheet = false
+    @State private var showingSettings = false
+    @State private var showingFriends = false
     
     @ViewBuilder
     var body: some View {
@@ -52,13 +53,28 @@ struct ProfileView: View {
                             self.profile.getProfile(username: username)
                         }
                     }.navigationTitle("Your profile")
-                        .navigationBarItems(trailing: Button(action: {
-                            showingSheet.toggle()
-                        }) {
-                            Image(systemName: "gear").imageScale(.large)
+                        .navigationBarItems(trailing: HStack {
+                            Button(action: {
+                                showingSettings.toggle()
+                            }) {
+                                Image(systemName: "gear").imageScale(.large)
+                            }
+                            
+                            Button(action: {
+                                if let storedUsername = storedUsername {
+                                    profile.getFriends(username: storedUsername)
+                                    showingFriends.toggle()
+                                }
+                            }) {
+                                Image(systemName: "person.2").imageScale(.large)
+                            }
                         }
-                        ).sheet(isPresented: $showingSheet) {
+                        )
+                        .sheet(isPresented: $showingSettings) {
                             Text("Here settings aka logout button")
+                        }
+                        .sheet(isPresented: $showingFriends) {
+                            FriendsView().environmentObject(profile)
                         }
                 }
             } else {
