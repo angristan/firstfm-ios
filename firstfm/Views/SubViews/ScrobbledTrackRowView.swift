@@ -48,6 +48,7 @@ struct ScrobbledTrackRow: View {
                 }
             }
             Button(action: {
+                let hapticFeedback = UIImpactFeedbackGenerator(style: .light)
                 if self.track.loved == "0" {
                     self.track.loved = "1"
                     vm.loveTrack(track: self.track)
@@ -55,6 +56,7 @@ struct ScrobbledTrackRow: View {
                     self.track.loved = "0"
                     vm.unloveTrack(track: self.track)
                 }
+                hapticFeedback.impactOccurred()
             })
             {
                 if self.track.loved == "1" {
