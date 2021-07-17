@@ -45,6 +45,7 @@ struct LoginView : View {
                 .padding(.bottom, 20)
             Button(action: {
                 storedUsername = username
+                auth.login(username: username, password: password)
                 presentationMode.wrappedValue.dismiss()
                 print("login clicked")
                 
