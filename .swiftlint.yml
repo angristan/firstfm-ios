@@ -1,0 +1,14 @@
+disabled_rules:
+  - multiple_closures_with_trailing_closure
+  - cyclomatic_complexity
+  - function_body_length
+  - type_body_length
+  - todo
+
+line_length: 240
+identifier_name:
+  min_length: 1
+  max_length: 60
+type_name:
+  min_length: 1
+  max_length: 60

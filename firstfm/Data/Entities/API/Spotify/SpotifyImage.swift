@@ -12,7 +12,7 @@ struct SpotifyImage: Codable {
     var height: Int
     var width: Int
 
-    static let DEFAULT_IMAGE = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
+    static let DefaultImage = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
 
     static func findImage(type: String, name: String, completion: @escaping (String?) -> Void) {
         if let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
@@ -39,7 +39,7 @@ struct SpotifyImage: Codable {
                             if let error = error {
                                 print(error)
                                 // TODO
-                                completion(DEFAULT_IMAGE)
+                                completion(DefaultImage)
                             }
 
                             if let data = data {
@@ -50,10 +50,10 @@ struct SpotifyImage: Codable {
                                         if jsonResponse.tracks.items[0].album.images.count > 0 {
                                             completion(jsonResponse.tracks.items[0].album.images[0].url)
                                         } else {
-                                            completion(DEFAULT_IMAGE)
+                                            completion(DefaultImage)
                                         }
                                     } else {
-                                        completion(DEFAULT_IMAGE)
+                                        completion(DefaultImage)
                                     }
                                 } else if type == "album" {
                                     let jsonResponse = try JSONDecoder().decode(SpotifyAlbumSearchResponse.self, from: data)
@@ -62,10 +62,10 @@ struct SpotifyImage: Codable {
                                         if jsonResponse.albums.items[0].images.count > 0 {
                                             completion(jsonResponse.albums.items[0].images[0].url)
                                         } else {
-                                            completion(DEFAULT_IMAGE)
+                                            completion(DefaultImage)
                                         }
                                     } else {
-                                        completion(DEFAULT_IMAGE)
+                                        completion(DefaultImage)
                                     }
                                 } else if type == "artist" {
                                     let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
@@ -74,16 +74,16 @@ struct SpotifyImage: Codable {
                                         if jsonResponse.artists.items[0].images.count > 0 {
                                             completion(jsonResponse.artists.items[0].images[0].url)
                                         } else {
-                                            completion(DEFAULT_IMAGE)
+                                            completion(DefaultImage)
                                         }
                                     } else {
-                                        completion(DEFAULT_IMAGE)
+                                        completion(DefaultImage)
                                     }
                                 }
                             }
                         } catch {
                             print(error)
-                            completion(DEFAULT_IMAGE)
+                            completion(DefaultImage)
                         }
                     }).resume()
                 }

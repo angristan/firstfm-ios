@@ -214,7 +214,7 @@ class TrendsViewModel: ObservableObject {
     var annotationItems: [CountryAnnotationItem] = []
 
     init() {
-        for (_, country) in countries.enumerated() {
+        for (_, country) in countries {
             annotationItems.append(
                 CountryAnnotationItem(
                     coordinate: CLLocationCoordinate2D(
