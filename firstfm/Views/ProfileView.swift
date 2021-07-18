@@ -14,7 +14,7 @@ struct ProfileView: View {
     @ObservedObject var profile = ProfileViewModel()
     @State private var showingSettings = false
     @State private var showingFriends = false
-    
+
     @ViewBuilder
     var body: some View {
         ZStack {
@@ -59,7 +59,7 @@ struct ProfileView: View {
                             }) {
                                 Image(systemName: "gear").imageScale(.large)
                             }
-                            
+
                             Button(action: {
                                 if let storedUsername = storedUsername {
                                     profile.getFriends(username: storedUsername)
@@ -94,7 +94,7 @@ struct ProfileView_Previews: PreviewProvider {
     }
 }
 
-struct LogoutButton : View {
+struct LogoutButton: View {
     var body: some View {
         return Text("Logout")
             .font(.headline)

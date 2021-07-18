@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @ObservedObject var search = SearchViewModel()
     @State var searchString: String = ""
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -37,7 +37,7 @@ struct SearchView: View {
             }
         }
     }
-    
+
     func performSearch() {
         print("searching for \(searchString)")
         self.search.searchForArtist(artist: searchString)

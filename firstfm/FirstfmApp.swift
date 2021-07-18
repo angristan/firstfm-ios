@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct FirstfmApp: App {
-    
+
     @StateObject var auth = AuthViewModel()
 
     var body: some Scene {

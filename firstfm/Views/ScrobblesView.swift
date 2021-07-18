@@ -12,7 +12,7 @@ struct Scrobbles: View {
     @ObservedObject var vm = ScrobblesViewModel()
     @State var scrobblesLoaded = false
     @State private var isPullLoaderShowing = false
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,7 +40,7 @@ struct Scrobbles: View {
                     ProgressView()
                 }
             }
-            
+
         }
     }
 }

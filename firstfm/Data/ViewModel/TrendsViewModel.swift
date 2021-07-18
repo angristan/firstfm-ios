@@ -210,9 +210,9 @@ class TrendsViewModel: ObservableObject {
         Country(name: "Zambia", lat: -15, long: 30 ),
         Country(name: "Zimbabwe", lat: -19, long: 29)
     ]
-    
+
     var annotationItems: [CountryAnnotationItem] = []
-    
+
     init() {
         for (_, country) in countries.enumerated() {
             annotationItems.append(

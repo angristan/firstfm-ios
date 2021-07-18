@@ -6,5 +6,5 @@
 //
 
 struct ArtistResponse: Codable {
-    var artists:  TopArtistsResponseArtistContainer
+    var artists: TopArtistsResponseArtistContainer
 }

@@ -11,12 +11,12 @@ struct TopCountryView: View {
     //    let country: Country
     @EnvironmentObject var vm: TopCountryViewModel
     @State var artistsLoaded = false
-    
+
     //    Text("Top artists in \(country.name) \(country.emoji())").font(.headline)
-    
+
     var body: some View {
         NavigationView {
-            
+
             if let country = vm.country {
                 ZStack {
                     List {
@@ -43,19 +43,15 @@ struct TopCountryView: View {
                     //                            self.charts.getChartingArtists()
                     //                            self.isPullLoaderShowing = false
                     //                        }
-                    
-                    
+
                     // Show loader above the rest of the ZStack
                     if vm.isLoading {
                         ProgressView()
                     }
                 }
-            }
-            else {
+            } else {
                 Text("Error")
             }
         }
     }
 }
-
-
