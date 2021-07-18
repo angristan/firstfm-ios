@@ -10,9 +10,9 @@ import Kingfisher
 
 struct ArtistRow: View {
     var artist: Artist
-    
+
     var body: some View {
-        HStack() {
+        HStack {
             //            KFImage(URL(string: artist.image[0].url )!).resizable()
             //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: artist.image[0].url )!)

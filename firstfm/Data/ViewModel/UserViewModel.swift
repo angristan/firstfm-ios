@@ -16,7 +16,7 @@ class ProfileViewModel: ObservableObject {
 
     func getProfile(username: String) {
         self.isLoading = true
-        
+
         LastFMAPI.request(lastFMMethod: "user.getInfo", args: ["user": username]) { (data: UserInfoResponse?, error) -> Void in
             if error != nil {
                 DispatchQueue.main.async {
@@ -24,7 +24,7 @@ class ProfileViewModel: ObservableObject {
                 }
             }
             self.isLoading = false
-            
+
             if let data = data {
                 DispatchQueue.main.async {
                     self.user = data.user
@@ -32,10 +32,10 @@ class ProfileViewModel: ObservableObject {
             }
         }
     }
-    
+
     func getFriends(username: String) {
         self.isFriendsLoading = true
-        
+
         LastFMAPI.request(lastFMMethod: "user.getFriends", args: ["user": username]) { (data: FriendsResponse?, error) -> Void in
             if error != nil {
                 DispatchQueue.main.async {
@@ -43,7 +43,7 @@ class ProfileViewModel: ObservableObject {
                 }
             }
             self.isFriendsLoading = false
-            
+
             if let data = data {
                 DispatchQueue.main.async {
                     self.friends = data.friends.user

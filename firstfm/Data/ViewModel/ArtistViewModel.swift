@@ -12,17 +12,17 @@ class ArtistViewModel: ObservableObject {
     @Published var albums: [ArtistAlbum] = []
     @Published var tracks: [Track] = []
     var isLoading = true
-    
+
     func reset() {
         self.isLoading = true
     }
-    
+
     func getArtistAlbums(_ artistName: String) {
         reset()
-        
+
         LastFMAPI.request(lastFMMethod: "artist.getTopAlbums", args: [
             "limit": "30",
-            "artist": artistName,
+            "artist": artistName
         ]) { (data: ArtistTopAlbumsResponse?, error) -> Void in
             self.isLoading = false
             if error != nil {
@@ -32,12 +32,12 @@ class ArtistViewModel: ObservableObject {
                     self.albums = self.albums
                 }
             }
-            
+
             if let data = data {
                 DispatchQueue.main.async {
                     self.albums = data.topalbums.album
                 }
-                
+
                 for (index, album) in data.topalbums.album.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
                     SpotifyImage.findImage(type: "album", name: album.name) { imageURL in
@@ -52,13 +52,13 @@ class ArtistViewModel: ObservableObject {
             }
         }
     }
-    
+
     func getArtistTracks(_ artistName: String) {
         reset()
-        
+
         LastFMAPI.request(lastFMMethod: "artist.getTopTracks", args: [
             "limit": "30",
-            "artist": artistName,
+            "artist": artistName
         ]) { (data: ArtistTopTracksResponse?, error) -> Void in
             self.isLoading = false
             if error != nil {
@@ -68,12 +68,12 @@ class ArtistViewModel: ObservableObject {
                     self.tracks = self.tracks
                 }
             }
-            
+
             if let data = data {
                 DispatchQueue.main.async {
                     self.tracks = data.toptracks.track
                 }
-                
+
                 for (index, track) in data.toptracks.track.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
                     SpotifyImage.findImage(type: "track", name: track.name) { imageURL in

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     var body: some View {
         ChartList()
             .tabItem {
                 Text("Charts")
                 Image(systemName: "list.bullet")
             }
-    
+
         ProfileView()
             .tabItem {
                 Text("Profile")

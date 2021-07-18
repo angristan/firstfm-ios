@@ -10,9 +10,9 @@ import Kingfisher
 
 struct FriendRow: View {
     var friend: Friend
-    
+
     var body: some View {
-        HStack() {
+        HStack {
             if friend.image[2].url == "" {
                 Image(systemName: "person.crop.circle")
             } else {

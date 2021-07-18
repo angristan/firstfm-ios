@@ -9,7 +9,7 @@ import Foundation
 
 struct Track: Codable, Identifiable {
     var id: String { name }
-    
+
     var name: String
     var playcount: String
     var listeners: String
@@ -19,9 +19,9 @@ struct Track: Codable, Identifiable {
 }
 
 struct ScrobbledTrack: Codable, Identifiable {
-    
+
     var id: String { name }
-    
+
     var name: String
     var url: String
     var image: [LastFMImage]
@@ -37,7 +37,7 @@ struct LastFMDate: Codable {
         case uts
         case text = "#text"
     }
-    
+
     func getRelative() -> String {
         let unixTimestamp = Double(self.uts)!
         let date = Date(timeIntervalSince1970: unixTimestamp)

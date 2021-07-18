@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendsView: View {
     @EnvironmentObject var vm: ProfileViewModel
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -24,7 +24,7 @@ struct FriendsView: View {
                         vm.getFriends(username: vm.user?.name ?? "")
                     }
                 }
-                
+
                 if vm.isFriendsLoading {
                     ProgressView()
                 }

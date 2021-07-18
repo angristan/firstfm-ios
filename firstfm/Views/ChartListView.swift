@@ -27,7 +27,7 @@ struct ChartList: View {
                            }).padding(.horizontal, 20)
                         .padding(.vertical, 5)
                         .pickerStyle(SegmentedPickerStyle())
-                    
+
                     if selectedChartsIndex == 0 {
                         List {
                             ForEach(charts.artists) { artist in
@@ -72,7 +72,6 @@ struct ChartList: View {
                             self.isPullLoaderShowing = false
                         }
                     }
-
 
                 }
                 // Show loader above the rest of the ZStack

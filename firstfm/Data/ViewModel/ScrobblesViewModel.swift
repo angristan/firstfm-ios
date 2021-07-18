@@ -14,10 +14,10 @@ class ScrobblesViewModel: ObservableObject {
     @AppStorage("lastfm_username") var storedUsername: String?
     @AppStorage("lastfm_sk") var storedToken: String?
     var isLoading = true
-    
+
     func getUserScrobbles() {
         self.isLoading = true
-        
+
         LastFMAPI.request(lastFMMethod: "user.getRecentTracks", args: [
             "limit": "30",
             "extended": "1",
@@ -25,7 +25,7 @@ class ScrobblesViewModel: ObservableObject {
             "sk": storedToken ?? ""
         ]) { (data: RecentTracksResponse?, error) -> Void in
             self.isLoading = false
-            
+
             if error != nil {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load scrobbles", subtitle: error?.localizedDescription, style: .danger).show()
@@ -33,28 +33,26 @@ class ScrobblesViewModel: ObservableObject {
                     self.scrobbles = self.scrobbles
                 }
             }
-            
-            
+
             if let data = data {
                 var tracks = data.recentTracks.track
-                
+
                 // Fix tracks that don't have images
-                
+
                 for (index, _) in tracks.enumerated() {
                     if tracks[index].image[0].url == "" {
                         tracks[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
                     }
-                    
+
                     if tracks[index].image[3].url == "" {
                         tracks[index].image[3].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
                     }
                 }
-                
-                
+
                 DispatchQueue.main.async {
                     self.scrobbles = tracks
                 }
-                
+
                 for (index, track) in tracks.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
                     SpotifyImage.findImage(type: "track", name: "\(track.name) \(track.artist.name)") { imageURL in
@@ -63,12 +61,11 @@ class ScrobblesViewModel: ObservableObject {
                         }
                     }
                 }
-                
-                
+
                 DispatchQueue.main.async {
                     self.scrobbles = tracks
                 }
-                
+
             }
         }
     }

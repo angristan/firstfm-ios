@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 #if canImport(UIKit)
 extension View {
     func hideKeyboard() {
@@ -16,16 +15,16 @@ extension View {
 }
 #endif
 
-struct LoginView : View {
-    
+struct LoginView: View {
+
     @Environment(\.presentationMode) var presentationMode
-    
+
     @State var password: String = ""
     @State var username: String = ""
     @State private var isShowingProfile = false
     @EnvironmentObject var auth: AuthViewModel
     @AppStorage("lastfm_username") var storedUsername: String?
-    
+
     var body: some View {
         VStack {
             WelcomeText().onTapGesture {
@@ -48,7 +47,7 @@ struct LoginView : View {
                 auth.login(username: username, password: password)
                 presentationMode.wrappedValue.dismiss()
                 print("login clicked")
-                
+
             }) {
                 LoginButton()
             }
@@ -61,14 +60,14 @@ struct LoginView : View {
 }
 
 #if DEBUG
-struct LoginView_Previews : PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
     }
 }
 #endif
 
-struct WelcomeText : View {
+struct WelcomeText: View {
     var body: some View {
         return Text("Login to last.fm")
             .font(.largeTitle)
@@ -77,7 +76,7 @@ struct WelcomeText : View {
     }
 }
 
-struct LoginButton : View {
+struct LoginButton: View {
     var body: some View {
         return Text("Login")
             .font(.headline)

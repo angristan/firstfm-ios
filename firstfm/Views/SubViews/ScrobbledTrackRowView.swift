@@ -11,7 +11,7 @@ import Kingfisher
 struct ScrobbledTrackRow: View {
     @State var track: ScrobbledTrack
     var vm = ScrobbledTrackViewModel()
-    
+
     var body: some View {
         HStack {
             KFImage.url(URL(string: track.image[3].url )!)
@@ -26,8 +26,7 @@ struct ScrobbledTrackRow: View {
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
                 .frame(width: 60, height: 60)
-            
-            
+
             VStack(alignment: .leading) {
                 Spacer()
                 HStack {
@@ -57,8 +56,7 @@ struct ScrobbledTrackRow: View {
                     vm.unloveTrack(track: self.track)
                 }
                 hapticFeedback.impactOccurred()
-            })
-            {
+            }) {
                 if self.track.loved == "1" {
                     Image(systemName: "heart.fill").imageScale(.large).foregroundColor(Color(red: 157, green: 0, blue: 0))
                 } else {
