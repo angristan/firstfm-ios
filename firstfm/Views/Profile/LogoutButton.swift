@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct LogoutButton: View {
     var body: some View {
