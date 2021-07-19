@@ -10,8 +10,3 @@ import SwiftUI
 struct LoginResponse: Codable {
     let session: Session
 }
-
-struct Session: Codable {
-    let subscriber: Int
-    let name, key: String
-}

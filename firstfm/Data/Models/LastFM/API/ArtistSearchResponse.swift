@@ -11,12 +11,10 @@ struct ArtistSearchResponse: Codable {
     let results: ArtistSearchResult
 }
 
-// MARK: - Results
 struct ArtistSearchResult: Codable {
     let artistmatches: Artistmatches
 }
 
-// MARK: - Artistmatches
 struct Artistmatches: Codable {
     let artist: [Artist]
 }

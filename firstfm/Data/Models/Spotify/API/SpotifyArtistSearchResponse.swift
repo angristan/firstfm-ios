@@ -15,8 +15,3 @@ struct SpotifyArtistSearchResultsResponse: Codable {
     var items: [SpotifyArtist]
 }
 
-struct SpotifyArtist: Codable {
-    var name: String
-    var id: String
-    var images: [SpotifyImage]
-}
