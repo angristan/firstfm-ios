@@ -32,7 +32,6 @@
 		82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE82675368400CCCB58 /* LastFMImage.swift */; };
 		8253DC0C26A0E10100F5F426 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8253DC0B26A0E10100F5F426 /* NotificationBannerSwift */; };
 		825F0F8426A48597007BA84B /* FancyScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 825F0F8326A48597007BA84B /* FancyScrollView */; };
-		825F0F8726A48C9C007BA84B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 825F0F8626A48C9C007BA84B /* Introspect */; };
 		825F0F8926A4B2E0007BA84B /* ArtistInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0F8826A4B2E0007BA84B /* ArtistInfoResponse.swift */; };
 		825F0F8B26A5B6E1007BA84B /* NumberFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0F8A26A5B6E1007BA84B /* NumberFormat.swift */; };
 		825F0F8D26A5E8BB007BA84B /* ArtistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0F8C26A5E8BB007BA84B /* ArtistInfo.swift */; };
@@ -154,7 +153,6 @@
 			files = (
 				82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */,
 				8253DC0C26A0E10100F5F426 /* NotificationBannerSwift in Frameworks */,
-				825F0F8726A48C9C007BA84B /* Introspect in Frameworks */,
 				825F0F8426A48597007BA84B /* FancyScrollView in Frameworks */,
 				82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */,
 			);
@@ -394,7 +392,6 @@
 				82E80C38269777C60098DC3C /* SwiftUIRefresh */,
 				8253DC0B26A0E10100F5F426 /* NotificationBannerSwift */,
 				825F0F8326A48597007BA84B /* FancyScrollView */,
-				825F0F8626A48C9C007BA84B /* Introspect */,
 			);
 			productName = firstfm;
 			productReference = 82844DFD2673991F00578DD4 /* firstfm.app */;
@@ -591,6 +588,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -648,6 +646,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -796,11 +795,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */;
 			productName = FancyScrollView;
-		};
-		825F0F8626A48C9C007BA84B /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
 		};
 		82E80C38269777C60098DC3C /* SwiftUIRefresh */ = {
 			isa = XCSwiftPackageProductDependency;
