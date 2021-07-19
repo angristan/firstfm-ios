@@ -283,11 +283,14 @@
 		82844DFF2673991F00578DD4 /* firstfm */ = {
 			isa = PBXGroup;
 			children = (
-				82FBAE282673B5F5000D8E29 /* Data */,
-				82844E002673991F00578DD4 /* FirstfmApp.swift */,
 				82844E042673992200578DD4 /* Assets.xcassets */,
+				82844E002673991F00578DD4 /* FirstfmApp.swift */,
 				82844E092673992200578DD4 /* Info.plist */,
+				82D512F02674FE9600206EBB /* Models */,
 				82844E062673992200578DD4 /* Preview Content */,
+				4A8C295F26983B6700F55ECC /* Utils */,
+				82D512F22674FEB600206EBB /* ViewModels */,
+				82505CDB2675074E00CCCB58 /* Views */,
 			);
 			path = firstfm;
 			sourceTree = "<group>";
@@ -324,17 +327,6 @@
 				8214939F2694C349007A21C8 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		82FBAE282673B5F5000D8E29 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				4A8C295F26983B6700F55ECC /* Utils */,
-				82505CDB2675074E00CCCB58 /* Views */,
-				82D512F22674FEB600206EBB /* ViewModels */,
-				82D512F02674FE9600206EBB /* Models */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
