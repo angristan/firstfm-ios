@@ -46,6 +46,7 @@
 		825F0FA926A5F122007BA84B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FA826A5F122007BA84B /* LogoutButton.swift */; };
 		825F0FAF26A60E5C007BA84B /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = 825F0FAE26A60E5C007BA84B /* Valet */; };
 		825F0FB126A60FD0007BA84B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FB026A60FD0007BA84B /* Keychain.swift */; };
+		825F0FBA26A61ED2007BA84B /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 825F0FB926A61ED2007BA84B /* Cache */; };
 		826CBA992678EB8800B11170 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBA982678EB8800B11170 /* ArtistView.swift */; };
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
@@ -157,6 +158,7 @@
 				82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */,
 				825F0FAF26A60E5C007BA84B /* Valet in Frameworks */,
 				8253DC0C26A0E10100F5F426 /* NotificationBannerSwift in Frameworks */,
+				825F0FBA26A61ED2007BA84B /* Cache in Frameworks */,
 				825F0F8426A48597007BA84B /* FancyScrollView in Frameworks */,
 				82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */,
 			);
@@ -398,6 +400,7 @@
 				8253DC0B26A0E10100F5F426 /* NotificationBannerSwift */,
 				825F0F8326A48597007BA84B /* FancyScrollView */,
 				825F0FAE26A60E5C007BA84B /* Valet */,
+				825F0FB926A61ED2007BA84B /* Cache */,
 			);
 			productName = firstfm;
 			productReference = 82844DFD2673991F00578DD4 /* firstfm.app */;
@@ -433,6 +436,7 @@
 				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */,
 				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */,
+				825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -786,6 +790,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hyperoslo/Cache.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
@@ -816,6 +828,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */;
 			productName = Valet;
+		};
+		825F0FB926A61ED2007BA84B /* Cache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */;
+			productName = Cache;
 		};
 		82E80C38269777C60098DC3C /* SwiftUIRefresh */ = {
 			isa = XCSwiftPackageProductDependency;

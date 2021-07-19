@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Cache
 
 struct SpotifyImage: Codable {
     var url: String
@@ -15,6 +16,21 @@ struct SpotifyImage: Codable {
     static let DefaultImage = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
 
     static func findImage(type: String, name: String, completion: @escaping (String?) -> Void) {
+
+        let diskConfig = DiskConfig(name: "firstfm.spotify.images")
+        let memoryConfig = MemoryConfig()
+
+        let storage = try? Storage<String, SpotifyImage>(
+          diskConfig: diskConfig,
+          memoryConfig: memoryConfig,
+          transformer: TransformerFactory.forCodable(ofType: SpotifyImage.self)
+        )
+
+        if let image = try? storage?.object(forKey: "\(type).\(name)") {
+            completion(image.url)
+            return
+        }
+
         if let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedName)&type=\(type)&limit=1"
 
@@ -24,14 +40,13 @@ struct SpotifyImage: Codable {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
                 getSpotifyToken { spotifyToken in
-                    print("spotifyToken: \(spotifyToken)")
                     request.setValue("Bearer \(spotifyToken)", forHTTPHeaderField: "Authorization")
                     URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
                         do {
                             if let response = response {
                                 let nsHTTPResponse = response as? HTTPURLResponse
                                 if let statusCode = nsHTTPResponse?.statusCode {
-                                    print("spotify status code = \(statusCode)")
+                                    print("findImage status code = \(statusCode)")
                                 }
                                 // TODO
                             }
@@ -49,6 +64,7 @@ struct SpotifyImage: Codable {
                                     if jsonResponse.tracks.items.count > 0 {
                                         if jsonResponse.tracks.items[0].album.images.count > 0 {
                                             completion(jsonResponse.tracks.items[0].album.images[0].url)
+                                            try? storage?.setObject(jsonResponse.tracks.items[0].album.images[0], forKey: "\(type).\(name)")
                                         } else {
                                             completion(DefaultImage)
                                         }
@@ -61,6 +77,7 @@ struct SpotifyImage: Codable {
                                     if jsonResponse.albums.items.count > 0 {
                                         if jsonResponse.albums.items[0].images.count > 0 {
                                             completion(jsonResponse.albums.items[0].images[0].url)
+                                            try? storage?.setObject(jsonResponse.albums.items[0].images[0], forKey: "\(type).\(name)")
                                         } else {
                                             completion(DefaultImage)
                                         }
@@ -73,6 +90,7 @@ struct SpotifyImage: Codable {
                                     if jsonResponse.artists.items.count > 0 {
                                         if jsonResponse.artists.items[0].images.count > 0 {
                                             completion(jsonResponse.artists.items[0].images[0].url)
+                                            try? storage?.setObject(jsonResponse.artists.items[0].images[0], forKey: "\(type).\(name)")
                                         } else {
                                             completion(DefaultImage)
                                         }

@@ -64,7 +64,6 @@ class ArtistViewModel: ObservableObject {
                     SpotifyImage.findImage(type: "album", name: album.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
-                                print("IMAGE: \(imageURL)")
                                 self.albums[index].image[0].url = imageURL
                             }
                         }

@@ -59,7 +59,7 @@ class LastFMAPI {
                     let nsHTTPResponse = response as? HTTPURLResponse
 
                     if let statusCode = nsHTTPResponse?.statusCode {
-                        print("status code = \(statusCode)")
+                        print("LastFMAPI status code = \(statusCode)")
                         if statusCode != 200 {
                             let error = NSError(domain: "", code: statusCode, userInfo: [ NSLocalizedDescriptionKey: "Invalid API response 😢. Please try again"])
                             callback(callbackData, error as Error)
