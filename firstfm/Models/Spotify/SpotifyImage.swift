@@ -17,6 +17,7 @@ struct SpotifyImage: Codable {
 
     static func findImage(type: String, name: String, completion: @escaping (String?) -> Void) {
 
+        // Init cache handler
         let diskConfig = DiskConfig(name: "firstfm.spotify.images")
         let memoryConfig = MemoryConfig()
 
@@ -26,6 +27,7 @@ struct SpotifyImage: Codable {
           transformer: TransformerFactory.forCodable(ofType: SpotifyImage.self)
         )
 
+        // If search API response is in memory/disk cache, let's save an API call!
         if let image = try? storage?.object(forKey: "\(type).\(name)") {
             completion(image.url)
             return
