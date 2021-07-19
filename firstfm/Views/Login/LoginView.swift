@@ -46,8 +46,6 @@ struct LoginView: View {
                 storedUsername = username
                 auth.login(username: username, password: password)
                 presentationMode.wrappedValue.dismiss()
-                print("login clicked")
-
             }) {
                 LoginButton()
             }

@@ -26,8 +26,10 @@ class AuthViewModel: ObservableObject {
             }
 
             if let data = data {
-                print(data)
-                self.storedToken = data.session.key
+                DispatchQueue.main.async {
+                    self.storedToken = data.session.key
+                    FloatingNotificationBanner(title: "Successfully logged in", subtitle: "You can now browse your profile", style: .success).show()
+                }
             }
         }
     }

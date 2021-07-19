@@ -14,4 +14,3 @@ struct SpotifyArtistSearchResponse: Codable {
 struct SpotifyArtistSearchResultsResponse: Codable {
     var items: [SpotifyArtist]
 }
-
