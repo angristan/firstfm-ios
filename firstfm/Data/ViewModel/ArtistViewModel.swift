@@ -11,6 +11,7 @@ import NotificationBannerSwift
 class ArtistViewModel: ObservableObject {
     @Published var albums: [ArtistAlbum] = []
     @Published var tracks: [Track] = []
+    @Published var artist: ArtistInfo?
     var isLoading = true
 
     func reset() {
@@ -21,7 +22,7 @@ class ArtistViewModel: ObservableObject {
         reset()
 
         LastFMAPI.request(lastFMMethod: "artist.getTopAlbums", args: [
-            "limit": "30",
+            "limit": "6",
             "artist": artistName
         ]) { (data: ArtistTopAlbumsResponse?, error) -> Void in
             self.isLoading = false
@@ -57,7 +58,7 @@ class ArtistViewModel: ObservableObject {
         reset()
 
         LastFMAPI.request(lastFMMethod: "artist.getTopTracks", args: [
-            "limit": "30",
+            "limit": "5",
             "artist": artistName
         ]) { (data: ArtistTopTracksResponse?, error) -> Void in
             self.isLoading = false
@@ -80,6 +81,40 @@ class ArtistViewModel: ObservableObject {
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.tracks[index].image[0].url = imageURL
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    func getArtistInfo(_ artistName: String) {
+        reset()
+
+        LastFMAPI.request(lastFMMethod: "artist.getInfo", args: [
+            "artist": artistName
+        ]) { (data: ArtistInfoResponse?, error) -> Void in
+            self.isLoading = false
+            if error != nil {
+                DispatchQueue.main.async {
+                    FloatingNotificationBanner(title: "Failed to artist info", subtitle: error?.localizedDescription, style: .danger).show()
+                    // Force refresh, otherwise pull loader doesn't dismiss itself
+                    self.tracks = self.tracks
+                }
+            }
+
+            if let data = data {
+                DispatchQueue.main.async {
+                    self.artist = data.artist
+                }
+
+                for (index, artist) in data.artist.similar.artist.enumerated() {
+                    // Get image URL for each track and trigger a View update through the observed object
+                    SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
+                        if let imageURL = imageURL {
+                            DispatchQueue.main.async {
+                                self.artist?.similar.artist[index].image[0].url = imageURL
                             }
                         }
                     }
