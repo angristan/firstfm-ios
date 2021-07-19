@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct SpotifyCredentialsResponse: Codable {
     var accessToken: String
@@ -21,6 +22,9 @@ func renewSpotifyToken(completion: @escaping (String) -> Void) {
     let authURL = "https://accounts.spotify.com/api/token"
     // swiftlint:disable force_cast
     let spotifyAPIToken = Bundle.main.object(forInfoDictionaryKey: "SpotifyAPIToken") as! String
+
+    @AppStorage("spotify_tmp_token") var spotifyToken: String?
+    @AppStorage("spotify_expires_at") var spotifyExpiresAt: String?
 
     if let queryURL = URL(string: authURL) {
         var request = URLRequest(url: queryURL)
@@ -39,7 +43,7 @@ func renewSpotifyToken(completion: @escaping (String) -> Void) {
                 if let response = response {
                     let nsHTTPResponse = response as? HTTPURLResponse
                     if let statusCode = nsHTTPResponse?.statusCode {
-                        print("status code = \(statusCode)")
+                        print("renewSpotifyToken status code = \(statusCode)")
                     }
                     // TODO
                 }
@@ -51,10 +55,8 @@ func renewSpotifyToken(completion: @escaping (String) -> Void) {
                 if let data = data {
                     do {
                         let jsonResponse = try JSONDecoder().decode(SpotifyCredentialsResponse.self, from: data)
-                        let defaults = UserDefaults.standard
-                        defaults.set(jsonResponse.accessToken, forKey: "spotify_token")
-                        let expiresAt = Int64(Date().timeIntervalSince1970 * 1000) + Int64(jsonResponse.expiresIn)
-                        defaults.setValue(expiresAt, forKey: "spotify_expires")
+                        spotifyToken = jsonResponse.accessToken
+                        spotifyExpiresAt = String(Int64(Date().timeIntervalSince1970) + Int64(jsonResponse.expiresIn))
                         completion(jsonResponse.accessToken)
                     }
                 }
@@ -67,19 +69,19 @@ func renewSpotifyToken(completion: @escaping (String) -> Void) {
 }
 
 func getSpotifyToken(completion: @escaping (String) -> Void) {
-    let defaults = UserDefaults.standard
-    let storedToken = defaults.string(forKey: "spotify_token")
-    let expiresAt = defaults.integer(forKey: "spotify_expires")
-    let currentTimeSeconds = Int64(Date().timeIntervalSince1970 * 1000)
+    @AppStorage("spotify_tmp_token") var spotifyToken: String?
+    @AppStorage("spotify_expires_at") var spotifyExpiresAt: String?
 
-    if storedToken == nil || expiresAt == 0 {
+    let currentTimeSeconds = Int64(Date().timeIntervalSince1970)
+
+    if spotifyToken == nil || Int64(spotifyExpiresAt ?? "0") == 0 {
         renewSpotifyToken { renewedToken in
             completion(renewedToken)
         }
 
     } else {
         // We want the refresh token to be valid for at least 30s
-        if expiresAt != 0 && currentTimeSeconds + 30 > expiresAt {
+        if Int64(spotifyExpiresAt ?? "0") != 0 && currentTimeSeconds + 30 > Int64(spotifyExpiresAt ?? "0") ?? 0 {
             renewSpotifyToken { renewedToken in
                 completion(renewedToken)
 
@@ -87,7 +89,7 @@ func getSpotifyToken(completion: @escaping (String) -> Void) {
         }
     }
 
-    if let token = storedToken {
+    if let token = spotifyToken {
         completion(token)
     }
     completion("")
