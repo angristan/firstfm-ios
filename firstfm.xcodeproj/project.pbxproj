@@ -44,6 +44,7 @@
 		825F0F9E26A5EAE7007BA84B /* SpotifyAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0F9D26A5EAE7007BA84B /* SpotifyAlbum.swift */; };
 		825F0FA026A5EC82007BA84B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0F9F26A5EC82007BA84B /* Session.swift */; };
 		825F0FA126A5EDBB007BA84B /* ArtistSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0D54E2697AC66007CEA98 /* ArtistSearchResponse.swift */; };
+		825F0FA926A5F122007BA84B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FA826A5F122007BA84B /* LogoutButton.swift */; };
 		826CBA992678EB8800B11170 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBA982678EB8800B11170 /* ArtistView.swift */; };
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		825F0F9B26A5EABE007BA84B /* SpotifyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyArtist.swift; sourceTree = "<group>"; };
 		825F0F9D26A5EAE7007BA84B /* SpotifyAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAlbum.swift; sourceTree = "<group>"; };
 		825F0F9F26A5EC82007BA84B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		825F0FA826A5F122007BA84B /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		826CBA982678EB8800B11170 /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		82844DFD2673991F00578DD4 /* firstfm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstfm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82844E002673991F00578DD4 /* FirstfmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstfmApp.swift; sourceTree = "<group>"; };
@@ -161,14 +163,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A8C295F26983B6700F55ECC /* Utils */ = {
+		4A8C295F26983B6700F55ECC /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				4A8C296026983B7300F55ECC /* LastFMAPI.swift */,
-				82C282E126A31CFD000E5F41 /* StringMD5.swift */,
-				825F0F8A26A5B6E1007BA84B /* NumberFormat.swift */,
 			);
-			path = Utils;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		8214939E2694BA75007A21C8 /* SubViews */ = {
@@ -176,9 +176,6 @@
 			children = (
 				82505CDC2675074E00CCCB58 /* ArtistRow.swift */,
 				4A56027926A3B17800E6C315 /* AlbumRow.swift */,
-				82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */,
-				82BBD2492698C33D009B42FC /* TopCountryView.swift */,
-				82C282E926A3354E000E5F41 /* FriendRow.swift */,
 				82A006B5267960710009BD71 /* TrackRowView.swift */,
 			);
 			path = SubViews;
@@ -187,17 +184,15 @@
 		82505CDB2675074E00CCCB58 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				825F0FAC26A5F172007BA84B /* Trends */,
+				825F0FAB26A5F15A007BA84B /* Scrobbles */,
+				825F0FAA26A5F135007BA84B /* Login */,
+				825F0FA426A5F0C9007BA84B /* Profile */,
 				8214939E2694BA75007A21C8 /* SubViews */,
 				826CBA982678EB8800B11170 /* ArtistView.swift */,
 				82505CDD2675074E00CCCB58 /* ChartListView.swift */,
 				82505CDE2675074E00CCCB58 /* ContentView.swift */,
-				8214939C2694A4C2007A21C8 /* LoginGuardView.swift */,
-				820455DB267AA8E70009A418 /* LoginView.swift */,
-				820455DD267AB7D70009A418 /* ProfileView.swift */,
-				82D5B4CF2696DB8400716931 /* ScrobblesView.swift */,
 				82A006C426797C3E0009BD71 /* SearchView.swift */,
-				82861BE426984FBA009E52AC /* TrendsMapView.swift */,
-				82C282E326A32B07000E5F41 /* FriendsView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -264,6 +259,53 @@
 			path = LastFM;
 			sourceTree = "<group>";
 		};
+		825F0FA326A5EFD8007BA84B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				82C282E126A31CFD000E5F41 /* StringMD5.swift */,
+				825F0F8A26A5B6E1007BA84B /* NumberFormat.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		825F0FA426A5F0C9007BA84B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				820455DD267AB7D70009A418 /* ProfileView.swift */,
+				82C282E326A32B07000E5F41 /* FriendsView.swift */,
+				82C282E926A3354E000E5F41 /* FriendRow.swift */,
+				825F0FA826A5F122007BA84B /* LogoutButton.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		825F0FAA26A5F135007BA84B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8214939C2694A4C2007A21C8 /* LoginGuardView.swift */,
+				820455DB267AA8E70009A418 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		825F0FAB26A5F15A007BA84B /* Scrobbles */ = {
+			isa = PBXGroup;
+			children = (
+				82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */,
+				82D5B4CF2696DB8400716931 /* ScrobblesView.swift */,
+			);
+			path = Scrobbles;
+			sourceTree = "<group>";
+		};
+		825F0FAC26A5F172007BA84B /* Trends */ = {
+			isa = PBXGroup;
+			children = (
+				82BBD2492698C33D009B42FC /* TopCountryView.swift */,
+				82861BE426984FBA009E52AC /* TrendsMapView.swift */,
+			);
+			path = Trends;
+			sourceTree = "<group>";
+		};
 		82844DF42673991F00578DD4 = {
 			isa = PBXGroup;
 			children = (
@@ -284,12 +326,13 @@
 			isa = PBXGroup;
 			children = (
 				82844E042673992200578DD4 /* Assets.xcassets */,
+				825F0FA326A5EFD8007BA84B /* Extension */,
 				82844E002673991F00578DD4 /* FirstfmApp.swift */,
 				82844E092673992200578DD4 /* Info.plist */,
 				82D512F02674FE9600206EBB /* Models */,
 				82844E062673992200578DD4 /* Preview Content */,
-				4A8C295F26983B6700F55ECC /* Utils */,
-				82D512F22674FEB600206EBB /* ViewModels */,
+				4A8C295F26983B6700F55ECC /* Service */,
+				82D512F22674FEB600206EBB /* ViewModel */,
 				82505CDB2675074E00CCCB58 /* Views */,
 			);
 			path = firstfm;
@@ -313,7 +356,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		82D512F22674FEB600206EBB /* ViewModels */ = {
+		82D512F22674FEB600206EBB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				820455DF267ABC930009A418 /* AuthViewModel.swift */,
@@ -326,7 +369,7 @@
 				82BBD2472698B37F009B42FC /* TrendsViewModel.swift */,
 				8214939F2694C349007A21C8 /* UserViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +504,7 @@
 				4A56027A26A3B17800E6C315 /* AlbumRow.swift in Sources */,
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				825F0F8B26A5B6E1007BA84B /* NumberFormat.swift in Sources */,
+				825F0FA926A5F122007BA84B /* LogoutButton.swift in Sources */,
 				4A69011826A344FD001561C8 /* ArtistAlbum.swift in Sources */,
 				82D5B4D02696DB8500716931 /* ScrobblesView.swift in Sources */,
 				82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */,
