@@ -8,15 +8,17 @@
 import Foundation
 import SwiftUI
 import NotificationBannerSwift
+import Valet
 
 class ScrobblesViewModel: ObservableObject {
     @Published var scrobbles: [ScrobbledTrack] = []
     @AppStorage("lastfm_username") var storedUsername: String?
-    @AppStorage("lastfm_sk") var storedToken: String?
+    let myValet = getValet()
     var isLoading = true
 
     func getUserScrobbles() {
         self.isLoading = true
+        let storedToken = try? myValet.string(forKey: "sk")
 
         LastFMAPI.request(lastFMMethod: "user.getRecentTracks", args: [
             "limit": "30",

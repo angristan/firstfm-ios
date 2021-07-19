@@ -44,6 +44,8 @@
 		825F0FA026A5EC82007BA84B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0F9F26A5EC82007BA84B /* Session.swift */; };
 		825F0FA126A5EDBB007BA84B /* ArtistSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0D54E2697AC66007CEA98 /* ArtistSearchResponse.swift */; };
 		825F0FA926A5F122007BA84B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FA826A5F122007BA84B /* LogoutButton.swift */; };
+		825F0FAF26A60E5C007BA84B /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = 825F0FAE26A60E5C007BA84B /* Valet */; };
+		825F0FB126A60FD0007BA84B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FB026A60FD0007BA84B /* Keychain.swift */; };
 		826CBA992678EB8800B11170 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBA982678EB8800B11170 /* ArtistView.swift */; };
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
@@ -111,6 +113,7 @@
 		825F0F9D26A5EAE7007BA84B /* SpotifyAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAlbum.swift; sourceTree = "<group>"; };
 		825F0F9F26A5EC82007BA84B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		825F0FA826A5F122007BA84B /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
+		825F0FB026A60FD0007BA84B /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		826CBA982678EB8800B11170 /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		82844DFD2673991F00578DD4 /* firstfm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstfm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82844E002673991F00578DD4 /* FirstfmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstfmApp.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */,
+				825F0FAF26A60E5C007BA84B /* Valet in Frameworks */,
 				8253DC0C26A0E10100F5F426 /* NotificationBannerSwift in Frameworks */,
 				825F0F8426A48597007BA84B /* FancyScrollView in Frameworks */,
 				82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */,
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4A8C296026983B7300F55ECC /* LastFMAPI.swift */,
+				825F0FB026A60FD0007BA84B /* Keychain.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				82E80C38269777C60098DC3C /* SwiftUIRefresh */,
 				8253DC0B26A0E10100F5F426 /* NotificationBannerSwift */,
 				825F0F8326A48597007BA84B /* FancyScrollView */,
+				825F0FAE26A60E5C007BA84B /* Valet */,
 			);
 			productName = firstfm;
 			productReference = 82844DFD2673991F00578DD4 /* firstfm.app */;
@@ -426,6 +432,7 @@
 				8253DC0A26A0E10100F5F426 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */,
 				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -486,6 +493,7 @@
 				82505CE12675074E00CCCB58 /* ContentView.swift in Sources */,
 				8226AB2426998FAB007ECE5F /* TopCountryArtistsResponse.swift in Sources */,
 				82505CE92675368400CCCB58 /* LastFMImage.swift in Sources */,
+				825F0FB126A60FD0007BA84B /* Keychain.swift in Sources */,
 				82A006BA267963010009BD71 /* TopTrackResponse.swift in Sources */,
 				82FBAE4C2674BCB7000D8E29 /* TopArtistsResponse.swift in Sources */,
 				825F0F9326A5E90C007BA84B /* Tag.swift in Sources */,
@@ -770,6 +778,14 @@
 				minimumVersion = 0.1.3;
 			};
 		};
+		825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/square/Valet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
@@ -795,6 +811,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */;
 			productName = FancyScrollView;
+		};
+		825F0FAE26A60E5C007BA84B /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */;
+			productName = Valet;
 		};
 		82E80C38269777C60098DC3C /* SwiftUIRefresh */ = {
 			isa = XCSwiftPackageProductDependency;

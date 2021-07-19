@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 import NotificationBannerSwift
+import Valet
 
 class AuthViewModel: ObservableObject {
     @AppStorage("lastfm_username") var storedUsername: String?
-    @AppStorage("lastfm_sk") var storedToken: String?
+    let myValet = getValet()
 
     func isLoggedIn() -> Bool {
         return storedUsername != nil
@@ -27,7 +28,7 @@ class AuthViewModel: ObservableObject {
 
             if let data = data {
                 DispatchQueue.main.async {
-                    self.storedToken = data.session.key
+                    try? self.myValet.setString(data.session.key, forKey: "sk")
                     FloatingNotificationBanner(title: "Successfully logged in", subtitle: "You can now browse your profile", style: .success).show()
                 }
             }

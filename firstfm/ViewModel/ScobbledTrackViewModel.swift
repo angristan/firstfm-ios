@@ -8,13 +8,16 @@
 import Foundation
 import SwiftUI
 import NotificationBannerSwift
+import Valet
 
 struct Nothing: Codable {}
 
 class ScrobbledTrackViewModel {
-    @AppStorage("lastfm_sk") var storedToken: String?
+    let myValet = getValet()
 
     func loveTrack(track: ScrobbledTrack) {
+        let storedToken = try? myValet.string(forKey: "sk")
+
         LastFMAPI.request(lastFMMethod: "track.love", args: ["artist": track.artist.name, "track": track.name, "sk": storedToken ?? ""]) { (_: Nothing?, error) -> Void in
             if error != nil {
                 DispatchQueue.main.async {
@@ -25,6 +28,8 @@ class ScrobbledTrackViewModel {
     }
 
     func unloveTrack(track: ScrobbledTrack) {
+        let storedToken = try? myValet.string(forKey: "sk")
+
         LastFMAPI.request(lastFMMethod: "track.unlove", args: ["artist": track.artist.name, "track": track.name, "sk": storedToken ?? ""]) { (_: Nothing?, error) -> Void in
             if error != nil {
                 DispatchQueue.main.async {
