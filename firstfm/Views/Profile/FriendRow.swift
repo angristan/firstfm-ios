@@ -18,13 +18,14 @@ struct FriendRow: View {
             } else {
                 KFImage.url(URL(string: friend.image[0].url )!)
                     .resizable()
+                    .loadImmediately()
                     .onSuccess { res in
                         print("Success: \(self.friend.name) - \(res.cacheType)")
                     }
                     .onFailure { err in
                         print("Error \(self.friend.name): \(err)")
                     }
-                    .fade(duration: 1)
+                    .fade(duration: 0.5)
                     .cancelOnDisappear(true)
                     .cornerRadius(5)
                     .frame(width: 50, height: 50)

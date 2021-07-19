@@ -15,13 +15,14 @@ struct AlbumRow: View {
         HStack {
             KFImage.url(URL(string: album.image[0].url ))
                 .resizable()
+                .loadImmediately()
                 .onSuccess { res in
                     print("Success: \(self.album.name) - \(res.cacheType)")
                 }
                 .onFailure { err in
                     print("Error \(self.album): \(err)")
                 }
-                .fade(duration: 1)
+                .fade(duration: 0.5)
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
                 .frame(width: 50, height: 50)

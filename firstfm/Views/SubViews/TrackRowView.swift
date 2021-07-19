@@ -17,6 +17,7 @@ struct TrackRow: View {
             //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: track.image[0].url )!)
                 .resizable()
+                .loadImmediately()
                 .onSuccess { res in
                     print("Success: \(self.track.name) - \(res.cacheType)")
                 }
@@ -28,7 +29,7 @@ struct TrackRow: View {
 //                        .frame(width: 50, height: 50)
 //                        .foregroundColor(.gray)
 //                }
-                .fade(duration: 1)
+                .fade(duration: 0.5)
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
                 .frame(width: 50, height: 50)

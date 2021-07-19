@@ -32,7 +32,13 @@ struct ArtistView: View {
                             headerHeight: 350,
                             scrollUpHeaderBehavior: .parallax,
                             scrollDownHeaderBehavior: .offset,
-                            header: { KFImage.url(URL(string: artist.image[0].url )!).resizable().aspectRatio(contentMode: .fill).overlay(TintOverlay().opacity(0.2)) }) {
+                            header: {
+                KFImage.url(URL(string: artist.image[0].url )!)
+                    .resizable()
+                    .loadImmediately()
+                    .aspectRatio(contentMode: .fill)
+                    .overlay(TintOverlay().opacity(0.2))
+            }) {
                 VStack(alignment: .leading) {
                     Group {
                         HStack {
@@ -88,7 +94,9 @@ struct ArtistView: View {
                                     destination: Color(.red),
                                     label: {
                                     VStack {
-                                        KFImage.url(URL(string: album.image[0].url )!).resizable()
+                                        KFImage.url(URL(string: album.image[0].url )!)
+                                            .resizable()
+                                            .loadImmediately()
                                             .cornerRadius(5)
                                             .aspectRatio(contentMode: .fill)
                                         Text(album.name).font(.headline).lineLimit(1).foregroundColor(.white)
@@ -111,6 +119,7 @@ struct ArtistView: View {
                                         VStack {
                                             KFImage.url(URL(string: artist.image[0].url )!)
                                                 .resizable()
+                                                .loadImmediately()
                                                 .aspectRatio(contentMode: .fill)
                                                 .frame(width: 150, height: 150)
                                                 .clipShape(Circle())

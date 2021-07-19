@@ -16,13 +16,14 @@ struct ScrobbledTrackRow: View {
         HStack {
             KFImage.url(URL(string: track.image[3].url )!)
                 .resizable()
+                .loadImmediately()
                 .onSuccess { res in
                     print("Success: \(self.track.name) - \(res.cacheType)")
                 }
                 .onFailure { err in
                     print("Error \(self.track.name): \(err)")
                 }
-                .fade(duration: 1)
+                .fade(duration: 0.5)
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
                 .frame(width: 60, height: 60)

@@ -25,13 +25,14 @@ struct ProfileView: View {
                             if let user = profile.user {
                                 KFImage.url(URL(string: user.image[3].url )!)
                                     .resizable()
+                                    .loadImmediately()
                                     .onSuccess { res in
                                         print("Success: \(user.name) - \(res.cacheType)")
                                     }
                                     .onFailure { err in
                                         print("Error \(user.name): \(err)")
                                     }
-                                    .fade(duration: 1)
+                                    .fade(duration: 0.5)
                                     .cancelOnDisappear(true)
                                     .cornerRadius(5)
                                     .frame(width: 200, height: 200)
