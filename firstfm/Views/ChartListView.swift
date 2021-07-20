@@ -76,7 +76,7 @@ struct ChartList: View {
                 }
                 // Show loader above the rest of the ZStack
                 if charts.isLoading {
-                    ProgressView()
+                    ProgressView().scaleEffect(2)
                 }
             }
 

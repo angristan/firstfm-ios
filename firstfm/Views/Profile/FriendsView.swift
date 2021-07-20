@@ -26,7 +26,7 @@ struct FriendsView: View {
                 }
 
                 if vm.isFriendsLoading {
-                    ProgressView()
+                    ProgressView().scaleEffect(2)
                 }
             }
         }

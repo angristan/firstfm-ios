@@ -46,7 +46,7 @@ struct TopCountryView: View {
 
                     // Show loader above the rest of the ZStack
                     if vm.isLoading {
-                        ProgressView()
+                        ProgressView().scaleEffect(2)
                     }
                 }
             } else {

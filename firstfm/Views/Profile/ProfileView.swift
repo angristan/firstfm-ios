@@ -47,7 +47,7 @@ struct ProfileView: View {
                         }
                         // Show loader above the rest of the ZStack
                         if profile.isLoading {
-                            ProgressView()
+                            ProgressView().scaleEffect(2)
                         }
                     }.onAppear {
                         if let username = storedUsername {

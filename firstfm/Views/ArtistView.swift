@@ -143,7 +143,7 @@ struct ArtistView: View {
 
             // Show loader above the rest of the ZStack
             if model.isLoading {
-                ProgressView()
+                ProgressView().scaleEffect(2)
             }
         }
     }
