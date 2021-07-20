@@ -1,10 +1,3 @@
-//
-//  SearchView.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 16/06/2021.
-//
-
 import SwiftUI
 
 struct SearchView: View {

@@ -1,10 +1,3 @@
-//
-//  SpotifyImage.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 16/06/2021.
-//
-
 import Foundation
 import Cache
 

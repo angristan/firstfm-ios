@@ -1,10 +1,3 @@
-//
-//  Friend.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 17/07/2021.
-//
-
 import Foundation
 
 // Same as User but with more fields

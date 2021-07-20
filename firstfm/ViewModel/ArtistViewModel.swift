@@ -1,10 +1,3 @@
-//
-//  ArtistViewModel.swift
-//  firstfm
-//
-//  Created by Nathanael Demacon on 7/17/21.
-//
-
 import Foundation
 import NotificationBannerSwift
 

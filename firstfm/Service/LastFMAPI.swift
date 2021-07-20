@@ -1,10 +1,3 @@
-//
-//  LastFMAPI.swift
-//  firstfm
-//
-//  Created by Nathanael Demacon on 7/9/21.
-//
-
 import Foundation
 
 class LastFMAPI {

@@ -1,10 +1,3 @@
-//
-//  Album.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 12/06/2021.
-//
-
 struct Artist: Codable, Identifiable {
 
     var id: String { name }
@@ -18,6 +11,5 @@ struct Artist: Codable, Identifiable {
 
 struct ScrobbledArtist: Codable {
     let mbid: String
-//    let image: [LastFMImage]
     let name: String
 }

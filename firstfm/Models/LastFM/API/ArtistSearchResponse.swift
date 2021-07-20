@@ -1,10 +1,3 @@
-//
-//  ArtistSearch.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 08/07/2021.
-//
-
 import Foundation
 
 struct ArtistSearchResponse: Codable {

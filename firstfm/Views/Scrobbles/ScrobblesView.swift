@@ -1,10 +1,3 @@
-//
-//  ScrobblesView.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 08/07/2021.
-//
-
 import SwiftUI
 import SwiftUIRefresh
 

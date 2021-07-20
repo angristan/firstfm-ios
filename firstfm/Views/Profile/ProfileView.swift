@@ -1,10 +1,3 @@
-//
-//  ProfileView.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 17/06/2021.
-//
-
 import SwiftUI
 import Kingfisher
 

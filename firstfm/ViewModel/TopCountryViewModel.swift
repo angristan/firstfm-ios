@@ -1,10 +1,3 @@
-//
-//  TopCountryViewModel.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 10/07/2021.
-//
-
 import Foundation
 
 class TopCountryViewModel: ObservableObject {

@@ -1,10 +1,3 @@
-//
-//  Country.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 09/07/2021.
-//
-
 import Foundation
 
 extension NSLocale {

@@ -1,10 +1,3 @@
-//
-//  TrendsMapView.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 09/07/2021.
-//
-
 import SwiftUI
 import MapKit
 

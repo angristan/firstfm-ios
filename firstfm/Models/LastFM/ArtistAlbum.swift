@@ -1,10 +1,3 @@
-//
-//  ArtistAlbum.swift
-//  firstfm
-//
-//  Created by Nathanael Demacon on 7/17/21.
-//
-
 struct ArtistAlbum: Codable, Identifiable {
     var id: String { name }
 

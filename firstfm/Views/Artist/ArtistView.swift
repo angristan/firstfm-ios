@@ -1,10 +1,3 @@
-//
-//  Artist.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 15/06/2021.
-//
-
 import SwiftUI
 import Kingfisher
 import FancyScrollView

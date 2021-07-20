@@ -1,10 +1,3 @@
-//
-//  ArtistInfoView.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 20/07/2021.
-//
-
 import SwiftUI
 
 struct ArtistInfoView: View {

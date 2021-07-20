@@ -1,10 +1,3 @@
-//
-//  DoubleFormat.swift
-//  firstfm
-//
-//  Created by Stanislas Lange on 19/07/2021.
-//
-
 import Foundation
 
 // https://stackoverflow.com/a/48371527/6945353
