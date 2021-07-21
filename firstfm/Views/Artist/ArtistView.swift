@@ -26,7 +26,7 @@ struct ArtistView: View {
                     VStack(alignment: .leading) {
                         ArtistInfoView(artistInfo: model.artist, artist: artist)
                             .padding()
-                            .redacted(reason: model.isLoading ? .placeholder : [])
+                            .redacted(reason: model.artist == nil ? .placeholder : [])
 
                         TopArtistTracksView(tracks: model.tracks)
                             .frame(
@@ -34,14 +34,14 @@ struct ArtistView: View {
                                 height: g.size.height * 0.7,
                                 alignment: .center
                             )
-                            .redacted(reason: model.isLoading ? .placeholder : [])
+                            .redacted(reason: model.tracks.isEmpty ? .placeholder : [])
 
                         TopArtistAlbumsView(albums: model.albums).offset(y: -50)
-                            .redacted(reason: model.isLoading ? .placeholder : [])
+                            .redacted(reason: model.albums.isEmpty ? .placeholder : [])
 
                         SimilarArtistsView(similarArtists: model.artist?.similar.artist ?? [])
                             .offset(y: -30)
-                            .redacted(reason: model.isLoading ? .placeholder : [])
+                            .redacted(reason: model.artist == nil ? .placeholder : [])
 
                     }.padding(.top, 10)
                         .onAppear {
