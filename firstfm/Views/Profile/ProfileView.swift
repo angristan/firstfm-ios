@@ -7,6 +7,7 @@ struct ProfileView: View {
     @ObservedObject var profile = ProfileViewModel()
     @State private var showingSettings = false
     @State private var showingFriends = false
+    @State private var showingLovedTracks = false
 
     @ViewBuilder
     var body: some View {
@@ -16,28 +17,67 @@ struct ProfileView: View {
                     ZStack {
                         VStack {
                             if let user = profile.user {
-                                KFImage.url(URL(string: user.image[3].url )!)
-                                    .resizable()
-                                    .loadImmediately()
-                                    .onSuccess { res in
-                                        print("Success: \(user.name) - \(res.cacheType)")
+                                ScrollView {
+                                    GeometryReader { geometry in
+                                        ZStack {
+                                            if geometry.frame(in: .global).minY <= 0 {
+                                                KFImage.url(URL(string: "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
+                                                    .resizable()
+                                                    .loadImmediately()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .overlay(TintOverlayView().opacity(0.2))
+                                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                                    .offset(y: geometry.frame(in: .global).minY/9)
+                                                    .clipped()
+                                                    .blur(radius: 5)
+                                            } else {
+                                                KFImage.url(URL(string: "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
+                                                    .resizable()
+                                                    .loadImmediately()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .overlay(TintOverlayView().opacity(0.2))
+                                                    .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
+                                                    .clipped()
+                                                    .offset(y: -geometry.frame(in: .global).minY)
+                                                    .blur(radius: 5)
+                                            }
+                                        }
                                     }
-                                    .onFailure { err in
-                                        print("Error \(user.name): \(err)")
+                                    .frame(height: 250)
+                                    VStack(alignment: .leading) {
+                                        HStack {
+                                            KFImage.url(URL(string: user.image[3].url )!)
+                                                .resizable()
+                                                .loadImmediately()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 120, height: 120)
+                                                .clipped()
+                                                .cornerRadius(10)
+                                                .padding(.trailing, 10)
+                                            VStack(alignment: .leading) {
+
+                                                Text("@\(storedUsername ?? "username")")
+                                                    .font(.custom("AvenirNext-Demibold", size: 18))
+
+                                                Spacer()
+                                                Text("Joined \(user.registered.getRelative())")
+                                                    .font(.custom("AvenirNext-Regular", size: 15))
+                                                    .foregroundColor(.gray)
+                                                Text("\(Int(user.playcount)?.formatted() ?? "0") scrobbles")
+                                                    .font(.custom("AvenirNext-Regular", size: 15))
+                                                    .foregroundColor(.gray)
+
+                                            }
+                                            Spacer()
+                                        }
+                                        .offset(y: -50)
                                     }
-                                    .fade(duration: 0.5)
-                                    .cancelOnDisappear(true)
-                                    .cornerRadius(5)
-                                    .frame(width: 200, height: 200)
-                                Text("Hello, \(user.name)")
-                                Text("Playcount: \(user.playcount)")
-                                Button(action: {
-                                    storedUsername = nil
-                                }) {
-                                    LogoutButton()
+                                    .frame(width: 350)
                                 }
+                                .edgesIgnoringSafeArea(.top)
                             }
-                        }
+                        }.edgesIgnoringSafeArea(.top)
+                            .navigationBarTitle("")
                         // Show loader above the rest of the ZStack
                         if profile.isLoading {
                             ProgressView().scaleEffect(2)
@@ -49,26 +89,41 @@ struct ProfileView: View {
                     }.navigationTitle("Your profile")
                         .navigationBarItems(trailing: HStack {
                             Button(action: {
-                                showingSettings.toggle()
+                                if let storedUsername = storedUsername {
+                                    // getlovedtracks
+                                    showingLovedTracks.toggle()
+                                }
                             }) {
-                                Image(systemName: "gear").imageScale(.large)
+                                Image(systemName: "heart").imageScale(.large).foregroundColor(.white)
                             }
-
                             Button(action: {
                                 if let storedUsername = storedUsername {
                                     profile.getFriends(username: storedUsername)
                                     showingFriends.toggle()
                                 }
                             }) {
-                                Image(systemName: "person.2").imageScale(.large)
+                                Image(systemName: "person.2").imageScale(.large).foregroundColor(.white)
+                            }
+                            Button(action: {
+                                showingSettings.toggle()
+                            }) {
+                                Image(systemName: "gear").imageScale(.large).foregroundColor(.white)
                             }
                         }
                         )
                         .sheet(isPresented: $showingSettings) {
                             Text("Here settings aka logout button")
+                            Button(action: {
+                                storedUsername = nil
+                            }) {
+                                LogoutButton()
+                            }
                         }
                         .sheet(isPresented: $showingFriends) {
                             FriendsView().environmentObject(profile)
+                        }
+                        .sheet(isPresented: $showingLovedTracks) {
+                            Text("Here be loved tracks")
                         }
                 }
             } else {

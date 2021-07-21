@@ -19,7 +19,7 @@
 		820455DE267AB7D70009A418 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DD267AB7D70009A418 /* ProfileView.swift */; };
 		820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DF267ABC930009A418 /* AuthViewModel.swift */; };
 		8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939C2694A4C2007A21C8 /* LoginGuardView.swift */; };
-		821493A02694C349007A21C8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939F2694C349007A21C8 /* UserViewModel.swift */; };
+		821493A02694C349007A21C8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939F2694C349007A21C8 /* ProfileViewModel.swift */; };
 		821493A22694C38E007A21C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A12694C38E007A21C8 /* User.swift */; };
 		821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A32694C427007A21C8 /* UserInfoResponse.swift */; };
 		8226AB2226998A86007ECE5F /* TopCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */; };
@@ -98,7 +98,7 @@
 		820455DD267AB7D70009A418 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		820455DF267ABC930009A418 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8214939C2694A4C2007A21C8 /* LoginGuardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuardView.swift; sourceTree = "<group>"; };
-		8214939F2694C349007A21C8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		8214939F2694C349007A21C8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		821493A12694C38E007A21C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		821493A32694C427007A21C8 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
 		8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryViewModel.swift; sourceTree = "<group>"; };
@@ -395,7 +395,7 @@
 				82F0D54C2697AAC7007CEA98 /* SearchViewModel.swift */,
 				8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */,
 				82BBD2472698B37F009B42FC /* TrendsViewModel.swift */,
-				8214939F2694C349007A21C8 /* UserViewModel.swift */,
+				8214939F2694C349007A21C8 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -513,7 +513,7 @@
 				82C282E426A32B07000E5F41 /* FriendsView.swift in Sources */,
 				825F0F9C26A5EABE007BA84B /* SpotifyArtist.swift in Sources */,
 				8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */,
-				821493A02694C349007A21C8 /* UserViewModel.swift in Sources */,
+				821493A02694C349007A21C8 /* ProfileViewModel.swift in Sources */,
 				82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */,
 				821493A22694C38E007A21C8 /* User.swift in Sources */,
 				825F0FC726A74632007BA84B /* SimilarArtistsView.swift in Sources */,

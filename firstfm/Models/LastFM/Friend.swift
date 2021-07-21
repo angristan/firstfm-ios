@@ -18,7 +18,7 @@ struct Registered: Codable {
         case unixtime
         case text = "#text"
     }
-    
+
     func getRelative() -> String {
         let unixTimestamp = Double(self.unixtime)!
         let date = Date(timeIntervalSince1970: unixTimestamp)

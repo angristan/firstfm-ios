@@ -16,7 +16,7 @@ struct Scrobbles: View {
                             label: {
                                 ScrobbledTrackRow(track: track)
                             })
-                    }.navigationTitle("Scrobbles").onAppear {
+                    }.navigationTitle("Your scrobbles").onAppear {
                         if !scrobblesLoaded {
                             vm.getUserScrobbles()
                             // Prevent loading again when navigating
