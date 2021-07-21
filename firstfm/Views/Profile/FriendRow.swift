@@ -7,7 +7,7 @@ struct FriendRow: View {
     var body: some View {
         HStack {
             if friend.image[2].url == "" {
-                Image(systemName: "person.crop.circle")
+                Image(systemName: "person.crop.circle").scaleEffect(2)
             } else {
                 KFImage.url(URL(string: friend.image[0].url )!)
                     .resizable()
@@ -28,7 +28,7 @@ struct FriendRow: View {
                 Text(friend.name).font(.headline)
                     .lineLimit(1)
                 Spacer()
-                Text("Joined \(friend.registered.text)")
+                Text("Joined \(friend.registered.getRelative())")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

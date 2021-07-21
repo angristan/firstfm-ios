@@ -18,4 +18,13 @@ struct Registered: Codable {
         case unixtime
         case text = "#text"
     }
+    
+    func getRelative() -> String {
+        let unixTimestamp = Double(self.unixtime)!
+        let date = Date(timeIntervalSince1970: unixTimestamp)
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        let relativeDate = formatter.localizedString(for: date, relativeTo: Date())
+        return relativeDate
+    }
 }
