@@ -31,7 +31,7 @@ struct ArtistRow: View {
                 Text(artist.name).font(.headline)
                     .lineLimit(1)
                 Spacer()
-                Text("\(String(format: "%ld", locale: Locale.current, (artist.listeners as NSString).integerValue) ) listeners")
+                Text("\(Int(artist.listeners ?? "0")?.formatted() ?? "0") listeners")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

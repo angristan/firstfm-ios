@@ -32,7 +32,7 @@ struct TrackRow: View {
                     .font(.headline)
                     .lineLimit(1)
                 Spacer()
-                Text("\(String(format: "%ld", locale: Locale.current, (track.listeners as NSString).integerValue) ) listeners")
+                Text("\(Int(track.listeners )?.formatted() ?? "0") listeners")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

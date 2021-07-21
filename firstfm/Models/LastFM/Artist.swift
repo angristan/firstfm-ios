@@ -5,7 +5,7 @@ struct Artist: Codable, Identifiable {
     var mbid: String
     var name: String
     var playcount: String?
-    var listeners: String
+    var listeners: String?
     var image: [LastFMImage]
 }
 

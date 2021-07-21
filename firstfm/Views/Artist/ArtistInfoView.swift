@@ -10,7 +10,7 @@ struct ArtistInfoView: View {
             Text("\(Int(artist.playcount ?? "0")?.formatted() ?? "0") scrobbles")
                 .font(.subheadline)
                 .foregroundColor(.gray)
-            Text("\(Int(artist.listeners)?.formatted() ?? "0") listeners")
+            Text("\(Int(artist.listeners ?? "0")?.formatted() ?? "0") listeners")
                 .font(.subheadline)
                 .foregroundColor(.gray)
         }
