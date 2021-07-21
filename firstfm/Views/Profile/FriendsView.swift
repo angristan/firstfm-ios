@@ -14,7 +14,7 @@ struct FriendsView: View {
                             FriendRow(friend: friend)
                         })
                     }.navigationTitle("Friends").onAppear {
-                        vm.getFriends(username: vm.user?.name ?? "")
+                        vm.getFriends(vm.user?.name ?? "")
                     }
                 }
 

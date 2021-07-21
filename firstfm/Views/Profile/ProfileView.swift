@@ -11,17 +11,17 @@ struct ProfileView: View {
 
     @ViewBuilder
     var body: some View {
-        ZStack {
-            if auth.isLoggedIn() {
-                NavigationView {
-                    ZStack {
-                        VStack {
-                            if let user = profile.user {
+        GeometryReader { g in
+            ZStack {
+                if auth.isLoggedIn() {
+                    NavigationView {
+                        ZStack {
+                            VStack {
                                 ScrollView {
                                     GeometryReader { geometry in
                                         ZStack {
                                             if geometry.frame(in: .global).minY <= 0 {
-                                                KFImage.url(URL(string: "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
+                                                KFImage.url(URL(string: !self.profile.topArtists.isEmpty ? self.profile.topArtists[0].image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
                                                     .resizable()
                                                     .loadImmediately()
                                                     .aspectRatio(contentMode: .fill)
@@ -29,9 +29,9 @@ struct ProfileView: View {
                                                     .frame(width: geometry.size.width, height: geometry.size.height)
                                                     .offset(y: geometry.frame(in: .global).minY/9)
                                                     .clipped()
-                                                    .blur(radius: 5)
+                                                    .blur(radius: 3)
                                             } else {
-                                                KFImage.url(URL(string: "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
+                                                KFImage.url(URL(string: !self.profile.topArtists.isEmpty ? self.profile.topArtists[0].image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
                                                     .resizable()
                                                     .loadImmediately()
                                                     .aspectRatio(contentMode: .fill)
@@ -39,18 +39,18 @@ struct ProfileView: View {
                                                     .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
                                                     .clipped()
                                                     .offset(y: -geometry.frame(in: .global).minY)
-                                                    .blur(radius: 5)
+                                                    .blur(radius: 3)
                                             }
-                                        }
+                                        } .redacted(reason: self.profile.topArtists.isEmpty ? .placeholder : [])
                                     }
                                     .frame(height: 250)
                                     VStack(alignment: .leading) {
                                         HStack {
-                                            KFImage.url(URL(string: user.image[3].url )!)
+                                            KFImage.url(URL(string: profile.user?.image[3].url ?? "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp" )!)
                                                 .resizable()
                                                 .loadImmediately()
                                                 .aspectRatio(contentMode: .fill)
-                                                .frame(width: 120, height: 120)
+                                                .frame(width: 130, height: 130)
                                                 .clipped()
                                                 .cornerRadius(10)
                                                 .padding(.trailing, 10)
@@ -60,78 +60,132 @@ struct ProfileView: View {
                                                     .font(.custom("AvenirNext-Demibold", size: 18))
 
                                                 Spacer()
-                                                Text("Joined \(user.registered.getRelative())")
+                                                Text("Joined \(profile.user?.registered.getRelative() ?? "unkown time ago")")
                                                     .font(.custom("AvenirNext-Regular", size: 15))
                                                     .foregroundColor(.gray)
-                                                Text("\(Int(user.playcount)?.formatted() ?? "0") scrobbles")
+                                                Text("\(Int(profile.user?.playcount ?? "0")?.formatted() ?? "0") scrobbles")
                                                     .font(.custom("AvenirNext-Regular", size: 15))
                                                     .foregroundColor(.gray)
 
                                             }
                                             Spacer()
                                         }
-                                        .offset(y: -50)
+                                        .offset(y: -65)
                                     }
+                                    .redacted(reason: profile.user == nil ? .placeholder : [])
                                     .frame(width: 350)
+                                    List {
+                                        Section {
+                                            Text("Last scrobbles").font(.headline).unredacted()
+                                            if !profile.scrobbles.isEmpty {
+                                                ForEach(profile.scrobbles, id: \.name) {track in
+                                                    NavigationLink(
+                                                        destination: Color(.blue),
+                                                        label: {
+                                                        ScrobbledTrackRow(track: track)
+                                                    })
+                                                }
+                                            } else {
+                                                // Placeholder for redacted
+                                                ForEach((1...5), id: \.self) {_ in
+                                                    NavigationLink(
+                                                        destination: Color(.red),
+                                                        label: {
+                                                        ScrobbledTrackRow(track: ScrobbledTrack(
+                                                            name: "toto",
+                                                            url: "123",
+                                                            image: [
+                                                                LastFMImage(
+                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                    size: "lol"
+                                                                ),
+                                                                LastFMImage(
+                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                    size: "lol"
+                                                                ),
+                                                                LastFMImage(
+                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                    size: "lol"
+                                                                ),
+                                                                LastFMImage(
+                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                    size: "lol"
+                                                                )
+                                                            ],
+                                                            artist: ScrobbledArtist(
+                                                                mbid: "",
+                                                                name: "Artist"
+                                                            ),
+                                                            date: nil
+                                                        ))
+                                                    })
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .redacted(reason: profile.scrobbles.isEmpty ? .placeholder : [])
+                                    .frame(
+                                        width: g.size.width - 5,
+                                        height: g.size.height * 0.7,
+                                        alignment: .center
+                                    )
+                                    .offset(y: -70)
                                 }
                                 .edgesIgnoringSafeArea(.top)
+                            }.edgesIgnoringSafeArea(.top)
+                                .navigationBarTitle("")
+                        }
+                        .onAppear {
+                            if let username = storedUsername {
+                                self.profile.getAll(username)
                             }
-                        }.edgesIgnoringSafeArea(.top)
-                            .navigationBarTitle("")
-                        // Show loader above the rest of the ZStack
-                        if profile.isLoading {
-                            ProgressView().scaleEffect(2)
-                        }
-                    }.onAppear {
-                        if let username = storedUsername {
-                            self.profile.getProfile(username: username)
-                        }
-                    }.navigationTitle("Your profile")
-                        .navigationBarItems(trailing: HStack {
-                            Button(action: {
-                                if let storedUsername = storedUsername {
-                                    // getlovedtracks
-                                    showingLovedTracks.toggle()
+                        }.navigationTitle("Your profile")
+                            .navigationBarItems(trailing: HStack {
+                                Button(action: {
+                                    if let storedUsername = storedUsername {
+                                        // getlovedtracks
+                                        showingLovedTracks.toggle()
+                                    }
+                                }) {
+                                    Image(systemName: "heart").imageScale(.large).foregroundColor(.white)
                                 }
-                            }) {
-                                Image(systemName: "heart").imageScale(.large).foregroundColor(.white)
-                            }
-                            Button(action: {
-                                if let storedUsername = storedUsername {
-                                    profile.getFriends(username: storedUsername)
-                                    showingFriends.toggle()
+                                Button(action: {
+                                    if let storedUsername = storedUsername {
+                                        profile.getFriends(storedUsername)
+                                        showingFriends.toggle()
+                                    }
+                                }) {
+                                    Image(systemName: "person.2").imageScale(.large).foregroundColor(.white)
                                 }
-                            }) {
-                                Image(systemName: "person.2").imageScale(.large).foregroundColor(.white)
+                                Button(action: {
+                                    showingSettings.toggle()
+                                }) {
+                                    Image(systemName: "gear").imageScale(.large).foregroundColor(.white)
+                                }
                             }
-                            Button(action: {
-                                showingSettings.toggle()
-                            }) {
-                                Image(systemName: "gear").imageScale(.large).foregroundColor(.white)
+                            )
+                            .sheet(isPresented: $showingSettings) {
+                                Text("Here settings aka logout button")
+                                Button(action: {
+                                    storedUsername = nil
+                                }) {
+                                    LogoutButton()
+                                }
                             }
-                        }
-                        )
-                        .sheet(isPresented: $showingSettings) {
-                            Text("Here settings aka logout button")
-                            Button(action: {
-                                storedUsername = nil
-                            }) {
-                                LogoutButton()
+                            .sheet(isPresented: $showingFriends) {
+                                FriendsView().environmentObject(profile)
                             }
-                        }
-                        .sheet(isPresented: $showingFriends) {
-                            FriendsView().environmentObject(profile)
-                        }
-                        .sheet(isPresented: $showingLovedTracks) {
-                            Text("Here be loved tracks")
+                            .sheet(isPresented: $showingLovedTracks) {
+                                Text("Here be loved tracks")
+                            }
+                    }
+                } else {
+                    LoginGuardView()
+                        .tabItem {
+                            Text("Profile")
+                            Image(systemName: "person.crop.circle")
                         }
                 }
-            } else {
-                LoginGuardView()
-                    .tabItem {
-                        Text("Profile")
-                        Image(systemName: "person.crop.circle")
-                    }
             }
         }
     }

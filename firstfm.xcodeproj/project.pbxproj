@@ -24,6 +24,7 @@
 		821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A32694C427007A21C8 /* UserInfoResponse.swift */; };
 		8226AB2226998A86007ECE5F /* TopCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */; };
 		8226AB2426998FAB007ECE5F /* TopCountryArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */; };
+		822E9A8A26A89BFE00C5307B /* UserTopArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -103,6 +104,7 @@
 		821493A32694C427007A21C8 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
 		8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryViewModel.swift; sourceTree = "<group>"; };
 		8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryArtistsResponse.swift; sourceTree = "<group>"; };
+		822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopArtistsResponse.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */,
 				82A006B9267963010009BD71 /* TopTrackResponse.swift */,
 				821493A32694C427007A21C8 /* UserInfoResponse.swift */,
+				822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -387,15 +390,15 @@
 		82D512F22674FEB600206EBB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				820455DF267ABC930009A418 /* AuthViewModel.swift */,
 				4A69011526A34477001561C8 /* ArtistViewModel.swift */,
+				820455DF267ABC930009A418 /* AuthViewModel.swift */,
 				82FBAE482674BB55000D8E29 /* ChartViewModel.swift */,
+				8214939F2694C349007A21C8 /* ProfileViewModel.swift */,
 				82C282EB26A370D2000E5F41 /* ScobbledTrackViewModel.swift */,
 				82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */,
 				82F0D54C2697AAC7007CEA98 /* SearchViewModel.swift */,
 				8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */,
 				82BBD2472698B37F009B42FC /* TrendsViewModel.swift */,
-				8214939F2694C349007A21C8 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				4A69011C26A34962001561C8 /* ArtistTopTracksResponse.swift in Sources */,
 				82A006C1267963BB0009BD71 /* SpotifyImage.swift in Sources */,
 				82C282E026A2E474000E5F41 /* LoginResponse.swift in Sources */,
+				822E9A8A26A89BFE00C5307B /* UserTopArtistsResponse.swift in Sources */,
 				4A56027A26A3B17800E6C315 /* AlbumRow.swift in Sources */,
 				82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */,
 				825F0F8B26A5B6E1007BA84B /* NumberFormat.swift in Sources */,
