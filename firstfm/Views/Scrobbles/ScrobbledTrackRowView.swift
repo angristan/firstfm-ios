@@ -20,6 +20,7 @@ struct ScrobbledTrackRow: View {
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
                 .frame(width: 60, height: 60)
+                .padding(.trailing, 10)
 
             VStack(alignment: .leading) {
                 Spacer()
