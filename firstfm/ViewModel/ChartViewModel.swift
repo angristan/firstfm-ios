@@ -14,13 +14,13 @@ class ChartViewModel: ObservableObject {
         reset()
 
         LastFMAPI.request(lastFMMethod: "chart.getTopArtists", args: ["limit": "30"]) { (data: TopArtistsResponse?, error) -> Void in
-            self.isLoading = false
 
             if error != nil {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
                     self.artists = self.artists
+                    self.isLoading = false
                 }
             }
 
@@ -33,6 +33,7 @@ class ChartViewModel: ObservableObject {
 
                 DispatchQueue.main.async {
                     self.artists = artists
+                    self.isLoading = false
                 }
 
                 for (index, artist) in data.artists.artist.enumerated() {
@@ -53,18 +54,20 @@ class ChartViewModel: ObservableObject {
         reset()
 
         LastFMAPI.request(lastFMMethod: "chart.getTopTracks", args: ["limit": "30"]) { (data: TopTrackResponse?, error) -> Void in
-            self.isLoading = false
+
             if error != nil {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
                     self.tracks = self.tracks
+                    self.isLoading = false
                 }
             }
 
             if let data = data {
                 DispatchQueue.main.async {
                     self.tracks = data.tracks.track
+                    self.isLoading = false
                 }
 
                 for (index, track) in data.tracks.track.enumerated() {

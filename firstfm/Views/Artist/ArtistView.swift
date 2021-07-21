@@ -26,6 +26,7 @@ struct ArtistView: View {
                     VStack(alignment: .leading) {
                         ArtistInfoView(artistInfo: model.artist, artist: artist)
                             .padding()
+                            .redacted(reason: model.isLoading ? .placeholder : [])
 
                         TopArtistTracksView(tracks: model.tracks)
                             .frame(
@@ -33,22 +34,20 @@ struct ArtistView: View {
                                 height: g.size.height * 0.7,
                                 alignment: .center
                             )
+                            .redacted(reason: model.isLoading ? .placeholder : [])
 
                         TopArtistAlbumsView(albums: model.albums).offset(y: -50)
+                            .redacted(reason: model.isLoading ? .placeholder : [])
 
                         SimilarArtistsView(similarArtists: model.artist?.similar.artist ?? [])
                             .offset(y: -30)
+                            .redacted(reason: model.isLoading ? .placeholder : [])
 
                     }.padding(.top, 10)
                         .onAppear {
                             self.model.getAll(artist)
                         }
                 }.navigationTitle(artist.name)
-            }.opacity(model.isLoading ? 0 : 1)
-
-            // Show loader above the rest of the ZStack
-            if model.isLoading {
-                ProgressView().scaleEffect(2)
             }
         }
     }
