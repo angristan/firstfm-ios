@@ -25,6 +25,7 @@
 		8226AB2226998A86007ECE5F /* TopCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */; };
 		8226AB2426998FAB007ECE5F /* TopCountryArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */; };
 		822E9A8A26A89BFE00C5307B /* UserTopArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */; };
+		822E9A8C26A8CFAC00C5307B /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A8B26A8CFAC00C5307B /* TrackView.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -105,6 +106,7 @@
 		8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryViewModel.swift; sourceTree = "<group>"; };
 		8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryArtistsResponse.swift; sourceTree = "<group>"; };
 		822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopArtistsResponse.swift; sourceTree = "<group>"; };
+		822E9A8B26A8CFAC00C5307B /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				82505CDD2675074E00CCCB58 /* ChartListView.swift */,
 				82505CDE2675074E00CCCB58 /* ContentView.swift */,
 				82A006C426797C3E0009BD71 /* SearchView.swift */,
+				822E9A8B26A8CFAC00C5307B /* TrackView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -567,6 +570,7 @@
 				82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */,
 				825F0F8926A4B2E0007BA84B /* ArtistInfoResponse.swift in Sources */,
 				82C282E826A3332E000E5F41 /* FriendsResponse.swift in Sources */,
+				822E9A8C26A8CFAC00C5307B /* TrackView.swift in Sources */,
 				820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */,
 				825F0FC526A74539007BA84B /* TopArtistAlbumsView.swift in Sources */,
 				4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */,

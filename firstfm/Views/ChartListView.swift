@@ -49,7 +49,7 @@ struct ChartList: View {
                     if selectedChartsIndex == 1 {
                         List(charts.tracks) { track in
                             NavigationLink(
-                                destination: Color(.blue),
+                                destination: TrackView(track: track),
                                 label: {
                                     TrackRow(track: track)
                                 })
