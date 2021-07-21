@@ -26,6 +26,7 @@
 		8226AB2426998FAB007ECE5F /* TopCountryArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */; };
 		822E9A8A26A89BFE00C5307B /* UserTopArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */; };
 		822E9A8C26A8CFAC00C5307B /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A8B26A8CFAC00C5307B /* TrackView.swift */; };
+		822E9A8E26A8D5F300C5307B /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A8D26A8D5F300C5307B /* AlbumView.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -107,6 +108,7 @@
 		8226AB2326998FAB007ECE5F /* TopCountryArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryArtistsResponse.swift; sourceTree = "<group>"; };
 		822E9A8926A89BFE00C5307B /* UserTopArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopArtistsResponse.swift; sourceTree = "<group>"; };
 		822E9A8B26A8CFAC00C5307B /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		822E9A8D26A8D5F300C5307B /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				82505CDE2675074E00CCCB58 /* ContentView.swift */,
 				82A006C426797C3E0009BD71 /* SearchView.swift */,
 				822E9A8B26A8CFAC00C5307B /* TrackView.swift */,
+				822E9A8D26A8D5F300C5307B /* AlbumView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -553,6 +556,7 @@
 				82D5B4D62696E0E100716931 /* ScrobbledTrackRowView.swift in Sources */,
 				82A006C526797C3E0009BD71 /* SearchView.swift in Sources */,
 				821493A42694C427007A21C8 /* UserInfoResponse.swift in Sources */,
+				822E9A8E26A8D5F300C5307B /* AlbumView.swift in Sources */,
 				82C282EA26A3354E000E5F41 /* FriendRow.swift in Sources */,
 				82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */,
 				825F0F8D26A5E8BB007BA84B /* ArtistInfo.swift in Sources */,
