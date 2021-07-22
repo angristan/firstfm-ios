@@ -10,7 +10,7 @@ struct TopArtistTracksView: View {
                 if !tracks.isEmpty {
                     ForEach(tracks, id: \.name) { track in
                         NavigationLink(
-                            destination: Color(.red),
+                            destination: TrackView(track: track),
                             label: {
                             TrackRow(track: track)
                         })

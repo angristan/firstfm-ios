@@ -80,7 +80,7 @@ struct ProfileView: View {
                                             if !profile.scrobbles.isEmpty {
                                                 ForEach(profile.scrobbles, id: \.name) {track in
                                                     NavigationLink(
-                                                        destination: Color(.blue),
+                                                        destination: TrackView(track: Track(name: track.name, playcount: "0", listeners: "", url: "", artist: nil, image: track.image)),
                                                         label: {
                                                         ScrobbledTrackRow(track: track)
                                                     })
