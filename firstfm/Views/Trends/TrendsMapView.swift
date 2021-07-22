@@ -8,10 +8,10 @@ struct TrendsMapView: View {
 
     @State var coordinateRegion: MKCoordinateRegion = {
         var newRegion = MKCoordinateRegion()
-        newRegion.center.latitude = 37.786996
-        newRegion.center.longitude = -122.440100
-        newRegion.span.latitudeDelta = 0.2
-        newRegion.span.longitudeDelta = 0.2
+        newRegion.center.latitude = 48.5776871
+        newRegion.center.longitude = 2.2225161
+        newRegion.span.latitudeDelta = 20
+        newRegion.span.longitudeDelta = 20
         return newRegion
     }()
 
@@ -28,7 +28,7 @@ struct TrendsMapView: View {
                         countryVM.getTopArtists(country: item.country)
                         showingSheet.toggle()
                     }) {
-                        Text(item.country.emoji())
+                        Text(item.country.emoji()).font(.system(size: 20))
                     }
                     .sheet(isPresented: $showingSheet) {
                         TopCountryView()
