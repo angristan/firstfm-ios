@@ -6,5 +6,11 @@ struct Tags: Codable {
 
 struct Tag: Codable {
     let name: String
-    let url: String
+    let url: String?
+    let total, reach: Int?
+    let wiki: TagWiki?
+}
+
+struct TagWiki: Codable {
+    let summary, content: String
 }

@@ -20,30 +20,27 @@ struct ArtistInfoView: View {
             HStack {
                 if let artistInfo = artistInfo {
                     ForEach(artistInfo.tags.tag, id: \.name) {tag in
-                        Button(action: {}) {
-                            HStack {
-                                Text(tag.name)
-                            }
-                        }
-                        .padding(10)
-                        .foregroundColor(.white)
-                        .background(Color.gray)
-                        .cornerRadius(.infinity)
-                        .lineLimit(1)
+                        NavigationLink(
+                            destination: TagView(tag: tag),
+                            label: {
+                            Text(tag.name)
+                                .padding(10)
+                                .foregroundColor(.white)
+                                .background(Color.gray)
+                                .cornerRadius(.infinity)
+                                .lineLimit(1)
+                        })
+
                     }
                 } else {
                     // Placeholder for redacted
                     ForEach(["pop", "synthpop", "female vocalist", "indie"], id: \.self) {tag in
-                        Button(action: {}) {
-                            HStack {
-                                Text(tag)
-                            }
-                        }
-                        .padding(10)
-                        .foregroundColor(.white)
-                        .background(Color.gray)
-                        .cornerRadius(.infinity)
-                        .lineLimit(1)
+                        Text(tag)
+                            .padding(10)
+                            .foregroundColor(.white)
+                            .background(Color.gray)
+                            .cornerRadius(.infinity)
+                            .lineLimit(1)
                     }
                 }
             }
