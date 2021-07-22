@@ -3,19 +3,33 @@ import SwiftUI
 struct SearchView: View {
     @ObservedObject var search = SearchViewModel()
     @State var searchString: String = ""
+    @State private var selectedSearchType = 0
 
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Start typing",
+                    TextField("Justin Bieber, Micheal Jackson...",
                               text: $searchString,
                               onCommit: { self.performSearch() })
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: { self.performSearch() }) {
                         Image(systemName: "magnifyingglass")
                     }
-                }.padding()
+                }
+                .padding()
+
+                // Not actually working
+                Picker("Search type",
+                       selection: $selectedSearchType,
+                       content: {
+                    Text("Artists").tag(0)
+                    Text("Albums").tag(1)
+                    Text("Tracks").tag(2)
+                }).padding(.horizontal, 20)
+                    .padding(.vertical, 5)
+                    .pickerStyle(SegmentedPickerStyle())
+
                 List {
                     ForEach(search.artists) { artist in
                         NavigationLink(
@@ -25,8 +39,7 @@ struct SearchView: View {
                         })
                     }
                 }
-                .navigationBarTitle("")
-                .navigationBarHidden(true)
+                .navigationBarTitle("Search")
             }
         }
     }
