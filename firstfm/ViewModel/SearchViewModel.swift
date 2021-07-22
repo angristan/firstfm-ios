@@ -7,6 +7,10 @@ class SearchViewModel: ObservableObject {
     func searchForArtist(artist: String) {
         self.isLoading = true
 
+        if artist == "" {
+            self.artists = []
+        }
+
         LastFMAPI.request(lastFMMethod: "artist.search", args: ["artist": artist]) { (data: ArtistSearchResponse?, _) -> Void in
             self.isLoading = false
 
