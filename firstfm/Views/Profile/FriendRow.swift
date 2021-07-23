@@ -7,7 +7,9 @@ struct FriendRow: View {
     var body: some View {
         HStack {
             if friend.image[2].url == "" {
-                Image(systemName: "person.crop.circle").scaleEffect(2)
+                Image(systemName: "person.crop.circle")
+                    .scaleEffect(2)
+                    .frame(width: 50, height: 50)
             } else {
                 KFImage.url(URL(string: friend.image[0].url )!)
                     .resizable()
