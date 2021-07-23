@@ -23,7 +23,7 @@ struct TopArtistAlbumsView: View {
                                     .cornerRadius(5)
                                     .aspectRatio(contentMode: .fill)
                                 Text(album.name).font(.headline).lineLimit(1).foregroundColor(.white)
-                                Text("\(String(format: "%ld", locale: Locale.current, album.playcount) ) listeners")
+                                Text("\(Int(exactly: album.playcount)?.formatted() ?? "0") scrobbles")
                                     .font(.subheadline)
                                     .foregroundColor(.gray).lineLimit(1)
                             }
