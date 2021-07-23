@@ -13,12 +13,12 @@ struct FriendsView: View {
                             label: {
                             FriendRow(friend: friend)
                         })
-                    }.navigationTitle("Friends").onAppear {
+                    }.navigationBarTitle("Friends", displayMode: .inline).onAppear {
                         vm.getFriends(vm.user?.name ?? "")
                     }
                 }
 
-                if vm.isFriendsLoading {
+                if vm.friends.isEmpty {
                     ProgressView().scaleEffect(2)
                 }
             }
