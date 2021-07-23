@@ -82,8 +82,8 @@ struct ProfileView: View {
                                                     NavigationLink(
                                                         destination: TrackView(track: Track(name: track.name, playcount: "0", listeners: "", url: "", artist: nil, image: track.image)),
                                                         label: {
-                                                        ScrobbledTrackRow(track: track)
-                                                    })
+                                                            ScrobbledTrackRow(track: track)
+                                                        })
                                                 }
                                             } else {
                                                 // Placeholder for redacted
@@ -91,34 +91,34 @@ struct ProfileView: View {
                                                     NavigationLink(
                                                         destination: Color(.red),
                                                         label: {
-                                                        ScrobbledTrackRow(track: ScrobbledTrack(
-                                                            name: "toto",
-                                                            url: "123",
-                                                            image: [
-                                                                LastFMImage(
-                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                    size: "lol"
+                                                            ScrobbledTrackRow(track: ScrobbledTrack(
+                                                                name: "toto",
+                                                                url: "123",
+                                                                image: [
+                                                                    LastFMImage(
+                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                        size: "lol"
+                                                                    ),
+                                                                    LastFMImage(
+                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                        size: "lol"
+                                                                    ),
+                                                                    LastFMImage(
+                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                        size: "lol"
+                                                                    ),
+                                                                    LastFMImage(
+                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
+                                                                        size: "lol"
+                                                                    )
+                                                                ],
+                                                                artist: ScrobbledArtist(
+                                                                    mbid: "",
+                                                                    name: "Artist"
                                                                 ),
-                                                                LastFMImage(
-                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                    size: "lol"
-                                                                ),
-                                                                LastFMImage(
-                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                    size: "lol"
-                                                                ),
-                                                                LastFMImage(
-                                                                    url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                    size: "lol"
-                                                                )
-                                                            ],
-                                                            artist: ScrobbledArtist(
-                                                                mbid: "",
-                                                                name: "Artist"
-                                                            ),
-                                                            date: nil
-                                                        ))
-                                                    })
+                                                                date: nil
+                                                            ))
+                                                        })
                                                 }
                                             }
                                         }
@@ -180,11 +180,7 @@ struct ProfileView: View {
                             }
                     }
                 } else {
-                    LoginGuardView()
-                        .tabItem {
-                            Text("Profile")
-                            Image(systemName: "person.crop.circle")
-                        }
+                    ProfileLoggedOutView()
                 }
             }
         }
