@@ -20,13 +20,13 @@ struct ScrobbledTrackRow: View {
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
                 .frame(width: 60, height: 60)
-                .padding(.trailing, 10)
+                .padding(.trailing, 5)
 
             VStack(alignment: .leading) {
                 Spacer()
                 HStack {
                     Text(track.name)
-                        .font(.headline)
+                        .font(.system(size: 16, weight: .semibold))
                         .lineLimit(1)
                 }
                 Spacer()
@@ -40,6 +40,7 @@ struct ScrobbledTrackRow: View {
                         .foregroundColor(.gray)
                         .frame(alignment: .leading)
                 }
+                Spacer()
             }
             Button(action: {
                 let hapticFeedback = UIImpactFeedbackGenerator(style: .light)
