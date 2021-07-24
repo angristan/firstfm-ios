@@ -27,6 +27,6 @@ struct TopArtistTracksView: View {
                 }
 
             }
-        }
+        }.hasScrollEnabled(false)
     }
 }

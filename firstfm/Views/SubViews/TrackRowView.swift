@@ -25,7 +25,9 @@ struct TrackRow: View {
                 .fade(duration: 0.5)
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
-                .frame(width: 50, height: 50)
+                .frame(width: 60, height: 60)
+                .padding(.trailing, 5)
+
             VStack(alignment: .leading) {
                 Spacer()
                 Text(track.name)
