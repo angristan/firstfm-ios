@@ -58,14 +58,14 @@ struct ProfileView: View {
                                             VStack(alignment: .leading) {
 
                                                 Text("@\(storedUsername ?? "username")")
-                                                    .font(.custom("AvenirNext-Demibold", size: 18))
+                                                    .font(.custom("AvenirNext-Demibold", size: 20))
 
                                                 Spacer()
                                                 Text("Joined \(profile.user?.registered.getRelative() ?? "unkown time ago")")
-                                                    .font(.custom("AvenirNext-Regular", size: 15))
+                                                    .font(.custom("AvenirNext-Regular", size: 16))
                                                     .foregroundColor(.gray)
                                                 Text("\(Int(profile.user?.playcount ?? "0")?.formatted() ?? "0") scrobbles")
-                                                    .font(.custom("AvenirNext-Regular", size: 15))
+                                                    .font(.custom("AvenirNext-Regular", size: 16))
                                                     .foregroundColor(.gray)
 
                                             }
@@ -86,7 +86,7 @@ struct ProfileView: View {
 
                                     TopUserArtistsView(artists: profile.topArtists)
                                         .environmentObject(profile)
-                                        .offset(y: -70)
+                                        .offset(y: -90)
                                 }
                                 .edgesIgnoringSafeArea(.top)
                             }.edgesIgnoringSafeArea(.top)

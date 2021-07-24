@@ -9,11 +9,15 @@ struct LastUserScrobblesView: View {
             Section {
                 Text("Last scrobbles").font(.headline).unredacted()
                 if !scrobbles.isEmpty {
-                    ForEach(scrobbles, id: \.name) {track in
+                    // Why 0 to 4? Because even if we ask the last.fm API for n tracks,
+                    // it will return n tracks OR n tracks + now playing track :|
+                    // Since it messes with the layout we query the API for 5 (+1) tracks
+                    // and display at most 5.
+                    ForEach((0...4), id: \.self) {i in
                         NavigationLink(
-                            destination: TrackView(track: Track(name: track.name, playcount: "0", listeners: "", url: "", artist: nil, image: track.image)),
+                            destination: TrackView(track: Track(name: scrobbles[i].name, playcount: "0", listeners: "", url: "", artist: nil, image: scrobbles[i].image)),
                             label: {
-                                ScrobbledTrackRow(track: track)
+                                ScrobbledTrackRow(track: scrobbles[i])
                             })
                     }
                 } else {
@@ -53,7 +57,7 @@ struct LastUserScrobblesView: View {
                     }
                 }
             }
-        }
+        }.hasScrollEnabled(false)
         .redacted(reason: scrobbles.isEmpty ? .placeholder : [])
     }
 }

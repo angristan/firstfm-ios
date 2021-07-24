@@ -64,7 +64,7 @@ class ProfileViewModel: ObservableObject {
         let storedToken = try? myValet.string(forKey: "sk")
 
         LastFMAPI.request(lastFMMethod: "user.getRecentTracks", args: [
-            "limit": "4",
+            "limit": "5",
             "extended": "1",
             "user": storedUsername ?? "",
             "sk": storedToken ?? ""
