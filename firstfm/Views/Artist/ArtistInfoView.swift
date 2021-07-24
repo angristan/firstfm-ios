@@ -7,10 +7,10 @@ struct ArtistInfoView: View {
 
     var body: some View {
         HStack {
-            Text("\(Int(artist.playcount ?? "0")?.formatted() ?? "0") scrobbles")
+            Text("\(artistInfo?.stats.playcount.formatted() ?? "0") scrobbles")
                 .font(.subheadline)
                 .foregroundColor(.gray)
-            Text("\(Int(artist.listeners ?? "0")?.formatted() ?? "0") listeners")
+            Text("\(artistInfo?.stats.listeners.formatted() ?? "0") listeners")
                 .font(.subheadline)
                 .foregroundColor(.gray)
         }
