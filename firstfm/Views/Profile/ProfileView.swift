@@ -8,6 +8,7 @@ struct ProfileView: View {
     @State private var showingSettings = false
     @State private var showingFriends = false
     @State private var showingLovedTracks = false
+    @State private var scrobblesPeriodPicked: Int = 5
 
     @ViewBuilder
     var body: some View {
@@ -74,68 +75,24 @@ struct ProfileView: View {
                                     }
                                     .redacted(reason: profile.user == nil ? .placeholder : [])
                                     .frame(width: 350)
-                                    List {
-                                        Section {
-                                            Text("Last scrobbles").font(.headline).unredacted()
-                                            if !profile.scrobbles.isEmpty {
-                                                ForEach(profile.scrobbles, id: \.name) {track in
-                                                    NavigationLink(
-                                                        destination: TrackView(track: Track(name: track.name, playcount: "0", listeners: "", url: "", artist: nil, image: track.image)),
-                                                        label: {
-                                                            ScrobbledTrackRow(track: track)
-                                                        })
-                                                }
-                                            } else {
-                                                // Placeholder for redacted
-                                                ForEach((1...5), id: \.self) {_ in
-                                                    NavigationLink(
-                                                        destination: Color(.red),
-                                                        label: {
-                                                            ScrobbledTrackRow(track: ScrobbledTrack(
-                                                                name: "toto",
-                                                                url: "123",
-                                                                image: [
-                                                                    LastFMImage(
-                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                        size: "lol"
-                                                                    ),
-                                                                    LastFMImage(
-                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                        size: "lol"
-                                                                    ),
-                                                                    LastFMImage(
-                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                        size: "lol"
-                                                                    ),
-                                                                    LastFMImage(
-                                                                        url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp",
-                                                                        size: "lol"
-                                                                    )
-                                                                ],
-                                                                artist: ScrobbledArtist(
-                                                                    mbid: "",
-                                                                    name: "Artist"
-                                                                ),
-                                                                date: nil
-                                                            ))
-                                                        })
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .redacted(reason: profile.scrobbles.isEmpty ? .placeholder : [])
+
+                                    LastUserScrobblesView(scrobbles: profile.scrobbles)
                                     .frame(
                                         width: g.size.width - 5,
                                         height: g.size.height * 0.7,
                                         alignment: .center
                                     )
                                     .offset(y: -70)
+
+                                    TopUserArtistsView(artists: profile.topArtists)
+                                        .environmentObject(profile)
+                                        .offset(y: -70)
                                 }
                                 .edgesIgnoringSafeArea(.top)
                             }.edgesIgnoringSafeArea(.top)
                                 .navigationBarTitle("")
                         }
-                        .onAppear {
+                        .onLoad {
                             if let username = storedUsername {
                                 self.profile.getAll(username)
                             }

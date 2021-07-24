@@ -73,6 +73,9 @@
 		82A006C526797C3E0009BD71 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A006C426797C3E0009BD71 /* SearchView.swift */; };
 		82B6CCDF26AB1795008AFDEF /* ProfileLoggedOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6CCDE26AB1795008AFDEF /* ProfileLoggedOutView.swift */; };
 		82B6CCE126AB2832008AFDEF /* SrobblesLoggedOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6CCE026AB2832008AFDEF /* SrobblesLoggedOutView.swift */; };
+		82B6CCE326AB800B008AFDEF /* LastUserScrobblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6CCE226AB800B008AFDEF /* LastUserScrobblesView.swift */; };
+		82B6CCE526AB80B4008AFDEF /* TopUserArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6CCE426AB80B4008AFDEF /* TopUserArtistsView.swift */; };
+		82B6CCE726AB8B00008AFDEF /* ViewLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6CCE626AB8B00008AFDEF /* ViewLoad.swift */; };
 		82BBD2462698B13B009B42FC /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2452698B13B009B42FC /* Country.swift */; };
 		82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2472698B37F009B42FC /* TrendsViewModel.swift */; };
 		82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2492698C33D009B42FC /* TopCountryView.swift */; };
@@ -157,6 +160,9 @@
 		82A006C426797C3E0009BD71 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		82B6CCDE26AB1795008AFDEF /* ProfileLoggedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedOutView.swift; sourceTree = "<group>"; };
 		82B6CCE026AB2832008AFDEF /* SrobblesLoggedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SrobblesLoggedOutView.swift; sourceTree = "<group>"; };
+		82B6CCE226AB800B008AFDEF /* LastUserScrobblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUserScrobblesView.swift; sourceTree = "<group>"; };
+		82B6CCE426AB80B4008AFDEF /* TopUserArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUserArtistsView.swift; sourceTree = "<group>"; };
+		82B6CCE626AB8B00008AFDEF /* ViewLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoad.swift; sourceTree = "<group>"; };
 		82BBD2452698B13B009B42FC /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		82BBD2472698B37F009B42FC /* TrendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewModel.swift; sourceTree = "<group>"; };
 		82BBD2492698C33D009B42FC /* TopCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryView.swift; sourceTree = "<group>"; };
@@ -303,6 +309,7 @@
 			children = (
 				82C282E126A31CFD000E5F41 /* StringMD5.swift */,
 				825F0F8A26A5B6E1007BA84B /* NumberFormat.swift */,
+				82B6CCE626AB8B00008AFDEF /* ViewLoad.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -315,6 +322,8 @@
 				82C282E926A3354E000E5F41 /* FriendRow.swift */,
 				825F0FA826A5F122007BA84B /* LogoutButton.swift */,
 				82B6CCDE26AB1795008AFDEF /* ProfileLoggedOutView.swift */,
+				82B6CCE226AB800B008AFDEF /* LastUserScrobblesView.swift */,
+				82B6CCE426AB80B4008AFDEF /* TopUserArtistsView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -556,6 +565,7 @@
 				825F0F9526A5E938007BA84B /* ArtistStats.swift in Sources */,
 				825F0F9126A5E8F5007BA84B /* SimilarArtist.swift in Sources */,
 				82C282EC26A370D2000E5F41 /* ScobbledTrackViewModel.swift in Sources */,
+				82B6CCE326AB800B008AFDEF /* LastUserScrobblesView.swift in Sources */,
 				82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */,
 				825F0F9E26A5EAE7007BA84B /* SpotifyAlbum.swift in Sources */,
 				82D5B4D42696DC7800716931 /* RecentTracksResponse.swift in Sources */,
@@ -582,6 +592,7 @@
 				82A006B8267960D90009BD71 /* Track.swift in Sources */,
 				825F0FA026A5EC82007BA84B /* Session.swift in Sources */,
 				822E9A9026A9788900C5307B /* TagView.swift in Sources */,
+				82B6CCE526AB80B4008AFDEF /* TopUserArtistsView.swift in Sources */,
 				82505CE72675300400CCCB58 /* SpotifyArtistSearchResponse.swift in Sources */,
 				82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */,
 				82F0D54D2697AAC7007CEA98 /* SearchViewModel.swift in Sources */,
@@ -599,6 +610,7 @@
 				825F0FC526A74539007BA84B /* TopArtistAlbumsView.swift in Sources */,
 				4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */,
 				822E9A9626A97B7200C5307B /* TagViewModel.swift in Sources */,
+				82B6CCE726AB8B00008AFDEF /* ViewLoad.swift in Sources */,
 				82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */,
 				82B6CCDF26AB1795008AFDEF /* ProfileLoggedOutView.swift in Sources */,
 				820455DC267AA8E70009A418 /* LoginView.swift in Sources */,

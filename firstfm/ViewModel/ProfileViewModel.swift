@@ -7,6 +7,7 @@ class ProfileViewModel: ObservableObject {
     @Published var friends: [Friend] = []
     @Published var scrobbles: [ScrobbledTrack] = []
     @Published var topArtists: [Artist] = []
+    @Published var scrobblesPeriodPicked: Int = 5
     var isFriendsLoading = true
 //    var isLoading = true
     @AppStorage("lastfm_username") var storedUsername: String?
@@ -17,7 +18,7 @@ class ProfileViewModel: ObservableObject {
 
         self.getProfile(username)
         self.getUserScrobbles()
-        self.getTopArtists()
+        self.getTopArtists(period: "overall")
     }
 
     func getProfile(_ username: String) {
@@ -114,9 +115,28 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func getTopArtists() {
+    func getTopArtistsForPeriodTag(tag: Int) {
+        // Reset artist to show placeholder
+        self.topArtists = []
 
-        LastFMAPI.request(lastFMMethod: "user.getTopArtists", args: ["user": storedUsername ?? "", "limit": "6", "period": "overall"]) { (data: UserTopArtistsResponse?, error) -> Void in
+        switch tag {
+        case 0:
+            self.getTopArtists(period: "7day")
+        case 1:
+            self.getTopArtists(period: "1month")
+        case 2:
+            self.getTopArtists(period: "3month")
+        case 3:
+            self.getTopArtists(period: "6month")
+        case 4:
+            self.getTopArtists(period: "12month")
+        default:
+            self.getTopArtists(period: "overall")
+        }
+    }
+
+    func getTopArtists(period: String) {
+        LastFMAPI.request(lastFMMethod: "user.getTopArtists", args: ["user": storedUsername ?? "", "limit": "6", "period": period]) { (data: UserTopArtistsResponse?, error) -> Void in
 
             if error != nil {
                 DispatchQueue.main.async {
@@ -133,20 +153,20 @@ class ProfileViewModel: ObservableObject {
                     artists[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
                 }
 
-                DispatchQueue.main.async {
-                    self.topArtists = artists
-//                    self.isLoading = false
-                }
-
                 for (index, artist) in data.topartists.artist.enumerated() {
                     // Get image URL for each artist and trigger a View update through the observed object
                     SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
-                            DispatchQueue.main.async {
-                                self.topArtists[index].image[0].url = imageURL
-                            }
+//                            DispatchQueue.main.async {
+                                artists[index].image[0].url = imageURL
+//                            }
                         }
                     }
+                }
+
+                DispatchQueue.main.async {
+                    self.topArtists = artists
+//                    self.isLoading = false
                 }
             }
         }
