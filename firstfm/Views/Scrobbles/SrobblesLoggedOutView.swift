@@ -5,7 +5,7 @@ struct SrobblesLoggedOutView: View {
         GeometryReader { _ in
             ZStack {
                 List {
-                    ForEach((1...5), id: \.self) {_ in
+                    ForEach((1...10), id: \.self) {_ in
                         NavigationLink(
                             destination: Color(.red),
                             label: {
@@ -45,7 +45,7 @@ struct SrobblesLoggedOutView: View {
                 .blur(radius: 3)
 
                 LoginGuardView()
-                    .offset(y: 200)
+//                    .offset(y: 200)
                     .tabItem {
                         Text("Profile")
                         Image(systemName: "person.crop.circle")
