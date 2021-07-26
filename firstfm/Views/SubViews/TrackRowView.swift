@@ -6,8 +6,6 @@ struct TrackRow: View {
 
     var body: some View {
         HStack {
-            //            KFImage(URL(string: artist.image[0].url )!).resizable()
-            //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: track.image[0].url )!)
                 .resizable()
                 .loadImmediately()
@@ -17,11 +15,6 @@ struct TrackRow: View {
                 .onFailure { err in
                     print("Error \(self.track.name): \(err)")
                 }
-//                .placeholder {
-//                    ProgressView()
-//                        .frame(width: 50, height: 50)
-//                        .foregroundColor(.gray)
-//                }
                 .fade(duration: 0.5)
                 .cancelOnDisappear(true)
                 .cornerRadius(5)
@@ -34,7 +27,7 @@ struct TrackRow: View {
                     .font(.headline)
                     .lineLimit(1)
                 Spacer()
-                Text("\(Int(track.listeners )?.formatted() ?? "0") listeners")
+                Text("\(Int(track.playcount ?? "0" )?.formatted() ?? "0") scrobbles")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

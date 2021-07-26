@@ -77,16 +77,26 @@ struct ProfileView: View {
                                     .frame(width: 350)
 
                                     LastUserScrobblesView(scrobbles: profile.scrobbles)
-                                    .frame(
-                                        width: g.size.width - 5,
-                                        height: g.size.height * 0.7,
-                                        alignment: .center
-                                    )
-                                    .offset(y: -70)
+                                        .frame(
+                                            width: g.size.width - 5,
+                                            height: g.size.height * 0.7,
+                                            alignment: .center
+                                        )
+                                        .offset(y: -70)
 
                                     TopUserArtistsView(artists: profile.topArtists)
                                         .environmentObject(profile)
-                                        .offset(y: -90)
+                                        .offset(y: -100)
+
+                                    TopUserTracksView(tracks: profile.topTracks)
+                                        .environmentObject(profile)
+                                        .frame(
+                                            width: g.size.width - 5,
+                                            height: g.size.height * 0.7,
+                                            alignment: .center
+                                        )
+                                        .redacted(reason: profile.topTracks.isEmpty ? .placeholder : [])
+                                        .offset(y: -100)
                                 }
                                 .edgesIgnoringSafeArea(.top)
                             }.edgesIgnoringSafeArea(.top)
