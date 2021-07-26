@@ -34,11 +34,13 @@ struct ScrobbledTrackRow: View {
                     Text(track.artist.name)
                         .font(.subheadline)
                         .foregroundColor(.gray)
+                        .lineLimit(1)
                     Spacer()
                     Text(track.date?.getRelative() ?? "Now Playing")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .frame(alignment: .leading)
+                        .lineLimit(1)
                 }
                 Spacer()
             }
