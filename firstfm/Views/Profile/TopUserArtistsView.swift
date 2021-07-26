@@ -43,7 +43,7 @@ struct TopUserArtistsView: View {
                                         .loadImmediately()
                                         .fade(duration: 0.5)
                                         .cornerRadius(5)
-                                        .aspectRatio(contentMode: .fill)
+                                        .aspectRatio(1, contentMode: .fill)
                                     Text(artist.name).font(.headline).lineLimit(1).foregroundColor(.white)
                                     Text("\(Int(artist.playcount ?? "0")?.formatted() ?? "0") scrobbles")
                                         .font(.subheadline)
