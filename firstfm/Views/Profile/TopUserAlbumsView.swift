@@ -20,7 +20,7 @@ struct TopUserAlbumsView: View {
                         Text("Last 365 days").tag(4)
                         Text("All time").tag(5)
                     }.onChange(of: vm.topAlbumsPeriodPicked) {
-                        tag in vm.getTopAlbumsForPeriodTag(tag: tag)
+                        tag in vm.getTopAlbumsForPeriodTag(username: vm.user?.name ?? "", tag: tag)
                     }
                 }
             label: {

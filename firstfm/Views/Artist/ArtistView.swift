@@ -44,7 +44,7 @@ struct ArtistView: View {
                             .redacted(reason: model.artist == nil ? .placeholder : [])
 
                     }.padding(.top, 10)
-                        .onAppear {
+                        .onLoad {
                             self.model.getAll(artist)
                         }
                 }.navigationTitle(artist.name)

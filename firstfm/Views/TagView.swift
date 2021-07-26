@@ -56,7 +56,7 @@ struct TagView: View {
                     Text("From the album")
                     Text("[img] Album ->")
                 }
-        }.onAppear {
+        }.onLoad {
             self.vm.getChartingArtists(tag: tag)
         }
 

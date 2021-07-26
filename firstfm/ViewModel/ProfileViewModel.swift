@@ -7,27 +7,27 @@ class ProfileViewModel: ObservableObject {
     @Published var friends: [Friend] = []
     @Published var scrobbles: [ScrobbledTrack] = []
     @Published var topArtists: [Artist] = []
+    @Published var topTracks: [Track] = []
+    @Published var topAlbums: [TopAlbum] = []
+
     @Published var scrobblesPeriodPicked: Int = 5
     @Published var topTracksPeriodPicked: Int = 5
     @Published var topAlbumsPeriodPicked: Int = 5
-    @Published var topTracks: [Track] = []
-    @Published var topAlbums: [TopAlbum] = []
+
     var isFriendsLoading = true
     //    var isLoading = true
     @AppStorage("lastfm_username") var storedUsername: String?
     let myValet = getValet()
 
-    func getAll(_ username: String) {
-        //        reset()
-
-        self.getProfile(username)
-        self.getUserScrobbles()
-        self.getTopArtists(period: "overall")
-        self.getTopTracks(period: "overall")
-        self.getTopAlbums(period: "overall")
+    func getAll(username: String) {
+        self.getProfile(username: username)
+        self.getUserScrobbles(username: username)
+        self.getTopArtists(username: username, period: "overall")
+        self.getTopTracks(username: username, period: "overall")
+        self.getTopAlbums(username: username, period: "overall")
     }
 
-    func getProfile(_ username: String) {
+    func getProfile(username: String) {
         //        self.isLoading = true
 
         LastFMAPI.request(lastFMMethod: "user.getInfo", args: ["user": username]) { (data: UserInfoResponse?, error) -> Void in
@@ -46,7 +46,7 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func getFriends(_ username: String) {
+    func getFriends(username: String) {
         //        self.isFriendsLoading = true
 
         LastFMAPI.request(lastFMMethod: "user.getFriends", args: ["user": username]) { (data: FriendsResponse?, error) -> Void in
@@ -65,14 +65,14 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func getUserScrobbles() {
+    func getUserScrobbles(username: String) {
         //        self.isLoading = true
         let storedToken = try? myValet.string(forKey: "sk")
 
         LastFMAPI.request(lastFMMethod: "user.getRecentTracks", args: [
             "limit": "5",
             "extended": "1",
-            "user": storedUsername ?? "",
+            "user": username,
             "sk": storedToken ?? ""
         ]) { (data: RecentTracksResponse?, error) -> Void in
             //            self.isLoading = false
@@ -121,28 +121,28 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func getTopArtistsForPeriodTag(tag: Int) {
+    func getTopArtistsForPeriodTag(username: String, tag: Int) {
         // Reset artist to show placeholder
         self.topArtists = []
 
         switch tag {
         case 0:
-            self.getTopArtists(period: "7day")
+            self.getTopArtists(username: username, period: "7day")
         case 1:
-            self.getTopArtists(period: "1month")
+            self.getTopArtists(username: username, period: "1month")
         case 2:
-            self.getTopArtists(period: "3month")
+            self.getTopArtists(username: username, period: "3month")
         case 3:
-            self.getTopArtists(period: "6month")
+            self.getTopArtists(username: username, period: "6month")
         case 4:
-            self.getTopArtists(period: "12month")
+            self.getTopArtists(username: username, period: "12month")
         default:
-            self.getTopArtists(period: "overall")
+            self.getTopArtists(username: username, period: "overall")
         }
     }
 
-    func getTopArtists(period: String) {
-        LastFMAPI.request(lastFMMethod: "user.getTopArtists", args: ["user": storedUsername ?? "", "limit": "6", "period": period]) { (data: UserTopArtistsResponse?, error) -> Void in
+    func getTopArtists(username: String, period: String) {
+        LastFMAPI.request(lastFMMethod: "user.getTopArtists", args: ["user": username, "limit": "6", "period": period]) { (data: UserTopArtistsResponse?, error) -> Void in
 
             if error != nil {
                 DispatchQueue.main.async {
@@ -159,47 +159,46 @@ class ProfileViewModel: ObservableObject {
                     artists[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
                 }
 
+                DispatchQueue.main.async {
+                    self.topArtists = artists
+                }
+
                 for (index, artist) in data.topartists.artist.enumerated() {
                     // Get image URL for each artist and trigger a View update through the observed object
                     SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
-                            //                            DispatchQueue.main.async {
-                            artists[index].image[0].url = imageURL
-                            //                            }
+                            DispatchQueue.main.async {
+                                self.topArtists[index].image[0].url = imageURL
+                            }
                         }
                     }
-                }
-
-                DispatchQueue.main.async {
-                    self.topArtists = artists
-                    //                    self.isLoading = false
                 }
             }
         }
     }
 
-    func getTopTracksForPeriodTag(tag: Int) {
+    func getTopTracksForPeriodTag(username: String, tag: Int) {
         // Reset tracks to show placeholder
         self.topTracks = []
 
         switch tag {
         case 0:
-            self.getTopTracks(period: "7day")
+            self.getTopTracks(username: username, period: "7day")
         case 1:
-            self.getTopTracks(period: "1month")
+            self.getTopTracks(username: username, period: "1month")
         case 2:
-            self.getTopTracks(period: "3month")
+            self.getTopTracks(username: username, period: "3month")
         case 3:
-            self.getTopTracks(period: "6month")
+            self.getTopTracks(username: username, period: "6month")
         case 4:
-            self.getTopTracks(period: "12month")
+            self.getTopTracks(username: username, period: "12month")
         default:
-            self.getTopTracks(period: "overall")
+            self.getTopTracks(username: username, period: "overall")
         }
     }
 
-    func getTopTracks(period: String) {
-        LastFMAPI.request(lastFMMethod: "user.getTopTracks", args: ["user": storedUsername ?? "", "limit": "5", "period": period]) { (data: ArtistTopTracksResponse?, error) -> Void in
+    func getTopTracks(username: String, period: String) {
+        LastFMAPI.request(lastFMMethod: "user.getTopTracks", args: ["user": username, "limit": "5", "period": period]) { (data: ArtistTopTracksResponse?, error) -> Void in
 
             if error != nil {
                 DispatchQueue.main.async {
@@ -234,28 +233,28 @@ class ProfileViewModel: ObservableObject {
         }
     }
 
-    func getTopAlbumsForPeriodTag(tag: Int) {
+    func getTopAlbumsForPeriodTag(username: String, tag: Int) {
         // Reset tracks to show placeholder
         self.topAlbums = []
 
         switch tag {
         case 0:
-            self.getTopAlbums(period: "7day")
+            self.getTopAlbums(username: username, period: "7day")
         case 1:
-            self.getTopAlbums(period: "1month")
+            self.getTopAlbums(username: username, period: "1month")
         case 2:
-            self.getTopAlbums(period: "3month")
+            self.getTopAlbums(username: username, period: "3month")
         case 3:
-            self.getTopAlbums(period: "6month")
+            self.getTopAlbums(username: username, period: "6month")
         case 4:
-            self.getTopAlbums(period: "12month")
+            self.getTopAlbums(username: username, period: "12month")
         default:
-            self.getTopAlbums(period: "overall")
+            self.getTopAlbums(username: username, period: "overall")
         }
     }
 
-    func getTopAlbums(period: String) {
-        LastFMAPI.request(lastFMMethod: "user.getTopAlbums", args: ["user": storedUsername ?? "", "limit": "6", "period": period]) { (data: UserTopAlbumsResponse?, error) -> Void in
+    func getTopAlbums(username: String, period: String) {
+        LastFMAPI.request(lastFMMethod: "user.getTopAlbums", args: ["user": username, "limit": "6", "period": period]) { (data: UserTopAlbumsResponse?, error) -> Void in
 
             if error != nil {
                 DispatchQueue.main.async {

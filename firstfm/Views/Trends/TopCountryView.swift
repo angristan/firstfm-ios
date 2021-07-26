@@ -24,7 +24,7 @@ struct TopCountryView: View {
                             }
                         }
                     }
-                    .navigationTitle("Top artists in \(country.name) \(country.emoji())").onAppear {
+                    .navigationTitle("Top artists in \(country.name) \(country.emoji())").onLoad {
                         print("\(country.name) self.artistsLoaded: \(self.artistsLoaded) ")
                         if !self.artistsLoaded {
 //                            vm.getTopArtists(country: country)

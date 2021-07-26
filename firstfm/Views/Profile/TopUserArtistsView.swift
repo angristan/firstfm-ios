@@ -21,7 +21,7 @@ struct TopUserArtistsView: View {
                         Text("Last 365 days").tag(4)
                         Text("All time").tag(5)
                     }.onChange(of: vm.scrobblesPeriodPicked) {
-                        tag in vm.getTopArtistsForPeriodTag(tag: tag)
+                        tag in vm.getTopArtistsForPeriodTag(username: vm.user?.name ?? "", tag: tag)
                     }
                 }
             label: {

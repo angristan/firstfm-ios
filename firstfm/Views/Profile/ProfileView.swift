@@ -6,7 +6,6 @@ struct ProfileView: View {
     @AppStorage("lastfm_username") var storedUsername: String?
     @ObservedObject var profile = ProfileViewModel()
     @State private var showingSettings = false
-    @State private var showingFriends = false
     @State private var showingLovedTracks = false
     @State private var scrobblesPeriodPicked: Int = 5
 
@@ -107,7 +106,7 @@ struct ProfileView: View {
                         }
                         .onLoad {
                             if let username = storedUsername {
-                                self.profile.getAll(username)
+                                self.profile.getAll(username: username)
                             }
                         }.navigationTitle("Your profile")
                             .navigationBarItems(trailing: HStack {
@@ -119,14 +118,12 @@ struct ProfileView: View {
                                 }) {
                                     Image(systemName: "heart").imageScale(.large).foregroundColor(.white)
                                 }
-                                Button(action: {
-                                    if let storedUsername = storedUsername {
-                                        profile.getFriends(storedUsername)
-                                        showingFriends.toggle()
-                                    }
-                                }) {
+                                NavigationLink(
+                                    destination: FriendsView().environmentObject(profile),
+                                    label: {
                                     Image(systemName: "person.2").imageScale(.large).foregroundColor(.white)
-                                }
+                                })
+
                                 Button(action: {
                                     showingSettings.toggle()
                                 }) {
@@ -142,9 +139,6 @@ struct ProfileView: View {
                                     LogoutButton()
                                 }
                             }
-                            .sheet(isPresented: $showingFriends) {
-                                FriendsView().environmentObject(profile)
-                            }
                             .sheet(isPresented: $showingLovedTracks) {
                                 Text("Here be loved tracks")
                             }
@@ -154,11 +148,5 @@ struct ProfileView: View {
                 }
             }
         }
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }
