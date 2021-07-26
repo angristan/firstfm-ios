@@ -11,7 +11,7 @@ struct FriendRow: View {
                     .scaleEffect(2)
                     .frame(width: 50, height: 50)
             } else {
-                KFImage.url(URL(string: friend.image[0].url )!)
+                KFImage.url(URL(string: friend.image[3].url )!)
                     .resizable()
                     .loadImmediately()
                     .onSuccess { res in
