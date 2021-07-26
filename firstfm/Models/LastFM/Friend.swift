@@ -5,7 +5,7 @@ struct Friend: Codable, Identifiable {
     var id: String { name }
     let playlists, playcount, subscriber, name: String
     let country: String
-    let image: [LastFMImage ]
+    var image: [LastFMImage]
     let registered: Registered
     let url: String
     let realname, bootstrap: String

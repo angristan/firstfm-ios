@@ -37,6 +37,7 @@
 		82428B2826AECFC700AAC835 /* TopAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2726AECFC700AAC835 /* TopAlbum.swift */; };
 		82428B2A26AED01F00AAC835 /* UserTopAlbumsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2926AED01F00AAC835 /* UserTopAlbumsResponse.swift */; };
 		82428B2C26AF216100AAC835 /* FriendProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2B26AF216100AAC835 /* FriendProfileView.swift */; };
+		82428B3026AF440E00AAC835 /* UserFriendsHView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2F26AF440E00AAC835 /* UserFriendsHView.swift */; };
 		82505CDF2675074E00CCCB58 /* ArtistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDC2675074E00CCCB58 /* ArtistRow.swift */; };
 		82505CE02675074E00CCCB58 /* ChartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDD2675074E00CCCB58 /* ChartListView.swift */; };
 		82505CE12675074E00CCCB58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CDE2675074E00CCCB58 /* ContentView.swift */; };
@@ -135,6 +136,7 @@
 		82428B2726AECFC700AAC835 /* TopAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbum.swift; sourceTree = "<group>"; };
 		82428B2926AED01F00AAC835 /* UserTopAlbumsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopAlbumsResponse.swift; sourceTree = "<group>"; };
 		82428B2B26AF216100AAC835 /* FriendProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileView.swift; sourceTree = "<group>"; };
+		82428B2F26AF440E00AAC835 /* UserFriendsHView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsHView.swift; sourceTree = "<group>"; };
 		82505CDC2675074E00CCCB58 /* ArtistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistRow.swift; sourceTree = "<group>"; };
 		82505CDD2675074E00CCCB58 /* ChartListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListView.swift; sourceTree = "<group>"; };
 		82505CDE2675074E00CCCB58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				82428B2326AEC53C00AAC835 /* TopUserTracksView.swift */,
 				82428B2526AECDBC00AAC835 /* TopUserAlbumsView.swift */,
 				82428B2B26AF216100AAC835 /* FriendProfileView.swift */,
+				82428B2F26AF440E00AAC835 /* UserFriendsHView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				82505CE72675300400CCCB58 /* SpotifyArtistSearchResponse.swift in Sources */,
 				82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */,
 				82F0D54D2697AAC7007CEA98 /* SearchViewModel.swift in Sources */,
+				82428B3026AF440E00AAC835 /* UserFriendsHView.swift in Sources */,
 				82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */,
 				82A006BE2679636F0009BD71 /* SpotifyTrackSearchResponse.swift in Sources */,
 				825F0FC126A6F72F007BA84B /* ArtistInfoView.swift in Sources */,

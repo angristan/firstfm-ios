@@ -24,21 +24,19 @@ struct FriendProfileView: View {
                                             .resizable()
                                             .loadImmediately()
                                             .aspectRatio(contentMode: .fill)
-                                            .overlay(TintOverlayView().opacity(0.2))
+                                            .overlay(TintOverlayView().opacity(0.3))
                                             .frame(width: geometry.size.width, height: geometry.size.height)
                                             .offset(y: geometry.frame(in: .global).minY/9)
                                             .clipped()
-                                            .blur(radius: 3)
                                     } else {
                                         KFImage.url(URL(string: !self.profile.topArtists.isEmpty ? self.profile.topArtists[0].image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
                                             .resizable()
                                             .loadImmediately()
                                             .aspectRatio(contentMode: .fill)
-                                            .overlay(TintOverlayView().opacity(0.2))
+                                            .overlay(TintOverlayView().opacity(0.3))
                                             .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
                                             .clipped()
                                             .offset(y: -geometry.frame(in: .global).minY)
-                                            .blur(radius: 3)
                                     }
                                 } .redacted(reason: self.profile.topArtists.isEmpty ? .placeholder : [])
                             }
@@ -90,7 +88,7 @@ struct FriendProfileView: View {
                                 .environmentObject(profile)
                                 .frame(
                                     width: g.size.width - 5,
-                                    height: g.size.height * 0.7,
+                                    height: g.size.height * 0.75,
                                     alignment: .center
                                 )
                                 .offset(y: -100)
@@ -98,12 +96,19 @@ struct FriendProfileView: View {
                             TopUserAlbumsView(albums: profile.topAlbums)
                                 .environmentObject(profile)
                                 .offset(y: -120)
-                        }
+
+                            if !profile.isFriendsLoading && !profile.friends.isEmpty {
+                                UserFriendsHView()
+                                    .environmentObject(profile)
+                                    .offset(y: -120)
+                            }
+
+                        }.padding(.bottom, -100)
                     }
                 }
                 .onLoad {
                     self.profile.getAll(username: friend.name)
-                }.navigationTitle("\(friend.name)'s profile")
+                }.navigationBarTitle("\(friend.name)'s profile", displayMode: .inline)
 
             }
         }

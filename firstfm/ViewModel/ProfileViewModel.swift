@@ -25,43 +25,51 @@ class ProfileViewModel: ObservableObject {
         self.getTopArtists(username: username, period: "overall")
         self.getTopTracks(username: username, period: "overall")
         self.getTopAlbums(username: username, period: "overall")
+        self.getFriends(username: username)
     }
 
     func getProfile(username: String) {
-        //        self.isLoading = true
-
         LastFMAPI.request(lastFMMethod: "user.getInfo", args: ["user": username]) { (data: UserInfoResponse?, error) -> Void in
             if error != nil {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load profile", subtitle: error?.localizedDescription, style: .danger).show()
                 }
             }
-            //            self.isLoading = false
 
             if let data = data {
+                var user = data.user
+                if user.image[3].url == "" {
+                    user.image[3].url = "https://bonds-and-shares.com/wp-content/uploads/2019/07/placeholder-user.png"
+                }
                 DispatchQueue.main.async {
-                    self.user = data.user
+                    self.user = user
                 }
             }
         }
     }
 
     func getFriends(username: String) {
-        //        self.isFriendsLoading = true
-
         LastFMAPI.request(lastFMMethod: "user.getFriends", args: ["user": username]) { (data: FriendsResponse?, error) -> Void in
             if error != nil {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load friends", subtitle: error?.localizedDescription, style: .danger).show()
                 }
             }
-            //            self.isFriendsLoading = false
 
             if let data = data {
+                var friends = data.friends.user
+
+                for index in friends.indices {
+                    if friends[index].image[3].url == "" {
+                        friends[index].image[3].url = "https://bonds-and-shares.com/wp-content/uploads/2019/07/placeholder-user.png"
+                    }
+                }
+
                 DispatchQueue.main.async {
-                    self.friends = data.friends.user
+                    self.friends = friends
                 }
             }
+            self.isFriendsLoading = false
         }
     }
 

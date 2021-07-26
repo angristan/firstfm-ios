@@ -29,7 +29,6 @@ struct ProfileView: View {
                                                     .frame(width: geometry.size.width, height: geometry.size.height)
                                                     .offset(y: geometry.frame(in: .global).minY/9)
                                                     .clipped()
-                                                    .blur(radius: 3)
                                             } else {
                                                 KFImage.url(URL(string: !self.profile.topArtists.isEmpty ? self.profile.topArtists[0].image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg" )!)
                                                     .resizable()
@@ -39,7 +38,6 @@ struct ProfileView: View {
                                                     .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
                                                     .clipped()
                                                     .offset(y: -geometry.frame(in: .global).minY)
-                                                    .blur(radius: 3)
                                             }
                                         } .redacted(reason: self.profile.topArtists.isEmpty ? .placeholder : [])
                                     }
@@ -99,7 +97,14 @@ struct ProfileView: View {
                                     TopUserAlbumsView(albums: profile.topAlbums)
                                         .environmentObject(profile)
                                         .offset(y: -120)
+
+                                    if !profile.isFriendsLoading && !profile.friends.isEmpty {
+                                        UserFriendsHView()
+                                            .environmentObject(profile)
+                                            .offset(y: -120)
+                                    }
                                 }
+                                .padding(.bottom, -100)
                                 .edgesIgnoringSafeArea(.top)
                             }.edgesIgnoringSafeArea(.top)
                                 .navigationBarTitle("")

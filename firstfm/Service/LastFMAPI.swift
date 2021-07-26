@@ -54,6 +54,11 @@ class LastFMAPI {
                     if let statusCode = nsHTTPResponse?.statusCode {
                         print("LastFMAPI status code = \(statusCode)")
                         if statusCode != 200 {
+                            if lastFMMethod == "user.getFriends" && statusCode == 400 {
+                                // The API returns a 400 when the user has no friends 🤨
+                                callback(FriendsResponse(friends: Friends(user: [])) as! T, nil)
+                                return
+                            }
                             let error = NSError(domain: "", code: statusCode, userInfo: [ NSLocalizedDescriptionKey: "Invalid API response 😢. Please try again"])
                             callback(callbackData, error as Error)
                             return
