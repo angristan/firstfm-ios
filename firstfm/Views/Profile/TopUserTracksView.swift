@@ -48,5 +48,6 @@ struct TopUserTracksView: View {
 
             }
         }.hasScrollEnabled(false)
+            .redacted(reason: tracks.isEmpty ? .placeholder : [])
     }
 }

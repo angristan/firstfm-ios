@@ -27,7 +27,7 @@ struct TrackRow: View {
                     .font(.headline)
                     .lineLimit(1)
                 Spacer()
-                Text("\(Int(track.playcount ?? "0" )?.formatted() ?? "0") scrobbles")
+                Text("\(Int(track.playcount )?.formatted() ?? "0") scrobbles")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

@@ -9,7 +9,9 @@ class ProfileViewModel: ObservableObject {
     @Published var topArtists: [Artist] = []
     @Published var scrobblesPeriodPicked: Int = 5
     @Published var topTracksPeriodPicked: Int = 5
+    @Published var topAlbumsPeriodPicked: Int = 5
     @Published var topTracks: [Track] = []
+    @Published var topAlbums: [TopAlbum] = []
     var isFriendsLoading = true
     //    var isLoading = true
     @AppStorage("lastfm_username") var storedUsername: String?
@@ -22,6 +24,7 @@ class ProfileViewModel: ObservableObject {
         self.getUserScrobbles()
         self.getTopArtists(period: "overall")
         self.getTopTracks(period: "overall")
+        self.getTopAlbums(period: "overall")
     }
 
     func getProfile(_ username: String) {
@@ -143,7 +146,7 @@ class ProfileViewModel: ObservableObject {
 
             if error != nil {
                 DispatchQueue.main.async {
-                    FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
+                    FloatingNotificationBanner(title: "Failed to load artists", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
                     self.topArtists = self.topArtists
                 }
@@ -200,7 +203,7 @@ class ProfileViewModel: ObservableObject {
 
             if error != nil {
                 DispatchQueue.main.async {
-                    FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
+                    FloatingNotificationBanner(title: "Failed to load tracks", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
                     self.topTracks = self.topTracks
                 }
@@ -224,6 +227,61 @@ class ProfileViewModel: ObservableObject {
                                 self.topTracks[index].image[0].url = imageURL
                             }
 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    func getTopAlbumsForPeriodTag(tag: Int) {
+        // Reset tracks to show placeholder
+        self.topAlbums = []
+
+        switch tag {
+        case 0:
+            self.getTopAlbums(period: "7day")
+        case 1:
+            self.getTopAlbums(period: "1month")
+        case 2:
+            self.getTopAlbums(period: "3month")
+        case 3:
+            self.getTopAlbums(period: "6month")
+        case 4:
+            self.getTopAlbums(period: "12month")
+        default:
+            self.getTopAlbums(period: "overall")
+        }
+    }
+
+    func getTopAlbums(period: String) {
+        LastFMAPI.request(lastFMMethod: "user.getTopAlbums", args: ["user": storedUsername ?? "", "limit": "6", "period": period]) { (data: UserTopAlbumsResponse?, error) -> Void in
+
+            if error != nil {
+                DispatchQueue.main.async {
+                    FloatingNotificationBanner(title: "Failed to load albums", subtitle: error?.localizedDescription, style: .danger).show()
+                    // Force refresh, otherwise pull loader doesn't dismiss itself
+                    self.topAlbums = self.topAlbums
+                }
+            }
+
+            if let data = data {
+                var albums = data.topalbums.album
+
+                for index in albums.indices where albums[index].image[0].url == "" {
+                    albums[index].image[0].url = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
+                }
+
+                DispatchQueue.main.async {
+                    self.topAlbums = albums
+                }
+
+                for (index, track) in data.topalbums.album.enumerated() {
+                    SpotifyImage.findImage(type: "album", name: track.name) { imageURL in
+                        if let imageURL = imageURL {
+                            DispatchQueue.main.async {
+                                self.topAlbums[index].image[0].url = imageURL
+                            }
                         }
                     }
                 }

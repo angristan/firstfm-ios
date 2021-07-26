@@ -95,8 +95,11 @@ struct ProfileView: View {
                                             height: g.size.height * 0.7,
                                             alignment: .center
                                         )
-                                        .redacted(reason: profile.topTracks.isEmpty ? .placeholder : [])
                                         .offset(y: -100)
+
+                                    TopUserAlbumsView(albums: profile.topAlbums)
+                                        .environmentObject(profile)
+                                        .offset(y: -120)
                                 }
                                 .edgesIgnoringSafeArea(.top)
                             }.edgesIgnoringSafeArea(.top)
