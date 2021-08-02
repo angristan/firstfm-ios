@@ -1,4 +1,4 @@
-# first.fm - The alternative last.fm client made with SwiftUI
+# first.fm - The alternative last.fm client for iOS
 
 ![](./assets/banner.png)
 
@@ -24,3 +24,5 @@ Fill `LASTFM_API_KEY` and `LASTFM_API_SHARED_SECRET` in `firstfm/Config/Secrets.
 Create a Spotify app and get the keys on the Spotify developer dashboard: https://developer.spotify.com/dashboard/applications
 
 Fill `SPOTIFY_API_TOKEN` in `firstfm/Config/Secrets.xcconfig`.
+
+![](./assets/screenshots.png)
