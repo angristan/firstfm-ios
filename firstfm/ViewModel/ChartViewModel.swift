@@ -19,7 +19,7 @@ class ChartViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.artists = self.artists
+                    (self.artists = self.artists)
                     self.isLoading = false
                 }
             }
@@ -59,7 +59,7 @@ class ChartViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load charts", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.tracks = self.tracks
+                    (self.tracks = self.tracks)
                     self.isLoading = false
                 }
             }

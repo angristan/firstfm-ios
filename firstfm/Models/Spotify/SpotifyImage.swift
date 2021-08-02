@@ -34,7 +34,7 @@ struct SpotifyImage: Codable {
 
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-                getSpotifyToken { spotifyToken in
+                SpotifyAPIService().getSpotifyToken { spotifyToken in
                     request.setValue("Bearer \(spotifyToken)", forHTTPHeaderField: "Authorization")
                     URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
                         do {

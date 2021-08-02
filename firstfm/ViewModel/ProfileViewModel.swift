@@ -89,7 +89,7 @@ class ProfileViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load scrobbles", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.scrobbles = self.scrobbles
+                    (self.scrobbles = self.scrobbles)
                 }
             }
 
@@ -156,7 +156,7 @@ class ProfileViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load artists", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.topArtists = self.topArtists
+                    (self.topArtists = self.topArtists)
                 }
             }
 
@@ -212,7 +212,7 @@ class ProfileViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load tracks", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.topTracks = self.topTracks
+                    (self.topTracks = self.topTracks)
                 }
             }
 
@@ -268,7 +268,7 @@ class ProfileViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load albums", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.topAlbums = self.topAlbums
+                    (self.topAlbums = self.topAlbums)
                 }
             }
 

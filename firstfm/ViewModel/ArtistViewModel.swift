@@ -41,7 +41,7 @@ class ArtistViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load albums", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.albums = self.albums
+                    (self.albums = self.albums)
                 }
             }
 
@@ -76,7 +76,7 @@ class ArtistViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load tracks", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.tracks = self.tracks
+                    (self.tracks = self.tracks)
                 }
             }
 
@@ -110,7 +110,7 @@ class ArtistViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to artist info", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.tracks = self.tracks
+                    (self.tracks = self.tracks)
                 }
             }
 

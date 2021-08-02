@@ -25,7 +25,7 @@ class ScrobblesViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     FloatingNotificationBanner(title: "Failed to load scrobbles", subtitle: error?.localizedDescription, style: .danger).show()
                     // Force refresh, otherwise pull loader doesn't dismiss itself
-                    self.scrobbles = self.scrobbles
+                    (self.scrobbles = self.scrobbles)
                 }
             }
 
