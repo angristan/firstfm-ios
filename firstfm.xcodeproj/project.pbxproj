@@ -66,6 +66,7 @@
 		825F0FC326A721F7007BA84B /* TopArtistTracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FC226A721F7007BA84B /* TopArtistTracksView.swift */; };
 		825F0FC526A74539007BA84B /* TopArtistAlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FC426A74539007BA84B /* TopArtistAlbumsView.swift */; };
 		825F0FC726A74632007BA84B /* SimilarArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FC626A74632007BA84B /* SimilarArtistsView.swift */; };
+		826C19C726B8895500D37488 /* Secrets.example.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 826C19C626B8895500D37488 /* Secrets.example.xcconfig */; };
 		826CBA992678EB8800B11170 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBA982678EB8800B11170 /* ArtistView.swift */; };
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
@@ -159,6 +160,8 @@
 		825F0FC226A721F7007BA84B /* TopArtistTracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArtistTracksView.swift; sourceTree = "<group>"; };
 		825F0FC426A74539007BA84B /* TopArtistAlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArtistAlbumsView.swift; sourceTree = "<group>"; };
 		825F0FC626A74632007BA84B /* SimilarArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarArtistsView.swift; sourceTree = "<group>"; };
+		826C19C426B8881100D37488 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		826C19C626B8895500D37488 /* Secrets.example.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Secrets.example.xcconfig; sourceTree = "<group>"; };
 		826CBA982678EB8800B11170 /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		82844DFD2673991F00578DD4 /* firstfm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstfm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82844E002673991F00578DD4 /* FirstfmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstfmApp.swift; sourceTree = "<group>"; };
@@ -393,6 +396,15 @@
 			path = Artist;
 			sourceTree = "<group>";
 		};
+		826C19C526B8893D00D37488 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				826C19C426B8881100D37488 /* Secrets.xcconfig */,
+				826C19C626B8895500D37488 /* Secrets.example.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		82844DF42673991F00578DD4 = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +424,7 @@
 		82844DFF2673991F00578DD4 /* firstfm */ = {
 			isa = PBXGroup;
 			children = (
+				826C19C526B8893D00D37488 /* Config */,
 				82844E042673992200578DD4 /* Assets.xcassets */,
 				825F0FA326A5EFD8007BA84B /* Extension */,
 				82844E002673991F00578DD4 /* FirstfmApp.swift */,
@@ -537,6 +550,7 @@
 			files = (
 				82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */,
 				82A006C3267973D30009BD71 /* SampleArtist.json in Resources */,
+				826C19C726B8895500D37488 /* Secrets.example.xcconfig in Resources */,
 				82844E052673992200578DD4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +678,7 @@
 /* Begin XCBuildConfiguration section */
 		82844E0A2673992200578DD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 826C19C426B8881100D37488 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -728,6 +743,7 @@
 		};
 		82844E0B2673992200578DD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 826C19C426B8881100D37488 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -795,15 +811,12 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = firstfm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LAST_FM_KEY = d404c94c63e190519d70002332f09509;
-				LAST_FM_SHARED_SECRET = e4e1eb5bf14d2418f51ed6ea6ae5d91a;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.esgi.firstfm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SPOTIFY_API_TOKEN = YjBhNzA1N2M5MGNlNGNiZGI2Njc5N2I4Zjk0MDg5ODg6MDlhNGY4YzVkMmJlNGI0Mjg3ZWRlMTVmYmNhZjBlNzM;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -820,15 +833,12 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = firstfm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LAST_FM_KEY = d404c94c63e190519d70002332f09509;
-				LAST_FM_SHARED_SECRET = e4e1eb5bf14d2418f51ed6ea6ae5d91a;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.esgi.firstfm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SPOTIFY_API_TOKEN = YjBhNzA1N2M5MGNlNGNiZGI2Njc5N2I4Zjk0MDg5ODg6MDlhNGY4YzVkMmJlNGI0Mjg3ZWRlMTVmYmNhZjBlNzM;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

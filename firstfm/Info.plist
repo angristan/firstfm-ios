@@ -20,11 +20,11 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>LastFMAPIKey</key>
-	<string>$(LAST_FM_KEY)</string>
-	<key>LastFMSharedSecret</key>
-	<string>$(LAST_FM_SHARED_SECRET)</string>
-	<key>SpotifyAPIToken</key>
+	<key>LASTFM_API_KEY</key>
+	<string>$(LASTFM_API_KEY)</string>
+	<key>LASTFM_API_SHARED_SECRET</key>
+	<string>$(LASTFM_API_SHARED_SECRET)</string>
+	<key>SPOTIFY_API_TOKEN</key>
 	<string>$(SPOTIFY_API_TOKEN)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

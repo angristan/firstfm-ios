@@ -90,3 +90,5 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+
+firstfm/Config/Secrets.xcconfig

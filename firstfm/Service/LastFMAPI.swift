@@ -2,9 +2,9 @@ import Foundation
 
 class LastFMAPI {
     // swiftlint:disable force_cast
-    static let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LastFMAPIKey") as! String
+    static let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LASTFM_API_KEY") as! String
     // swiftlint:disable force_cast
-    static let lastFMSharedSecret = Bundle.main.object(forInfoDictionaryKey: "LastFMSharedSecret") as! String
+    static let lastFMSharedSecret = Bundle.main.object(forInfoDictionaryKey: "LASTFM_API_SHARED_SECRET") as! String
 
     static func request<T: Decodable>(method: String = "POST", lastFMMethod: String, args: [String: String] = [:], callback: @escaping (_ Data: T?, Error?) -> Void) {
         var request = URLRequest(url: URL(string: "https://ws.audioscrobbler.com/2.0/?format=json")!)

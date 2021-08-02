@@ -14,7 +14,7 @@ struct SpotifyCredentialsResponse: Codable {
 func renewSpotifyToken(completion: @escaping (String) -> Void) {
     let authURL = "https://accounts.spotify.com/api/token"
     // swiftlint:disable force_cast
-    let spotifyAPIToken = Bundle.main.object(forInfoDictionaryKey: "SpotifyAPIToken") as! String
+    let spotifyAPIToken = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_API_TOKEN") as! String
 
     @AppStorage("spotify_tmp_token") var spotifyToken: String?
     @AppStorage("spotify_expires_at") var spotifyExpiresAt: String?
