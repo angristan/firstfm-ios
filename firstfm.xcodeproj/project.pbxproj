@@ -89,7 +89,6 @@
 		82BBD2482698B37F009B42FC /* TrendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2472698B37F009B42FC /* TrendsViewModel.swift */; };
 		82BBD24A2698C33D009B42FC /* TopCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BBD2492698C33D009B42FC /* TopCountryView.swift */; };
 		82C282E026A2E474000E5F41 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282DF26A2E474000E5F41 /* LoginResponse.swift */; };
-		82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E126A31CFD000E5F41 /* StringMD5.swift */; };
 		82C282E426A32B07000E5F41 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E326A32B07000E5F41 /* FriendsView.swift */; };
 		82C282E626A32E94000E5F41 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E526A32E94000E5F41 /* Friend.swift */; };
 		82C282E826A3332E000E5F41 /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E726A3332E000E5F41 /* FriendsResponse.swift */; };
@@ -100,6 +99,7 @@
 		82D5B4D42696DC7800716931 /* RecentTracksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D32696DC7800716931 /* RecentTracksResponse.swift */; };
 		82D5B4D62696E0E100716931 /* ScrobbledTrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */; };
 		82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 82E80C38269777C60098DC3C /* SwiftUIRefresh */; };
+		82EBE0F326B8988900FF2BA9 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 82EBE0F226B8988900FF2BA9 /* CryptoSwift */; };
 		82F0D54D2697AAC7007CEA98 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0D54C2697AAC7007CEA98 /* SearchViewModel.swift */; };
 		82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE462674B8FC000D8E29 /* Artist.swift */; };
 		82FBAE492674BB55000D8E29 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE482674BB55000D8E29 /* ChartViewModel.swift */; };
@@ -186,7 +186,6 @@
 		82BBD2472698B37F009B42FC /* TrendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsViewModel.swift; sourceTree = "<group>"; };
 		82BBD2492698C33D009B42FC /* TopCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCountryView.swift; sourceTree = "<group>"; };
 		82C282DF26A2E474000E5F41 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		82C282E126A31CFD000E5F41 /* StringMD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMD5.swift; sourceTree = "<group>"; };
 		82C282E326A32B07000E5F41 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		82C282E526A32E94000E5F41 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		82C282E726A3332E000E5F41 /* FriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
@@ -214,6 +213,7 @@
 				825F0FBA26A61ED2007BA84B /* Cache in Frameworks */,
 				825F0F8426A48597007BA84B /* FancyScrollView in Frameworks */,
 				82505CE42675178B00CCCB58 /* Kingfisher in Frameworks */,
+				82EBE0F326B8988900FF2BA9 /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +328,6 @@
 		825F0FA326A5EFD8007BA84B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				82C282E126A31CFD000E5F41 /* StringMD5.swift */,
 				825F0F8A26A5B6E1007BA84B /* NumberFormat.swift */,
 				82B6CCE626AB8B00008AFDEF /* ViewLoad.swift */,
 				82B6CCE826AC21FB008AFDEF /* ListScroll.swift */,
@@ -497,6 +496,7 @@
 				825F0F8326A48597007BA84B /* FancyScrollView */,
 				825F0FAE26A60E5C007BA84B /* Valet */,
 				825F0FB926A61ED2007BA84B /* Cache */,
+				82EBE0F226B8988900FF2BA9 /* CryptoSwift */,
 			);
 			productName = firstfm;
 			productReference = 82844DFD2673991F00578DD4 /* firstfm.app */;
@@ -533,6 +533,7 @@
 				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */,
 				825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */,
+				82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -644,7 +645,6 @@
 				825F0FC126A6F72F007BA84B /* ArtistInfoView.swift in Sources */,
 				82BBD2462698B13B009B42FC /* Country.swift in Sources */,
 				4A69012626A3A08F001561C8 /* SpotifyAlbumSearchResponse.swift in Sources */,
-				82C282E226A31CFD000E5F41 /* StringMD5.swift in Sources */,
 				825F0F8926A4B2E0007BA84B /* ArtistInfoResponse.swift in Sources */,
 				82C282E826A3332E000E5F41 /* FriendsResponse.swift in Sources */,
 				822E9A8C26A8CFAC00C5307B /* TrackView.swift in Sources */,
@@ -924,6 +924,14 @@
 				minimumVersion = 0.0.3;
 			};
 		};
+		82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -956,6 +964,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
 			productName = SwiftUIRefresh;
+		};
+		82EBE0F226B8988900FF2BA9 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

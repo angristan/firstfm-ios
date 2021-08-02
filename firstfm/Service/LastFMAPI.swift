@@ -1,4 +1,5 @@
 import Foundation
+import CryptoSwift
 
 class LastFMAPI {
     // swiftlint:disable force_cast
@@ -33,11 +34,11 @@ class LastFMAPI {
 
         toSign += lastFMSharedSecret
 
-        let data: Data = "\(argsString)&api_sig=\(toSign.md5Value)".data(using: .utf8)!
+        let data: Data = "\(argsString)&api_sig=\(toSign.md5())".data(using: .utf8)!
 
         print("argsString: \(argsString)")
         print("toSign: \(toSign)")
-        print("api_sig: \(toSign.md5Value)")
+        print("api_sig: \(toSign.md5())")
 
         request.httpMethod = method
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

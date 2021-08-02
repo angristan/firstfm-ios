@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "8d4f6384e0a8cc41f2005247241dd553963a492a",
+          "version": "1.4.1"
+        }
+      },
+      {
         "package": "FancyScrollView",
         "repositoryURL": "https://github.com/nerdsupremacist/FancyScrollView.git",
         "state": {
@@ -38,7 +47,7 @@
         }
       },
       {
-        "package": "NotificationBannerSwift",
+        "package": "NotificationBanner",
         "repositoryURL": "https://github.com/eenwak/NotificationBanner",
         "state": {
           "branch": null,
@@ -56,7 +65,7 @@
         }
       },
       {
-        "package": "Introspect",
+        "package": "SwiftUI-Introspect",
         "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
         "state": {
           "branch": null,
