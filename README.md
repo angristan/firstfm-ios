@@ -17,6 +17,35 @@ Features **not included**:
 - Scrobbling. This app does not intend to be a scrobbler
 - Reports (not available on the last.fm API 😔)
 
+## How to run
+
+### Requirements
+
+- Xcode 12+
+- Swift 5+
+
+### API keys
+
+Copy `firstfm/Config/Secrets.example.xcconfig` to `firstfm/Config/Secrets.xcconfig` and fill it:
+
+```swift
+SPOTIFY_API_TOKEN =
+LASTFM_API_KEY =
+LASTFM_API_SHARED_SECRET =
+```
+
+#### Last.fm API key
+
+Get an API key by filling [this form](https://www.last.fm/api/account/create).
+
+Fill `LASTFM_API_KEY` and `LASTFM_API_SHARED_SECRET` in `firstfm/Config/Secrets.xcconfig`.
+
+#### Spotify API key
+
+Create a Spotify app and get the keys on the [Spotify developer dashboard](https://developer.spotify.com/dashboard/applications).
+
+Fill `SPOTIFY_API_TOKEN` in `firstfm/Config/Secrets.xcconfig`.
+
 ## Caveats and limitations
 
 ### Artworks
@@ -44,35 +73,6 @@ The app is not yet available on the App Store for a few reasons:
 - I don't have a developer account ($$)
 - The Spotify API has been working pretty well (for free!) but I don't know if publishing the app on the app store would break their terms
 - (The name sucks... I think?)
-
-## How to run
-
-### Requirements
-
-- Xcode 12+
-- Swift 5+
-
-### API keys
-
-Copy `firstfm/Config/Secrets.example.xcconfig` to `firstfm/Config/Secrets.xcconfig` and fill it:
-
-```swift
-SPOTIFY_API_TOKEN =
-LASTFM_API_KEY =
-LASTFM_API_SHARED_SECRET =
-```
-
-#### Last.fm API key
-
-Get an API key by filling this form: https://www.last.fm/api/account/create
-
-Fill `LASTFM_API_KEY` and `LASTFM_API_SHARED_SECRET` in `firstfm/Config/Secrets.xcconfig`.
-
-#### Spotify API key
-
-Create a Spotify app and get the keys on the Spotify developer dashboard: https://developer.spotify.com/dashboard/applications
-
-Fill `SPOTIFY_API_TOKEN` in `firstfm/Config/Secrets.xcconfig`.
 
 ## Libraries used
 
