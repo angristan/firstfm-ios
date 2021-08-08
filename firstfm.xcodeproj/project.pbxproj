@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,20 @@
 		822E9A9226A9795200C5307B /* TagInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A9126A9795200C5307B /* TagInfoResponse.swift */; };
 		822E9A9426A97B3600C5307B /* TagTopArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A9326A97B3600C5307B /* TagTopArtistsResponse.swift */; };
 		822E9A9626A97B7200C5307B /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A9526A97B7200C5307B /* TagViewModel.swift */; };
+		822EF81B26BF1A7700F8546D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822EF81A26BF1A7700F8546D /* WidgetKit.framework */; };
+		822EF81D26BF1A7700F8546D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822EF81C26BF1A7700F8546D /* SwiftUI.framework */; };
+		822EF82026BF1A7700F8546D /* FirstFMWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822EF81F26BF1A7700F8546D /* FirstFMWidget.swift */; };
+		822EF82326BF1A8100F8546D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822EF82226BF1A8100F8546D /* Assets.xcassets */; };
+		822EF82526BF1A8100F8546D /* FirstFMWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 822EF82126BF1A7700F8546D /* FirstFMWidget.intentdefinition */; };
+		822EF82626BF1A8100F8546D /* FirstFMWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 822EF82126BF1A7700F8546D /* FirstFMWidget.intentdefinition */; };
+		822EF82926BF1A8100F8546D /* FirstFMWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 822EF81826BF1A7700F8546D /* FirstFMWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		822EF83026BF57AD00F8546D /* FirstfmWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822EF82E26BF55AE00F8546D /* FirstfmWidgetProvider.swift */; };
+		822EF83126BF57DC00F8546D /* LastFMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C296026983B7300F55ECC /* LastFMAPI.swift */; };
+		822EF83226BF57F000F8546D /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A32694C427007A21C8 /* UserInfoResponse.swift */; };
+		822EF83326BF5C8B00F8546D /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E726A3332E000E5F41 /* FriendsResponse.swift */; };
+		822EF83426BF5CA300F8546D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A12694C38E007A21C8 /* User.swift */; };
+		822EF83526BF5CAE00F8546D /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C282E526A32E94000E5F41 /* Friend.swift */; };
+		822EF83626BF5CBC00F8546D /* LastFMImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82505CE82675368400CCCB58 /* LastFMImage.swift */; };
 		8240989C26ADF67F00A789D9 /* ArtistBioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240989B26ADF67E00A789D9 /* ArtistBioView.swift */; };
 		82428B2426AEC53C00AAC835 /* TopUserTracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2326AEC53C00AAC835 /* TopUserTracksView.swift */; };
 		82428B2626AECDBC00AAC835 /* TopUserAlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2526AECDBC00AAC835 /* TopUserAlbumsView.swift */; };
@@ -106,6 +120,30 @@
 		82FBAE4C2674BCB7000D8E29 /* TopArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE4B2674BCB7000D8E29 /* TopArtistsResponse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		822EF82726BF1A8100F8546D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82844DF52673991F00578DD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 822EF81726BF1A7700F8546D;
+			remoteInfo = FirstFMWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		822EF82D26BF1A8100F8546D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				822EF82926BF1A8100F8546D /* FirstFMWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4A56027926A3B17800E6C315 /* AlbumRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumRow.swift; sourceTree = "<group>"; };
 		4A69011526A34477001561C8 /* ArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +169,14 @@
 		822E9A9126A9795200C5307B /* TagInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoResponse.swift; sourceTree = "<group>"; };
 		822E9A9326A97B3600C5307B /* TagTopArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTopArtistsResponse.swift; sourceTree = "<group>"; };
 		822E9A9526A97B7200C5307B /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		822EF81826BF1A7700F8546D /* FirstFMWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FirstFMWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		822EF81A26BF1A7700F8546D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		822EF81C26BF1A7700F8546D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		822EF81F26BF1A7700F8546D /* FirstFMWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFMWidget.swift; sourceTree = "<group>"; };
+		822EF82126BF1A7700F8546D /* FirstFMWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = FirstFMWidget.intentdefinition; sourceTree = "<group>"; };
+		822EF82226BF1A8100F8546D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		822EF82426BF1A8100F8546D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		822EF82E26BF55AE00F8546D /* FirstfmWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstfmWidgetProvider.swift; sourceTree = "<group>"; };
 		8240989B26ADF67E00A789D9 /* ArtistBioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioView.swift; sourceTree = "<group>"; };
 		82428B2326AEC53C00AAC835 /* TopUserTracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUserTracksView.swift; sourceTree = "<group>"; };
 		82428B2526AECDBC00AAC835 /* TopUserAlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUserAlbumsView.swift; sourceTree = "<group>"; };
@@ -203,6 +249,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		822EF81526BF1A7700F8546D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822EF81D26BF1A7700F8546D /* SwiftUI.framework in Frameworks */,
+				822EF81B26BF1A7700F8546D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82844DFA2673991F00578DD4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +292,27 @@
 				82A006B5267960710009BD71 /* TrackRowView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		822EF81926BF1A7700F8546D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				822EF81A26BF1A7700F8546D /* WidgetKit.framework */,
+				822EF81C26BF1A7700F8546D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		822EF81E26BF1A7700F8546D /* FirstFMWidget */ = {
+			isa = PBXGroup;
+			children = (
+				822EF81F26BF1A7700F8546D /* FirstFMWidget.swift */,
+				822EF82126BF1A7700F8546D /* FirstFMWidget.intentdefinition */,
+				822EF82226BF1A8100F8546D /* Assets.xcassets */,
+				822EF82426BF1A8100F8546D /* Info.plist */,
+				822EF82E26BF55AE00F8546D /* FirstfmWidgetProvider.swift */,
+			);
+			path = FirstFMWidget;
 			sourceTree = "<group>";
 		};
 		82505CDB2675074E00CCCB58 /* Views */ = {
@@ -408,6 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				82844DFF2673991F00578DD4 /* firstfm */,
+				822EF81E26BF1A7700F8546D /* FirstFMWidget */,
+				822EF81926BF1A7700F8546D /* Frameworks */,
 				82844DFE2673991F00578DD4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -416,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				82844DFD2673991F00578DD4 /* firstfm.app */,
+				822EF81826BF1A7700F8546D /* FirstFMWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -475,6 +554,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		822EF81726BF1A7700F8546D /* FirstFMWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 822EF82A26BF1A8100F8546D /* Build configuration list for PBXNativeTarget "FirstFMWidgetExtension" */;
+			buildPhases = (
+				822EF81426BF1A7700F8546D /* Sources */,
+				822EF81526BF1A7700F8546D /* Frameworks */,
+				822EF81626BF1A7700F8546D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FirstFMWidgetExtension;
+			productName = FirstFMWidgetExtension;
+			productReference = 822EF81826BF1A7700F8546D /* FirstFMWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		82844DFC2673991F00578DD4 /* firstfm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82844E0C2673992200578DD4 /* Build configuration list for PBXNativeTarget "firstfm" */;
@@ -483,10 +579,12 @@
 				4A69AF8826A3B66200DD2CDC /* Lint */,
 				82844DFA2673991F00578DD4 /* Frameworks */,
 				82844DFB2673991F00578DD4 /* Resources */,
+				822EF82D26BF1A8100F8546D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				822EF82826BF1A8100F8546D /* PBXTargetDependency */,
 			);
 			name = firstfm;
 			packageProductDependencies = (
@@ -508,9 +606,13 @@
 		82844DF52673991F00578DD4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					822EF81726BF1A7700F8546D = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					82844DFC2673991F00578DD4 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -540,11 +642,20 @@
 			projectRoot = "";
 			targets = (
 				82844DFC2673991F00578DD4 /* firstfm */,
+				822EF81726BF1A7700F8546D /* FirstFMWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		822EF81626BF1A7700F8546D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822EF82326BF1A8100F8546D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82844DFB2673991F00578DD4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,6 +691,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		822EF81426BF1A7700F8546D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822EF83326BF5C8B00F8546D /* FriendsResponse.swift in Sources */,
+				822EF83026BF57AD00F8546D /* FirstfmWidgetProvider.swift in Sources */,
+				822EF82526BF1A8100F8546D /* FirstFMWidget.intentdefinition in Sources */,
+				822EF82026BF1A7700F8546D /* FirstFMWidget.swift in Sources */,
+				822EF83126BF57DC00F8546D /* LastFMAPI.swift in Sources */,
+				822EF83226BF57F000F8546D /* UserInfoResponse.swift in Sources */,
+				822EF83426BF5CA300F8546D /* User.swift in Sources */,
+				822EF83626BF5CBC00F8546D /* LastFMImage.swift in Sources */,
+				822EF83526BF5CAE00F8546D /* Friend.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82844DF92673991F00578DD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,6 +788,7 @@
 				820455DC267AA8E70009A418 /* LoginView.swift in Sources */,
 				822E9A9226A9795200C5307B /* TagInfoResponse.swift in Sources */,
 				82B6CCE926AC21FB008AFDEF /* ListScroll.swift in Sources */,
+				822EF82626BF1A8100F8546D /* FirstFMWidget.intentdefinition in Sources */,
 				820455DE267AB7D70009A418 /* ProfileView.swift in Sources */,
 				825F0F8F26A5E8D3007BA84B /* ArtistBio.swift in Sources */,
 				82C282E626A32E94000E5F41 /* Friend.swift in Sources */,
@@ -675,7 +803,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		822EF82826BF1A8100F8546D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 822EF81726BF1A7700F8546D /* FirstFMWidgetExtension */;
+			targetProxy = 822EF82726BF1A8100F8546D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		822EF82B26BF1A8100F8546D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8ZMUZY4VF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FirstFMWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FirstFMWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.esgi.firstfm.FirstFMWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		822EF82C26BF1A8100F8546D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8ZMUZY4VF3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FirstFMWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FirstFMWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.esgi.firstfm.FirstFMWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		82844E0A2673992200578DD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 826C19C426B8881100D37488 /* Secrets.xcconfig */;
@@ -802,7 +994,9 @@
 		};
 		82844E0D2673992200578DD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 826C19C426B8881100D37488 /* Secrets.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -824,7 +1018,9 @@
 		};
 		82844E0E2673992200578DD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 826C19C426B8881100D37488 /* Secrets.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -847,6 +1043,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		822EF82A26BF1A8100F8546D /* Build configuration list for PBXNativeTarget "FirstFMWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				822EF82B26BF1A8100F8546D /* Debug */,
+				822EF82C26BF1A8100F8546D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		82844DF82673991F00578DD4 /* Build configuration list for PBXProject "firstfm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
