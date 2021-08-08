@@ -33,6 +33,9 @@
 		822E9A9226A9795200C5307B /* TagInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A9126A9795200C5307B /* TagInfoResponse.swift */; };
 		822E9A9426A97B3600C5307B /* TagTopArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A9326A97B3600C5307B /* TagTopArtistsResponse.swift */; };
 		822E9A9626A97B7200C5307B /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E9A9526A97B7200C5307B /* TagViewModel.swift */; };
+		82312FD826C0065300C58793 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 82312FD526C0065200C58793 /* LICENSE */; };
+		82312FD926C0065300C58793 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 82312FD626C0065200C58793 /* README.md */; };
+		82312FDA26C0065300C58793 /* commitlint.config.js in Resources */ = {isa = PBXBuildFile; fileRef = 82312FD726C0065300C58793 /* commitlint.config.js */; };
 		8240989C26ADF67F00A789D9 /* ArtistBioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240989B26ADF67E00A789D9 /* ArtistBioView.swift */; };
 		82428B2426AEC53C00AAC835 /* TopUserTracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2326AEC53C00AAC835 /* TopUserTracksView.swift */; };
 		82428B2626AECDBC00AAC835 /* TopUserAlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82428B2526AECDBC00AAC835 /* TopUserAlbumsView.swift */; };
@@ -135,6 +138,9 @@
 		822E9A9126A9795200C5307B /* TagInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoResponse.swift; sourceTree = "<group>"; };
 		822E9A9326A97B3600C5307B /* TagTopArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTopArtistsResponse.swift; sourceTree = "<group>"; };
 		822E9A9526A97B7200C5307B /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		82312FD526C0065200C58793 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		82312FD626C0065200C58793 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		82312FD726C0065300C58793 /* commitlint.config.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = commitlint.config.js; sourceTree = "<group>"; };
 		8240989B26ADF67E00A789D9 /* ArtistBioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioView.swift; sourceTree = "<group>"; };
 		82428B2326AEC53C00AAC835 /* TopUserTracksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUserTracksView.swift; sourceTree = "<group>"; };
 		82428B2526AECDBC00AAC835 /* TopUserAlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUserAlbumsView.swift; sourceTree = "<group>"; };
@@ -412,6 +418,9 @@
 		82844DF42673991F00578DD4 = {
 			isa = PBXGroup;
 			children = (
+				82312FD726C0065300C58793 /* commitlint.config.js */,
+				82312FD526C0065200C58793 /* LICENSE */,
+				82312FD626C0065200C58793 /* README.md */,
 				82844DFF2673991F00578DD4 /* firstfm */,
 				82844DFE2673991F00578DD4 /* Products */,
 			);
@@ -555,10 +564,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82312FD926C0065300C58793 /* README.md in Resources */,
 				82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */,
 				82A006C3267973D30009BD71 /* SampleArtist.json in Resources */,
 				826C19C726B8895500D37488 /* Secrets.example.xcconfig in Resources */,
+				82312FDA26C0065300C58793 /* commitlint.config.js in Resources */,
 				82844E052673992200578DD4 /* Assets.xcassets in Resources */,
+				82312FD826C0065300C58793 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

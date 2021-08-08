@@ -53,7 +53,7 @@ Fill `SPOTIFY_API_TOKEN` in `firstfm/Config/Secrets.xcconfig`.
 The last.fm API does not provide artworks [anymore](https://stackoverflow.com/a/59529682/6945353). Instead, it returns a default placeholder image. This is very inconvenient for us, but we have no choice to use another API.
 To work around this limitation, the app uses the [Spotify Search API](https://developer.spotify.com/console/get-search-item/) to search for the entity (artist or album), and uses the images returned by Spotify. This means that:
 
-- An extra call to the Spotify API has to be made for each entity displayed by the app (a list of 50 artists retrieved by a signel last.fm API call will be followed by 50 Spotify API calls). This is a waste of resources and make the whole app slower. Luckily, the app does not suffer much from this since the Spotify API is very fast, and caching + async mechanism are used.
+- An extra call to the Spotify API has to be made for each entity displayed by the app (a list of 50 artists retrieved by a signed last.fm API call will be followed by 50 Spotify API calls). This is a waste of resources and make the whole app slower. Luckily, the app does not suffer much from this since the Spotify API is very fast, and memoization + async mechanism are used.
 - Artwork do not always match in cases of homonyms ☹️
 
 ### Listenings reports

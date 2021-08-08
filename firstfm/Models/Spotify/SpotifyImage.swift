@@ -10,7 +10,7 @@ struct SpotifyImage: Codable {
 
     static func findImage(type: String, name: String, completion: @escaping (String?) -> Void) {
 
-        // Init cache handler
+        // MARK: Memoization handling START
         let diskConfig = DiskConfig(name: "firstfm.spotify.images")
         let memoryConfig = MemoryConfig()
 
@@ -25,6 +25,7 @@ struct SpotifyImage: Codable {
             completion(image.url)
             return
         }
+        // MARK: Memoization handling END
 
         if let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             let queryURLString = "https://api.spotify.com/v1/search?q=\(encodedName)&type=\(type)&limit=1"
