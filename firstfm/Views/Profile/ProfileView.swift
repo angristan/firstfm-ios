@@ -137,12 +137,7 @@ struct ProfileView: View {
                             }
                             )
                             .sheet(isPresented: $showingSettings) {
-                                Text("Here settings aka logout button")
-                                Button(action: {
-                                    storedUsername = nil
-                                }) {
-                                    LogoutButton()
-                                }
+                                SettingsView()
                             }
                             .sheet(isPresented: $showingLovedTracks) {
                                 Text("Here be loved tracks")

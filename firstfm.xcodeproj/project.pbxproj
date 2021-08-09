@@ -18,6 +18,8 @@
 		820455DC267AA8E70009A418 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DB267AA8E70009A418 /* LoginView.swift */; };
 		820455DE267AB7D70009A418 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DD267AB7D70009A418 /* ProfileView.swift */; };
 		820455E0267ABC930009A418 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DF267ABC930009A418 /* AuthViewModel.swift */; };
+		820BBDD526C1BF89002F95A3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820BBDD426C1BF89002F95A3 /* SettingsView.swift */; };
+		820BBDD726C1BFF6002F95A3 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820BBDD626C1BFF6002F95A3 /* SettingsViewModel.swift */; };
 		8214939D2694A4C2007A21C8 /* LoginGuardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939C2694A4C2007A21C8 /* LoginGuardView.swift */; };
 		821493A02694C349007A21C8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214939F2694C349007A21C8 /* ProfileViewModel.swift */; };
 		821493A22694C38E007A21C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821493A12694C38E007A21C8 /* User.swift */; };
@@ -118,6 +120,8 @@
 		820455DB267AA8E70009A418 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		820455DD267AB7D70009A418 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		820455DF267ABC930009A418 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		820BBDD426C1BF89002F95A3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		820BBDD626C1BFF6002F95A3 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8214939C2694A4C2007A21C8 /* LoginGuardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuardView.swift; sourceTree = "<group>"; };
 		8214939F2694C349007A21C8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		821493A12694C38E007A21C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				822E9A8B26A8CFAC00C5307B /* TrackView.swift */,
 				822E9A8D26A8D5F300C5307B /* AlbumView.swift */,
 				822E9A8F26A9788900C5307B /* TagView.swift */,
+				820BBDD426C1BF89002F95A3 /* SettingsView.swift */,
 			);
 			name = Views;
 			path = firstfm/Views;
@@ -468,6 +473,7 @@
 				8226AB2126998A86007ECE5F /* TopCountryViewModel.swift */,
 				82BBD2472698B37F009B42FC /* TrendsViewModel.swift */,
 				822E9A9526A97B7200C5307B /* TagViewModel.swift */,
+				820BBDD626C1BFF6002F95A3 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				825F0F9326A5E90C007BA84B /* Tag.swift in Sources */,
 				825F0FBF26A6F4D0007BA84B /* TintOverlayView.swift in Sources */,
 				825F0F9526A5E938007BA84B /* ArtistStats.swift in Sources */,
+				820BBDD526C1BF89002F95A3 /* SettingsView.swift in Sources */,
 				825F0F9126A5E8F5007BA84B /* SimilarArtist.swift in Sources */,
 				82428B2A26AED01F00AAC835 /* UserTopAlbumsResponse.swift in Sources */,
 				82C282EC26A370D2000E5F41 /* ScobbledTrackViewModel.swift in Sources */,
@@ -646,6 +653,7 @@
 				82BBD2462698B13B009B42FC /* Country.swift in Sources */,
 				4A69012626A3A08F001561C8 /* SpotifyAlbumSearchResponse.swift in Sources */,
 				825F0F8926A4B2E0007BA84B /* ArtistInfoResponse.swift in Sources */,
+				820BBDD726C1BFF6002F95A3 /* SettingsViewModel.swift in Sources */,
 				82C282E826A3332E000E5F41 /* FriendsResponse.swift in Sources */,
 				822E9A8C26A8CFAC00C5307B /* TrackView.swift in Sources */,
 				82428B2426AEC53C00AAC835 /* TopUserTracksView.swift in Sources */,
