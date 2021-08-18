@@ -7,19 +7,25 @@ class ScrobblesViewModel: ObservableObject {
     @Published var scrobbles: [ScrobbledTrack] = []
     @AppStorage("lastfm_username") var storedUsername: String?
     let myValet = getValet()
-    var isLoading = true
+    @Published var isLoading = true
+    var currentPage = 1
 
-    func getUserScrobbles() {
+    func getNextPage() {
+        currentPage += 1
+        self.getUserScrobbles(page: currentPage)
+    }
+
+    func getUserScrobbles(page: Int = 1, clear: Bool = false) {
         self.isLoading = true
         let storedToken = try? myValet.string(forKey: "sk")
 
         LastFMAPI.request(lastFMMethod: "user.getRecentTracks", args: [
             "limit": "30",
             "extended": "1",
+            "page": String(page),
             "user": storedUsername ?? "",
             "sk": storedToken ?? ""
         ]) { (data: RecentTracksResponse?, error) -> Void in
-            self.isLoading = false
 
             if error != nil {
                 DispatchQueue.main.async {
@@ -30,6 +36,10 @@ class ScrobblesViewModel: ObservableObject {
             }
 
             if let data = data {
+                if Int(data.recentTracks.attr.page)! >= Int(data.recentTracks.attr.totalPages)! {
+                    return
+                }
+
                 var tracks = data.recentTracks.track
 
                 // Fix tracks that don't have images
@@ -44,9 +54,9 @@ class ScrobblesViewModel: ObservableObject {
                     }
                 }
 
-                DispatchQueue.main.async {
-                    self.scrobbles = tracks
-                }
+//                DispatchQueue.main.async {
+//                    self.scrobbles = tracks
+//                }
 
                 for (index, track) in tracks.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
@@ -58,7 +68,13 @@ class ScrobblesViewModel: ObservableObject {
                 }
 
                 DispatchQueue.main.async {
-                    self.scrobbles = tracks
+                    if clear {
+                        self.scrobbles = tracks
+                    } else {
+                        print("appending \(tracks.count) tracks")
+                        self.scrobbles.append(contentsOf: tracks)
+                    }
+                    self.isLoading = false
                 }
 
             }

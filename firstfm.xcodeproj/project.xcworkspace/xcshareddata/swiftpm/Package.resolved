@@ -47,7 +47,7 @@
         }
       },
       {
-        "package": "NotificationBanner",
+        "package": "NotificationBannerSwift",
         "repositoryURL": "https://github.com/eenwak/NotificationBanner",
         "state": {
           "branch": null,
@@ -65,7 +65,7 @@
         }
       },
       {
-        "package": "SwiftUI-Introspect",
+        "package": "Introspect",
         "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
         "state": {
           "branch": null,
