@@ -9,7 +9,11 @@ struct Artist: Codable, Identifiable {
     var image: [LastFMImage]
 }
 
-struct ScrobbledArtist: Codable {
+struct ScrobbledArtist: Codable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+
     let mbid: String
     let name: String
 }

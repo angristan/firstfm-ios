@@ -11,7 +11,16 @@ struct Track: Codable, Identifiable {
     var image: [LastFMImage]
 }
 
-struct ScrobbledTrack: Codable, Identifiable {
+struct ScrobbledTrack: Codable, Identifiable, Equatable, Hashable {
+    static func == (lhs: ScrobbledTrack, rhs: ScrobbledTrack) -> Bool {
+        return lhs.name == rhs.name && lhs.artist.name == rhs.artist.name
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(artist)
+        hasher.combine(date)
+    }
 
     var id: String { name }
 
@@ -23,7 +32,12 @@ struct ScrobbledTrack: Codable, Identifiable {
     let date: LastFMDate?
 }
 
-struct LastFMDate: Codable {
+struct LastFMDate: Codable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uts)
+        hasher.combine(text)
+    }
+
     let uts, text: String
 
     enum CodingKeys: String, CodingKey {
@@ -41,7 +55,10 @@ struct LastFMDate: Codable {
     }
 }
 
-struct TrackArtist: Codable, Identifiable {
+struct TrackArtist: Codable, Identifiable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
 
     var id: String { name }
 

@@ -29,7 +29,7 @@ struct SimilarArtistsView: View {
                                             Text(artist.name).font(.subheadline)
                                                 .foregroundColor(.gray).lineLimit(1)
                                         }
-                                        
+
                                     })
                                 }
 
