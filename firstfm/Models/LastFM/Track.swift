@@ -13,7 +13,7 @@ struct Track: Codable, Identifiable {
 
 struct ScrobbledTrack: Codable, Identifiable, Equatable, Hashable {
     static func == (lhs: ScrobbledTrack, rhs: ScrobbledTrack) -> Bool {
-        return lhs.name == rhs.name && lhs.artist.name == rhs.artist.name
+        return lhs.name == rhs.name && lhs.artist == rhs.artist && lhs.date == rhs.date
     }
 
     func hash(into hasher: inout Hasher) {
