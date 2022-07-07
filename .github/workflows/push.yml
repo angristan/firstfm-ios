@@ -1,6 +1,6 @@
 name: Push workflow
 
-on: [push]
+on: [ push ]
 
 jobs:
   build:
@@ -19,6 +19,10 @@ jobs:
           SPOTIFY_API_TOKEN: ${{secrets.SPOTIFY_API_TOKEN}}
           LASTFM_API_KEY: ${{secrets.LASTFM_API_KEY}}
           LASTFM_API_SHARED_SECRET: ${{secrets.LASTFM_API_SHARED_SECRET}}
+      - name: Select Xcode version
+        run: sudo xcode-select --switch /Applications/Xcode_${{ env.XCODE_VERSION }}.app
+        env:
+          XCODE_VERSION: 13.4.1
       - name: Build
         run: |
           xcodebuild clean build -project firstfm.xcodeproj -scheme firstfm -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
