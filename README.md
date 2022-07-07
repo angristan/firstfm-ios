@@ -4,6 +4,9 @@
 
 (_it's actually not available on the App Store... yet_)
 
+![ci](https://github.com/angristan/firstfm-ios/actions/workflows/push.yml/badge.svg)
+![wakatime](https://wakatime.com/badge/github/angristan/firstfm-ios.svg)
+
 ## Features
 
 - Your profile (top artists, tracks and albums, friends)
@@ -31,7 +34,7 @@ Copy `firstfm/Config/Secrets.example.xcconfig` to `firstfm/Config/Secrets.xcconf
 ```swift
 SPOTIFY_API_TOKEN =
         LASTFM_API_KEY =
-        LASTFM_API_SHARED_SECRET = 
+        LASTFM_API_SHARED_SECRET =     
 ```
 
 #### Last.fm API key
@@ -60,7 +63,7 @@ album), and uses the images returned by Spotify. This means that:
 - An extra call to the Spotify API has to be made for each entity displayed by the app (a list of 50 artists retrieved
   by a signed last.fm API call will be followed by 50 Spotify API calls). This is a waste of resources and make the
   whole app slower. Luckily, the app does not suffer much from this since the Spotify API is very fast, and memoization
-  + async mechanism are used.
+    + async mechanism are used.
 - Artwork do not always match in cases of homonyms ☹️
 
 ### Listenings reports
