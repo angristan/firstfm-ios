@@ -48,7 +48,7 @@ class SpotifyAPIService {
                                 // TODO
                             }
                             if let error = error {
-                                SpotifyAPIService.logger.log("renewSpotifyToken error = \(error.localizedDescription)")
+                                SpotifyAPIService.logger.error("renewSpotifyToken error = \(error.localizedDescription)")
                                 // TODO
                                 completion("")
                             }
@@ -61,7 +61,7 @@ class SpotifyAPIService {
                                 }
                             }
                         } catch {
-                            SpotifyAPIService.logger.log("renewSpotifyToken error = \(error.localizedDescription)")
+                            SpotifyAPIService.logger.error("renewSpotifyToken error = \(error.localizedDescription)")
                             // TODO
                         }
                     })

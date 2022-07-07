@@ -1,6 +1,12 @@
 import SwiftUI
+import os
 
 struct SearchView: View {
+    private static let logger = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: SearchView.self)
+    )
+
     @ObservedObject var search = SearchViewModel()
     @State var searchString: String = ""
     @State private var selectedSearchType = 0
@@ -46,7 +52,7 @@ struct SearchView: View {
     }
 
     func performSearch() {
-        print("searching for \(searchString)")
+        SearchView.logger.info("Searching for \(searchString)")
         self.search.searchForArtist(artist: searchString)
     }
 }
