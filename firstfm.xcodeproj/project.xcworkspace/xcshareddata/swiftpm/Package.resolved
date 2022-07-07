@@ -1,97 +1,95 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Cache",
-        "repositoryURL": "https://github.com/hyperoslo/Cache.git",
-        "state": {
-          "branch": null,
-          "revision": "c7f4d633049c3bd649a353bad36f6c17e9df085f",
-          "version": "6.0.0"
-        }
-      },
-      {
-        "package": "CryptoSwift",
-        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "8d4f6384e0a8cc41f2005247241dd553963a492a",
-          "version": "1.4.1"
-        }
-      },
-      {
-        "package": "FancyScrollView",
-        "repositoryURL": "https://github.com/nerdsupremacist/FancyScrollView.git",
-        "state": {
-          "branch": null,
-          "revision": "5240ad515fcfea10f00e1769b058cabc9cf5fdc4",
-          "version": "0.1.3"
-        }
-      },
-      {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher",
-        "state": {
-          "branch": null,
-          "revision": "44450a8f564d7c0165f736ba2250649ff8d3e556",
-          "version": "6.3.0"
-        }
-      },
-      {
-        "package": "MarqueeLabel",
-        "repositoryURL": "https://github.com/cbpowell/MarqueeLabel",
-        "state": {
-          "branch": null,
-          "revision": "8349b2c103825e5b33ced9c331c5a68d10921944",
-          "version": "4.1.0"
-        }
-      },
-      {
-        "package": "NotificationBannerSwift",
-        "repositoryURL": "https://github.com/eenwak/NotificationBanner",
-        "state": {
-          "branch": null,
-          "revision": "651b46d08d07e1f5fee60de4fbc73bf2dfe551fa",
-          "version": "3.0.7"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "Introspect",
-        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
-        "state": {
-          "branch": null,
-          "revision": "2e09be8af614401bc9f87d40093ec19ce56ccaf2",
-          "version": "0.1.3"
-        }
-      },
-      {
-        "package": "SwiftUIRefresh",
-        "repositoryURL": "https://github.com/timbersoftware/SwiftUIRefresh.git",
-        "state": {
-          "branch": null,
-          "revision": "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
-          "version": "0.0.3"
-        }
-      },
-      {
-        "package": "Valet",
-        "repositoryURL": "https://github.com/square/Valet.git",
-        "state": {
-          "branch": null,
-          "revision": "2bf3329055f5d71d42a12801dd69d1d770fafa5e",
-          "version": "4.1.2"
-        }
+  "pins" : [
+    {
+      "identity" : "cache",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hyperoslo/Cache.git",
+      "state" : {
+        "revision" : "c7f4d633049c3bd649a353bad36f6c17e9df085f",
+        "version" : "6.0.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
+      "state" : {
+        "revision" : "8d4f6384e0a8cc41f2005247241dd553963a492a",
+        "version" : "1.4.1"
+      }
+    },
+    {
+      "identity" : "fancyscrollview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nerdsupremacist/FancyScrollView.git",
+      "state" : {
+        "revision" : "5240ad515fcfea10f00e1769b058cabc9cf5fdc4",
+        "version" : "0.1.3"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher",
+      "state" : {
+        "revision" : "2235a22ca249199cb736237f4bb9cc12b6ed416a",
+        "version" : "7.3.0"
+      }
+    },
+    {
+      "identity" : "marqueelabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cbpowell/MarqueeLabel",
+      "state" : {
+        "revision" : "8349b2c103825e5b33ced9c331c5a68d10921944",
+        "version" : "4.1.0"
+      }
+    },
+    {
+      "identity" : "notificationbanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/eenwak/NotificationBanner",
+      "state" : {
+        "revision" : "651b46d08d07e1f5fee60de4fbc73bf2dfe551fa",
+        "version" : "3.0.7"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "2e09be8af614401bc9f87d40093ec19ce56ccaf2",
+        "version" : "0.1.3"
+      }
+    },
+    {
+      "identity" : "swiftuirefresh",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/timbersoftware/SwiftUIRefresh.git",
+      "state" : {
+        "revision" : "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
+        "version" : "0.0.3"
+      }
+    },
+    {
+      "identity" : "valet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/square/Valet.git",
+      "state" : {
+        "revision" : "2bf3329055f5d71d42a12801dd69d1d770fafa5e",
+        "version" : "4.1.2"
+      }
+    }
+  ],
+  "version" : 2
 }

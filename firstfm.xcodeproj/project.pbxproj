@@ -891,7 +891,7 @@
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.3.0;
+				minimumVersion = 7.3.0;
 			};
 		};
 		8253DC0A26A0E10100F5F426 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
