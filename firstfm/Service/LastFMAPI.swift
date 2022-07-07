@@ -68,7 +68,7 @@ class LastFMAPI {
                 }
 
                 if let error = error {
-                    print(error)
+                    print(lastFMMethod + ":" + error.localizedDescription)
                     callbackError = error
                 }
 
@@ -77,7 +77,7 @@ class LastFMAPI {
                     callbackData = jsonResponse
                 }
             } catch {
-                print(error)
+                print(lastFMMethod + ":" + "\(error)")
                 callbackError = error
             }
 

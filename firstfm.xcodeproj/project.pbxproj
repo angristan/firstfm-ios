@@ -71,7 +71,6 @@
 		825F0FC326A721F7007BA84B /* TopArtistTracksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FC226A721F7007BA84B /* TopArtistTracksView.swift */; };
 		825F0FC526A74539007BA84B /* TopArtistAlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FC426A74539007BA84B /* TopArtistAlbumsView.swift */; };
 		825F0FC726A74632007BA84B /* SimilarArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F0FC626A74632007BA84B /* SimilarArtistsView.swift */; };
-		826C19C726B8895500D37488 /* Secrets.example.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 826C19C626B8895500D37488 /* Secrets.example.xcconfig */; };
 		826CBA992678EB8800B11170 /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBA982678EB8800B11170 /* ArtistView.swift */; };
 		82844E012673991F00578DD4 /* FirstfmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82844E002673991F00578DD4 /* FirstfmApp.swift */; };
 		82844E052673992200578DD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82844E042673992200578DD4 /* Assets.xcassets */; };
@@ -524,7 +523,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					82844DFC2673991F00578DD4 = {
 						CreatedOnToolsVersion = 12.5;
@@ -567,7 +566,6 @@
 				82312FD926C0065300C58793 /* README.md in Resources */,
 				82844E082673992200578DD4 /* Preview Assets.xcassets in Resources */,
 				82A006C3267973D30009BD71 /* SampleArtist.json in Resources */,
-				826C19C726B8895500D37488 /* Secrets.example.xcconfig in Resources */,
 				82312FDA26C0065300C58793 /* commitlint.config.js in Resources */,
 				82844E052673992200578DD4 /* Assets.xcassets in Resources */,
 				82312FD826C0065300C58793 /* LICENSE in Resources */,

@@ -1,5 +1,5 @@
 import Foundation
 
 struct ArtistStats: Codable {
-    let playcount, listeners: Int
+    let playcount, listeners: String
 }
