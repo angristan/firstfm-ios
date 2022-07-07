@@ -24,7 +24,6 @@ struct UserFriendsHView: View {
                                                 if friend.image[3].url == "" {
                                                     KFImage.url(URL(string: "https://bonds-and-shares.com/wp-content/uploads/2019/07/placeholder-user.png")!)
                                                             .resizable()
-                                                            .loadImmediately()
                                                             .aspectRatio(contentMode: .fill)
                                                             .frame(width: 120, height: 120)
                                                             .clipShape(Circle())
@@ -32,7 +31,6 @@ struct UserFriendsHView: View {
                                                 } else {
                                                     KFImage.url(URL(string: friend.image[3].url)!)
                                                             .resizable()
-                                                            .loadImmediately()
                                                             .aspectRatio(contentMode: .fill)
                                                             .frame(width: 120, height: 120)
                                                             .clipShape(Circle())
@@ -53,7 +51,6 @@ struct UserFriendsHView: View {
                             VStack {
                                 KFImage.url(URL(string: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")!)
                                         .resizable()
-                                        .loadImmediately()
                                         .aspectRatio(contentMode: .fill)
                                         .frame(width: 120, height: 120)
                                         .clipShape(Circle())

@@ -11,7 +11,6 @@ struct ProfileLoggedOutView: View {
                         ZStack {
                             KFImage.url(URL(string: "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg")!)
                                     .resizable()
-                                    .loadImmediately()
                                     .aspectRatio(contentMode: .fill)
                                     .overlay(TintOverlayView().opacity(0.2))
                                     .frame(width: geometry.size.width, height: geometry.size.height)
@@ -26,7 +25,6 @@ struct ProfileLoggedOutView: View {
                         HStack {
                             KFImage.url(URL(string: "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg")!)
                                     .resizable()
-                                    .loadImmediately()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 130, height: 130)
                                     .clipped()

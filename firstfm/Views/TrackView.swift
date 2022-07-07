@@ -13,7 +13,6 @@ struct TrackView: View {
                         if geometry.frame(in: .global).minY <= 0 {
                             KFImage.url(URL(string: !self.track.image.isEmpty ? self.track.image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg")!)
                                     .resizable()
-                                    .loadImmediately()
                                     .aspectRatio(contentMode: .fill)
                                     .overlay(TintOverlayView().opacity(0.2))
                                     .frame(width: geometry.size.width, height: geometry.size.height)
@@ -22,7 +21,6 @@ struct TrackView: View {
                         } else {
                             KFImage.url(URL(string: !self.track.image.isEmpty ? self.track.image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg")!)
                                     .resizable()
-                                    .loadImmediately()
                                     .aspectRatio(contentMode: .fill)
                                     .overlay(TintOverlayView().opacity(0.2))
                                     .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)

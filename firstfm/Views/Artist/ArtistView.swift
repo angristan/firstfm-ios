@@ -18,7 +18,6 @@ struct ArtistView: View {
                         header: {
                             KFImage.url(URL(string: artist.image[0].url)!)
                                     .resizable()
-                                    .loadImmediately()
                                     .aspectRatio(contentMode: .fill)
                                     .overlay(TintOverlayView().opacity(0.2))
                         }

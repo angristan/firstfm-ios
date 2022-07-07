@@ -13,7 +13,6 @@ struct FriendRow: View {
             } else {
                 KFImage.url(URL(string: friend.image[3].url)!)
                         .resizable()
-                        .loadImmediately()
                         .onSuccess { res in
                             print("Success: \(self.friend.name) - \(res.cacheType)")
                         }

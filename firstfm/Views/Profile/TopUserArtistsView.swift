@@ -42,7 +42,6 @@ struct TopUserArtistsView: View {
                                     VStack {
                                         KFImage.url(URL(string: artist.image[0].url != "" ? artist.image[0].url : "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")!)
                                                 .resizable()
-                                                .loadImmediately()
                                                 .fade(duration: 0.5)
                                                 .cornerRadius(5)
                                                 .aspectRatio(1, contentMode: .fill)
@@ -63,7 +62,6 @@ struct TopUserArtistsView: View {
                                     VStack {
                                         KFImage.url(URL(string: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")!)
                                                 .resizable()
-                                                .loadImmediately()
                                                 .cornerRadius(5)
                                                 .aspectRatio(contentMode: .fill)
                                         Text("Album name").font(.headline).lineLimit(1).foregroundColor(.white)

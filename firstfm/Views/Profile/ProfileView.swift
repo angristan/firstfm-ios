@@ -23,7 +23,6 @@ struct ProfileView: View {
                                             if geometry.frame(in: .global).minY <= 0 {
                                                 KFImage.url(URL(string: !self.profile.topArtists.isEmpty ? self.profile.topArtists[0].image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg")!)
                                                         .resizable()
-                                                        .loadImmediately()
                                                         .aspectRatio(contentMode: .fill)
                                                         .overlay(TintOverlayView().opacity(0.2))
                                                         .frame(width: geometry.size.width, height: geometry.size.height)
@@ -32,7 +31,6 @@ struct ProfileView: View {
                                             } else {
                                                 KFImage.url(URL(string: !self.profile.topArtists.isEmpty ? self.profile.topArtists[0].image[0].url : "https://www.nme.com/wp-content/uploads/2021/04/twice-betterconceptphoto-2020.jpg")!)
                                                         .resizable()
-                                                        .loadImmediately()
                                                         .aspectRatio(contentMode: .fill)
                                                         .overlay(TintOverlayView().opacity(0.2))
                                                         .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
@@ -47,7 +45,6 @@ struct ProfileView: View {
                                         HStack {
                                             KFImage.url(URL(string: profile.user?.image[3].url ?? "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")!)
                                                     .resizable()
-                                                    .loadImmediately()
                                                     .aspectRatio(contentMode: .fill)
                                                     .frame(width: 130, height: 130)
                                                     .clipped()

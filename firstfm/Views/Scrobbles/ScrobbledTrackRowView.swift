@@ -9,7 +9,6 @@ struct ScrobbledTrackRow: View {
         HStack {
             KFImage.url(URL(string: track.image[3].url)!)
                     .resizable()
-                    .loadImmediately()
                     .onSuccess { res in
                         print("Success: \(self.track.name) - \(res.cacheType)")
                     }

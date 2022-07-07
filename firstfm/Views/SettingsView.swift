@@ -19,7 +19,7 @@ struct SettingsView: View {
                     case .success(let size):
                         Text("Disk cache size: \(Double(size) / 1024 / 1024) MB")
                     case .failure(let error):
-                        Text("Failed to get cache size")
+                        Text("Failed to get cache size: \(error.errorDescription ?? "unknown error")")
                     }
                     Label {
                         Text("Clear cache")

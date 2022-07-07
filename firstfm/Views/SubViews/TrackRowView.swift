@@ -8,7 +8,6 @@ struct TrackRow: View {
         HStack {
             KFImage.url(URL(string: track.image[0].url)!)
                     .resizable()
-                    .loadImmediately()
                     .onSuccess { res in
                         print("Success: \(self.track.name) - \(res.cacheType)")
                     }

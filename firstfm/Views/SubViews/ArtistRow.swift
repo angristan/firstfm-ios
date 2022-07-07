@@ -10,7 +10,6 @@ struct ArtistRow: View {
             //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: artist.image[0].url)!)
                     .resizable()
-                    .loadImmediately()
                     .onSuccess { res in
                         print("Success: \(self.artist.name) - \(res.cacheType)")
                     }
