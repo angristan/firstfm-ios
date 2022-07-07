@@ -14,8 +14,9 @@ struct Track: Codable, Identifiable {
 }
 
 struct ScrobbledTrack: Codable, Identifiable, Equatable, Hashable {
+    // swiftlint:disable:next operator_whitespace
     static func ==(lhs: ScrobbledTrack, rhs: ScrobbledTrack) -> Bool {
-        return lhs.name == rhs.name && lhs.artist == rhs.artist && lhs.date == rhs.date
+        lhs.name == rhs.name && lhs.artist == rhs.artist && lhs.date == rhs.date
     }
 
     func hash(into hasher: inout Hasher) {
@@ -50,7 +51,7 @@ struct LastFMDate: Codable, Hashable {
     }
 
     func getRelative() -> String {
-        let unixTimestamp = Double(self.uts)!
+        let unixTimestamp = Double(uts)!
         let date = Date(timeIntervalSince1970: unixTimestamp)
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .abbreviated
