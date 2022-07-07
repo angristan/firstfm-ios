@@ -5,7 +5,7 @@ on: [ push ]
 jobs:
   build:
     name: build
-    runs-on: macos-latest
+    runs-on: macos-12
     strategy:
       matrix:
         destination:
