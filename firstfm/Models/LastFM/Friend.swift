@@ -2,7 +2,9 @@ import Foundation
 
 // Same as User but with more fields
 struct Friend: Codable, Identifiable {
-    var id: String { name }
+    var id: String {
+        name
+    }
     let playlists, playcount, subscriber, name: String
     let country: String
     var image: [LastFMImage]

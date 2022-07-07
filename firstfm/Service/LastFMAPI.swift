@@ -45,43 +45,44 @@ class LastFMAPI {
         request.httpBody = data
 
         URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
-            var callbackData: T?
-            var callbackError: Error?
+                    var callbackData: T?
+                    var callbackError: Error?
 
-            do {
-                if let response = response {
-                    let nsHTTPResponse = response as? HTTPURLResponse
+                    do {
+                        if let response = response {
+                            let nsHTTPResponse = response as? HTTPURLResponse
 
-                    if let statusCode = nsHTTPResponse?.statusCode {
-                        print("LastFMAPI status code = \(statusCode)")
-                        if statusCode != 200 {
-                            if lastFMMethod == "user.getFriends" && statusCode == 400 {
-                                // The API returns a 400 when the user has no friends 🤨
-                                callback((FriendsResponse(friends: Friends(user: [])) as! T), nil)
-                                return
+                            if let statusCode = nsHTTPResponse?.statusCode {
+                                print("LastFMAPI status code = \(statusCode)")
+                                if statusCode != 200 {
+                                    if lastFMMethod == "user.getFriends" && statusCode == 400 {
+                                        // The API returns a 400 when the user has no friends 🤨
+                                        callback((FriendsResponse(friends: Friends(user: [])) as! T), nil)
+                                        return
+                                    }
+                                    let error = NSError(domain: "", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "Invalid API response 😢. Please try again"])
+                                    callback(callbackData, error as Error)
+                                    return
+                                }
                             }
-                            let error = NSError(domain: "", code: statusCode, userInfo: [ NSLocalizedDescriptionKey: "Invalid API response 😢. Please try again"])
-                            callback(callbackData, error as Error)
-                            return
                         }
+
+                        if let error = error {
+                            print(lastFMMethod + ":" + error.localizedDescription)
+                            callbackError = error
+                        }
+
+                        if let data = data {
+                            let jsonResponse = try JSONDecoder().decode(T.self, from: data)
+                            callbackData = jsonResponse
+                        }
+                    } catch {
+                        print(lastFMMethod + ":" + "\(error)")
+                        callbackError = error
                     }
-                }
 
-                if let error = error {
-                    print(lastFMMethod + ":" + error.localizedDescription)
-                    callbackError = error
+                    callback(callbackData, callbackError)
                 }
-
-                if let data = data {
-                    let jsonResponse = try JSONDecoder().decode(T.self, from: data)
-                    callbackData = jsonResponse
-                }
-            } catch {
-                print(lastFMMethod + ":" + "\(error)")
-                callbackError = error
-            }
-
-            callback(callbackData, callbackError)
-        }.resume()
+                .resume()
     }
 }

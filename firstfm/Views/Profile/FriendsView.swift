@@ -8,14 +8,15 @@ struct FriendsView: View {
             VStack {
                 List(vm.friends) { friend in
                     NavigationLink(
-                        destination: FriendProfileView(friend: friend),
-                        label: {
-                        FriendRow(friend: friend)
-                    })
-                }.navigationBarTitle("Friends", displayMode: .inline)
-                    .onLoad {
-                        vm.getFriends(username: vm.user?.name ?? "")
-                    }
+                            destination: FriendProfileView(friend: friend),
+                            label: {
+                                FriendRow(friend: friend)
+                            })
+                }
+                        .navigationBarTitle("Friends", displayMode: .inline)
+                        .onLoad {
+                            vm.getFriends(username: vm.user?.name ?? "")
+                        }
             }
 
             if vm.friends.isEmpty {

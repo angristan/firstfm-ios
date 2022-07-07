@@ -15,23 +15,24 @@ struct TopCountryView: View {
                     List {
                         ForEach(vm.artists) { artist in
                             ZStack {
-                                Button("") {}
+                                Button("") {
+                                }
                                 NavigationLink(
-                                    destination: ArtistView(artist: artist),
-                                    label: {
-                                    ArtistRow(artist: artist)
-                                })
+                                        destination: ArtistView(artist: artist),
+                                        label: {
+                                            ArtistRow(artist: artist)
+                                        })
                             }
                         }
                     }
-                    .navigationTitle("Top artists in \(country.name) \(country.emoji())").onLoad {
-                        print("\(country.name) self.artistsLoaded: \(self.artistsLoaded) ")
-                        if !self.artistsLoaded {
+                            .navigationTitle("Top artists in \(country.name) \(country.emoji())").onLoad {
+                                print("\(country.name) self.artistsLoaded: \(self.artistsLoaded) ")
+                                if !self.artistsLoaded {
 //                            vm.getTopArtists(country: country)
-                            // Prevent loading artists again when navigating
+                                    // Prevent loading artists again when navigating
 //                            self.artistsLoaded = true
-                        }
-                    }
+                                }
+                            }
                     //                        .pullToRefresh(isShowing: $isPullLoaderShowing) {
                     //                            self.charts.getChartingArtists()
                     //                            self.isPullLoaderShowing = false

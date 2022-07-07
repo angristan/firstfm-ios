@@ -1,7 +1,9 @@
 import Foundation
 
 struct LastFMImage: Codable {
-    var id: String { url }
+    var id: String {
+        url
+    }
     var url: String
     var size: String
 

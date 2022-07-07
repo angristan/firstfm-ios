@@ -11,43 +11,45 @@ struct ArtistView: View {
         ZStack {
             GeometryReader { g in
                 FancyScrollView(
-                    title: artist.name,
-                    headerHeight: 350,
-                    scrollUpHeaderBehavior: .parallax,
-                    scrollDownHeaderBehavior: .offset,
-                    header: {
-                    KFImage.url(URL(string: artist.image[0].url )!)
-                        .resizable()
-                        .loadImmediately()
-                        .aspectRatio(contentMode: .fill)
-                        .overlay(TintOverlayView().opacity(0.2))
-                }
+                        title: artist.name,
+                        headerHeight: 350,
+                        scrollUpHeaderBehavior: .parallax,
+                        scrollDownHeaderBehavior: .offset,
+                        header: {
+                            KFImage.url(URL(string: artist.image[0].url)!)
+                                    .resizable()
+                                    .loadImmediately()
+                                    .aspectRatio(contentMode: .fill)
+                                    .overlay(TintOverlayView().opacity(0.2))
+                        }
                 ) {
                     VStack(alignment: .leading) {
                         ArtistInfoView(artistInfo: model.artist, artist: artist)
-                            .padding()
-                            .redacted(reason: model.artist == nil ? .placeholder : [])
+                                .padding()
+                                .redacted(reason: model.artist == nil ? .placeholder : [])
 
                         TopArtistTracksView(tracks: model.tracks)
-                            .frame(
-                                width: g.size.width - 5,
-                                height: g.size.height * 0.7,
-                                alignment: .center
-                            )
-                            .redacted(reason: model.tracks.isEmpty ? .placeholder : [])
+                                .frame(
+                                        width: g.size.width - 5,
+                                        height: g.size.height * 0.7,
+                                        alignment: .center
+                                )
+                                .redacted(reason: model.tracks.isEmpty ? .placeholder : [])
 
                         TopArtistAlbumsView(albums: model.albums).offset(y: -50)
-                            .redacted(reason: model.albums.isEmpty ? .placeholder : [])
+                                .redacted(reason: model.albums.isEmpty ? .placeholder : [])
 
                         SimilarArtistsView(similarArtists: model.artist?.similar.artist ?? [])
-                            .offset(y: -30)
-                            .redacted(reason: model.artist == nil ? .placeholder : [])
+                                .offset(y: -30)
+                                .redacted(reason: model.artist == nil ? .placeholder : [])
 
-                    }.padding(.top, 10)
-                        .onLoad {
-                            self.model.getAll(artist)
-                        }
-                }.navigationTitle(artist.name)
+                    }
+                            .padding(.top, 10)
+                            .onLoad {
+                                self.model.getAll(artist)
+                            }
+                }
+                        .navigationTitle(artist.name)
             }
         }
     }
@@ -66,8 +68,8 @@ struct ArtistView_Previews: PreviewProvider {
 
     static var sampleArtist: Artist? {
         guard let url = Bundle.main.url(
-            forResource: "SampleArtist",
-            withExtension: "json"
+                forResource: "SampleArtist",
+                withExtension: "json"
         ),
               let data = try? Data(contentsOf: url)
         else {

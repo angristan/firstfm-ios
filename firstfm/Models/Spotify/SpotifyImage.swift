@@ -15,9 +15,9 @@ struct SpotifyImage: Codable {
         let memoryConfig = MemoryConfig()
 
         let storage = try? Storage<String, SpotifyImage>(
-          diskConfig: diskConfig,
-          memoryConfig: memoryConfig,
-          transformer: TransformerFactory.forCodable(ofType: SpotifyImage.self)
+                diskConfig: diskConfig,
+                memoryConfig: memoryConfig,
+                transformer: TransformerFactory.forCodable(ofType: SpotifyImage.self)
         )
 
         // If search API response is in memory/disk cache, let's save an API call!
@@ -38,68 +38,69 @@ struct SpotifyImage: Codable {
                 SpotifyAPIService().getSpotifyToken { spotifyToken in
                     request.setValue("Bearer \(spotifyToken)", forHTTPHeaderField: "Authorization")
                     URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
-                        do {
-                            if let response = response {
-                                let nsHTTPResponse = response as? HTTPURLResponse
-                                if let statusCode = nsHTTPResponse?.statusCode {
-                                    print("findImage status code = \(statusCode)")
+                                do {
+                                    if let response = response {
+                                        let nsHTTPResponse = response as? HTTPURLResponse
+                                        if let statusCode = nsHTTPResponse?.statusCode {
+                                            print("findImage status code = \(statusCode)")
+                                        }
+                                        // TODO
+                                    }
+
+                                    if let error = error {
+                                        print(error)
+                                        // TODO
+                                        completion(DefaultImage)
+                                    }
+
+                                    if let data = data {
+                                        if type == "track" {
+                                            let jsonResponse = try JSONDecoder().decode(SpotifyTrackSearchResponse.self, from: data)
+
+                                            if jsonResponse.tracks.items.count > 0 {
+                                                if jsonResponse.tracks.items[0].album.images.count > 0 {
+                                                    completion(jsonResponse.tracks.items[0].album.images[0].url)
+                                                    try? storage?.setObject(jsonResponse.tracks.items[0].album.images[0], forKey: "\(type).\(name)")
+                                                } else {
+                                                    completion(DefaultImage)
+                                                }
+                                            } else {
+                                                completion(DefaultImage)
+                                            }
+                                        } else if type == "album" {
+                                            let jsonResponse = try JSONDecoder().decode(SpotifyAlbumSearchResponse.self, from: data)
+
+                                            if jsonResponse.albums.items.count > 0 {
+                                                if jsonResponse.albums.items[0].images.count > 0 {
+                                                    completion(jsonResponse.albums.items[0].images[0].url)
+                                                    try? storage?.setObject(jsonResponse.albums.items[0].images[0], forKey: "\(type).\(name)")
+                                                } else {
+                                                    completion(DefaultImage)
+                                                }
+                                            } else {
+                                                completion(DefaultImage)
+                                            }
+                                        } else if type == "artist" {
+                                            let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
+
+                                            if jsonResponse.artists.items.count > 0 {
+                                                if jsonResponse.artists.items[0].images.count > 0 {
+                                                    completion(jsonResponse.artists.items[0].images[0].url)
+                                                    try? storage?.setObject(jsonResponse.artists.items[0].images[0], forKey: "\(type).\(name)")
+                                                } else {
+                                                    completion(DefaultImage)
+                                                }
+                                            } else {
+                                                completion(DefaultImage)
+                                            }
+                                        }
+                                    }
+                                } catch {
+                                    print(error)
+                                    completion(DefaultImage)
                                 }
-                                // TODO
-                            }
-
-                            if let error = error {
-                                print(error)
-                                // TODO
-                                completion(DefaultImage)
-                            }
-
-                            if let data = data {
-                                if type == "track" {
-                                    let jsonResponse = try JSONDecoder().decode(SpotifyTrackSearchResponse.self, from: data)
-
-                                    if jsonResponse.tracks.items.count > 0 {
-                                        if jsonResponse.tracks.items[0].album.images.count > 0 {
-                                            completion(jsonResponse.tracks.items[0].album.images[0].url)
-                                            try? storage?.setObject(jsonResponse.tracks.items[0].album.images[0], forKey: "\(type).\(name)")
-                                        } else {
-                                            completion(DefaultImage)
-                                        }
-                                    } else {
-                                        completion(DefaultImage)
-                                    }
-                                } else if type == "album" {
-                                    let jsonResponse = try JSONDecoder().decode(SpotifyAlbumSearchResponse.self, from: data)
-
-                                    if jsonResponse.albums.items.count > 0 {
-                                        if jsonResponse.albums.items[0].images.count > 0 {
-                                            completion(jsonResponse.albums.items[0].images[0].url)
-                                            try? storage?.setObject(jsonResponse.albums.items[0].images[0], forKey: "\(type).\(name)")
-                                        } else {
-                                            completion(DefaultImage)
-                                        }
-                                    } else {
-                                        completion(DefaultImage)
-                                    }
-                                } else if type == "artist" {
-                                    let jsonResponse = try JSONDecoder().decode(SpotifyArtistSearchResponse.self, from: data)
-
-                                    if jsonResponse.artists.items.count > 0 {
-                                        if jsonResponse.artists.items[0].images.count > 0 {
-                                            completion(jsonResponse.artists.items[0].images[0].url)
-                                            try? storage?.setObject(jsonResponse.artists.items[0].images[0], forKey: "\(type).\(name)")
-                                        } else {
-                                            completion(DefaultImage)
-                                        }
-                                    } else {
-                                        completion(DefaultImage)
-                                    }
-                                }
-                            }
-                        } catch {
-                            print(error)
-                            completion(DefaultImage)
-                        }
-                    }).resume()
+                            })
+                            .resume()
                 }
             }
         }

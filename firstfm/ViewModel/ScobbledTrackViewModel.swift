@@ -3,7 +3,8 @@ import SwiftUI
 import NotificationBannerSwift
 import Valet
 
-struct Nothing: Codable {}
+struct Nothing: Codable {
+}
 
 class ScrobbledTrackViewModel {
     let myValet = getValet()

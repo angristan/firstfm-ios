@@ -1,6 +1,8 @@
 struct Artist: Codable, Identifiable {
 
-    var id: String { name }
+    var id: String {
+        name
+    }
 
     var mbid: String?
     var name: String
@@ -20,15 +22,15 @@ struct ScrobbledArtist: Codable, Hashable {
 
 extension Artist {
     static func fixture(
-        name: String = "Red Velvet",
-        playcount: String = "53378137",
-        listeners: String = "353237",
-        image: [LastFMImage] = [.fixture()]
+            name: String = "Red Velvet",
+            playcount: String = "53378137",
+            listeners: String = "353237",
+            image: [LastFMImage] = [.fixture()]
     ) -> Artist {
         Artist(
-            name: name,
-            playcount: playcount,
-            listeners: listeners,
-            image: image)
+                name: name,
+                playcount: playcount,
+                listeners: listeners,
+                image: image)
     }
 }

@@ -19,35 +19,39 @@ struct TopUserTracksView: View {
                             Text("Last 180 days").tag(3)
                             Text("Last 365 days").tag(4)
                             Text("All time").tag(5)
-                        }.onChange(of: vm.topTracksPeriodPicked) {
-                            tag in vm.getTopTracksForPeriodTag(username: vm.user?.name ?? "", tag: tag)
                         }
+                                .onChange(of: vm.topTracksPeriodPicked) {
+                                    tag in
+                                    vm.getTopTracksForPeriodTag(username: vm.user?.name ?? "", tag: tag)
+                                }
                     }
-                label: {
-                    Label("", systemImage: "calendar").foregroundColor(.white)
+                    label: {
+                        Label("", systemImage: "calendar").foregroundColor(.white)
+                    }
                 }
-                }.unredacted()
+                        .unredacted()
                 if !tracks.isEmpty {
                     ForEach(tracks, id: \.name) { track in
                         NavigationLink(
-                            destination: TrackView(track: track),
-                            label: {
-                            TrackRow(track: track)
-                        })
+                                destination: TrackView(track: track),
+                                label: {
+                                    TrackRow(track: track)
+                                })
                     }
                 } else {
                     // Placeholder for redacted
-                    ForEach((1...5), id: \.self) {_ in
+                    ForEach((1...5), id: \.self) { _ in
                         NavigationLink(
-                            destination: Color(.red),
-                            label: {
-                            TrackRow(track: Track(name: "toto", playcount: "123", listeners: "123", url: "123", artist: nil, image: [LastFMImage(url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp", size: "lol")]))
-                        })
+                                destination: Color(.red),
+                                label: {
+                                    TrackRow(track: Track(name: "toto", playcount: "123", listeners: "123", url: "123", artist: nil, image: [LastFMImage(url: "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp", size: "lol")]))
+                                })
                     }
                 }
 
             }
-        }.hasScrollEnabled(false)
-            .redacted(reason: tracks.isEmpty ? .placeholder : [])
+        }
+                .hasScrollEnabled(false)
+                .redacted(reason: tracks.isEmpty ? .placeholder : [])
     }
 }

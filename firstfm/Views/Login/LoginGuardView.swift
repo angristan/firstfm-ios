@@ -12,9 +12,9 @@ struct LoginGuardView: View {
             }) {
                 LoginButton()
             }
-            .sheet(isPresented: $showingSheet) {
-                LoginView()
-            }
+                    .sheet(isPresented: $showingSheet) {
+                        LoginView()
+                    }
         }
     }
 }

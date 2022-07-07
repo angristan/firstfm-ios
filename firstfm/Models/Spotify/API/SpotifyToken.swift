@@ -25,7 +25,7 @@ class SpotifyAPIService {
             var request = URLRequest(url: queryURL)
 
             request.setValue("Basic \(spotifyAPIToken)",
-                             forHTTPHeaderField: "Authorization")
+                    forHTTPHeaderField: "Authorization")
 
             let data: Data = "grant_type=client_credentials".data(using: .utf8)!
 
@@ -34,32 +34,33 @@ class SpotifyAPIService {
             request.httpBody = data
 
             URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
-                do {
-                    if let response = response {
-                        let nsHTTPResponse = response as? HTTPURLResponse
-                        if let statusCode = nsHTTPResponse?.statusCode {
-                            print("renewSpotifyToken status code = \(statusCode)")
-                        }
-                        // TODO
-                    }
-                    if let error = error {
-                        print(error)
-                        // TODO
-                        completion("")
-                    }
-                    if let data = data {
                         do {
-                            let jsonResponse = try JSONDecoder().decode(SpotifyCredentialsResponse.self, from: data)
-                            self.spotifyToken = jsonResponse.accessToken
-                            self.spotifyExpiresAt = String(Int64(Date().timeIntervalSince1970) + Int64(jsonResponse.expiresIn))
-                            completion(jsonResponse.accessToken)
+                            if let response = response {
+                                let nsHTTPResponse = response as? HTTPURLResponse
+                                if let statusCode = nsHTTPResponse?.statusCode {
+                                    print("renewSpotifyToken status code = \(statusCode)")
+                                }
+                                // TODO
+                            }
+                            if let error = error {
+                                print(error)
+                                // TODO
+                                completion("")
+                            }
+                            if let data = data {
+                                do {
+                                    let jsonResponse = try JSONDecoder().decode(SpotifyCredentialsResponse.self, from: data)
+                                    self.spotifyToken = jsonResponse.accessToken
+                                    self.spotifyExpiresAt = String(Int64(Date().timeIntervalSince1970) + Int64(jsonResponse.expiresIn))
+                                    completion(jsonResponse.accessToken)
+                                }
+                            }
+                        } catch {
+                            print(error)
+                            // TODO
                         }
-                    }
-                } catch {
-                    print(error)
-                    // TODO
-                }
-            }).resume()
+                    })
+                    .resume()
         }
     }
 

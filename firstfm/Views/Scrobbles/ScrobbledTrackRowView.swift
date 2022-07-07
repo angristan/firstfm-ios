@@ -7,40 +7,40 @@ struct ScrobbledTrackRow: View {
 
     var body: some View {
         HStack {
-            KFImage.url(URL(string: track.image[3].url )!)
-                .resizable()
-                .loadImmediately()
-                .onSuccess { res in
-                    print("Success: \(self.track.name) - \(res.cacheType)")
-                }
-                .onFailure { err in
-                    print("Error \(self.track.name): \(err)")
-                }
-                .fade(duration: 0.5)
-                .cancelOnDisappear(true)
-                .cornerRadius(5)
-                .frame(width: 60, height: 60)
-                .padding(.trailing, 5)
+            KFImage.url(URL(string: track.image[3].url)!)
+                    .resizable()
+                    .loadImmediately()
+                    .onSuccess { res in
+                        print("Success: \(self.track.name) - \(res.cacheType)")
+                    }
+                    .onFailure { err in
+                        print("Error \(self.track.name): \(err)")
+                    }
+                    .fade(duration: 0.5)
+                    .cancelOnDisappear(true)
+                    .cornerRadius(5)
+                    .frame(width: 60, height: 60)
+                    .padding(.trailing, 5)
 
             VStack(alignment: .leading) {
                 Spacer()
                 HStack {
                     Text(track.name)
-                        .font(.system(size: 16, weight: .semibold))
-                        .lineLimit(1)
+                            .font(.system(size: 16, weight: .semibold))
+                            .lineLimit(1)
                 }
                 Spacer()
                 HStack {
                     Text(track.artist.name)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .lineLimit(1)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .lineLimit(1)
                     Spacer()
                     Text(track.date?.getRelative() ?? "Now Playing")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .frame(alignment: .leading)
-                        .lineLimit(1)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .frame(alignment: .leading)
+                            .lineLimit(1)
                 }
                 Spacer()
             }
@@ -60,7 +60,8 @@ struct ScrobbledTrackRow: View {
                 } else {
                     Image(systemName: "heart").imageScale(.large)
                 }
-            }.buttonStyle(PlainButtonStyle())
+            }
+                    .buttonStyle(PlainButtonStyle())
         }
     }
 }

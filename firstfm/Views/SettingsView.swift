@@ -10,8 +10,8 @@ struct SettingsView: View {
                 Section(header: Text("Preferences")) {
                     Label {
                         Text("Default time period for tops")
-                            .font(.body)
-                            .foregroundColor(.primary)
+                                .font(.body)
+                                .foregroundColor(.primary)
                     } icon: {
                         Image(systemName: "clock.arrow.circlepath")
                     }
@@ -23,8 +23,8 @@ struct SettingsView: View {
                     }
                     Label {
                         Text("Clear cache")
-                            .font(.body)
-                            .foregroundColor(.primary)
+                                .font(.body)
+                                .foregroundColor(.primary)
                     } icon: {
                         Image(systemName: "trash")
                     }
@@ -36,8 +36,8 @@ struct SettingsView: View {
                     }) {
                         Label {
                             Text("Log out")
-                                .font(.body)
-                                .foregroundColor(.primary)
+                                    .font(.body)
+                                    .foregroundColor(.primary)
                         } icon: {
                             Image(systemName: "person.crop.circle.badge.xmark")
                         }
@@ -47,16 +47,17 @@ struct SettingsView: View {
                 Section(header: Text("About the app"), footer: Text("Version 1.x.x")) {
                     Label {
                         Text("Source code and issues")
-                            .font(.body)
-                            .foregroundColor(.primary)
+                                .font(.body)
+                                .foregroundColor(.primary)
                     } icon: {
                         Image(systemName: "link")
                     }
                 }
-            }.onAppear {
-                settings.getCacheSize()
             }
-            .navigationBarTitle("Settings", displayMode: .inline)
+                    .onAppear {
+                        settings.getCacheSize()
+                    }
+                    .navigationBarTitle("Settings", displayMode: .inline)
         }
     }
 }

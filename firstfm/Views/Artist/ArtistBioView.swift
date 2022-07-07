@@ -14,18 +14,18 @@ struct ArtistBioView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 Text(artistInfo?.bio.content ?? "There is no bio for this artist")
-                    .padding()
-                    .navigationTitle("\(artistInfo?.name ?? "Artist") bio")
-                    .navigationBarItems(trailing: HStack {
-                        if let link = artistInfo?.bio.links.link.href {
+                        .padding()
+                        .navigationTitle("\(artistInfo?.name ?? "Artist") bio")
+                        .navigationBarItems(trailing: HStack {
+                            if let link = artistInfo?.bio.links.link.href {
 
-                            Link(destination: URL(string: link)!) {
-                                Image(systemName: "link.circle.fill")
-                                    .imageScale(.large)
-                                    .foregroundColor(.white)
+                                Link(destination: URL(string: link)!) {
+                                    Image(systemName: "link.circle.fill")
+                                            .imageScale(.large)
+                                            .foregroundColor(.white)
+                                }
                             }
-                        }
-                    })
+                        })
 
             }
         }

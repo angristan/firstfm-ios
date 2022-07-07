@@ -18,7 +18,7 @@ struct TrendsMapView: View {
     var body: some View {
         VStack {
             Map(coordinateRegion: $coordinateRegion,
-                annotationItems: vm.annotationItems) {item in
+                    annotationItems: vm.annotationItems) { item in
                 MapAnnotation(coordinate: item.coordinate) {
                     Button(action: {
                         print("item: \(item)")
@@ -30,10 +30,10 @@ struct TrendsMapView: View {
                     }) {
                         Text(item.country.emoji()).font(.system(size: 20))
                     }
-                    .sheet(isPresented: $showingSheet) {
-                        TopCountryView()
-                            .environmentObject(countryVM)
-                    }
+                            .sheet(isPresented: $showingSheet) {
+                                TopCountryView()
+                                        .environmentObject(countryVM)
+                            }
                 }
             }
         }

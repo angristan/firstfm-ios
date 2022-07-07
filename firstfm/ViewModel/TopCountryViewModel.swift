@@ -9,7 +9,7 @@ class TopCountryViewModel: ObservableObject {
         print("getTopArtists for \(country.name)")
         self.isLoading = true
 
-        LastFMAPI.request(lastFMMethod: "geo.getTopArtists", args: ["limit": "30", "country": country.name ]) { (data: TopCountryArtistsResponse?, _) -> Void in
+        LastFMAPI.request(lastFMMethod: "geo.getTopArtists", args: ["limit": "30", "country": country.name]) { (data: TopCountryArtistsResponse?, _) -> Void in
             self.isLoading = false
 
             if let data = data {

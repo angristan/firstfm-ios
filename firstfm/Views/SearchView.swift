@@ -10,36 +10,37 @@ struct SearchView: View {
             VStack {
                 HStack {
                     TextField("Justin Bieber, Micheal Jackson...",
-                              text: $searchString,
-                              onCommit: { self.performSearch() })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                            text: $searchString,
+                            onCommit: { self.performSearch() })
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: { self.performSearch() }) {
                         Image(systemName: "magnifyingglass")
                     }
                 }
-                .padding()
+                        .padding()
 
                 // Not actually working
                 Picker("Search type",
-                       selection: $selectedSearchType,
-                       content: {
-                    Text("Artists").tag(0)
-                    Text("Albums").tag(1)
-                    Text("Tracks").tag(2)
-                }).padding(.horizontal, 20)
-                    .padding(.vertical, 5)
-                    .pickerStyle(SegmentedPickerStyle())
+                        selection: $selectedSearchType,
+                        content: {
+                            Text("Artists").tag(0)
+                            Text("Albums").tag(1)
+                            Text("Tracks").tag(2)
+                        })
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 5)
+                        .pickerStyle(SegmentedPickerStyle())
 
                 List {
                     ForEach(search.artists) { artist in
                         NavigationLink(
-                            destination: ArtistView(artist: artist),
-                            label: {
-                            ArtistRow(artist: artist)
-                        })
+                                destination: ArtistView(artist: artist),
+                                label: {
+                                    ArtistRow(artist: artist)
+                                })
                     }
                 }
-                .navigationBarTitle("Search")
+                        .navigationBarTitle("Search")
             }
         }
     }

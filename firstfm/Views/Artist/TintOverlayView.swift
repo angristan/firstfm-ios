@@ -5,7 +5,7 @@ struct TintOverlayView: View {
         ZStack {
             Text(" ")
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .background(Color.black)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .background(Color.black)
     }
 }

@@ -4,31 +4,31 @@ struct ContentView: View {
 
     var body: some View {
         ChartList()
-            .tabItem {
-                Text("Charts")
-                Image(systemName: "list.bullet")
-            }
+                .tabItem {
+                    Text("Charts")
+                    Image(systemName: "list.bullet")
+                }
 
         ProfileView()
-            .tabItem {
-                Text("Profile")
-                Image(systemName: "person.crop.circle")
-            }
+                .tabItem {
+                    Text("Profile")
+                    Image(systemName: "person.crop.circle")
+                }
         Scrobbles()
-            .tabItem {
-                Text("Scrobbles")
-                Image(systemName: "music.note.list")
-            }
+                .tabItem {
+                    Text("Scrobbles")
+                    Image(systemName: "music.note.list")
+                }
         TrendsMapView()
-            .tabItem {
-                Text("Trends")
-                Image(systemName: "map")
-            }
+                .tabItem {
+                    Text("Trends")
+                    Image(systemName: "map")
+                }
         SearchView()
-            .tabItem {
-                Text("Search")
-                Image(systemName: "magnifyingglass")
-            }
+                .tabItem {
+                    Text("Search")
+                    Image(systemName: "magnifyingglass")
+                }
     }
 }
 

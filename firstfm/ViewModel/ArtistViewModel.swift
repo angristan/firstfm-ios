@@ -19,7 +19,7 @@ class ArtistViewModel: ObservableObject {
 
     func setIsLoading() {
         if !isAlbumsLoading && !isTracksLoading && !isInfoLoading {
-            self.isLoading =  false
+            self.isLoading = false
         }
     }
 

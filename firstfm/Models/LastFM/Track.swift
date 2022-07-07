@@ -1,7 +1,9 @@
 import Foundation
 
 struct Track: Codable, Identifiable {
-    var id: String { name }
+    var id: String {
+        name
+    }
 
     var name: String
     var playcount: String
@@ -12,7 +14,7 @@ struct Track: Codable, Identifiable {
 }
 
 struct ScrobbledTrack: Codable, Identifiable, Equatable, Hashable {
-    static func == (lhs: ScrobbledTrack, rhs: ScrobbledTrack) -> Bool {
+    static func ==(lhs: ScrobbledTrack, rhs: ScrobbledTrack) -> Bool {
         return lhs.name == rhs.name && lhs.artist == rhs.artist && lhs.date == rhs.date
     }
 
@@ -22,7 +24,9 @@ struct ScrobbledTrack: Codable, Identifiable, Equatable, Hashable {
         hasher.combine(date)
     }
 
-    var id: String { name }
+    var id: String {
+        name
+    }
 
     var name: String
     var url: String
@@ -60,7 +64,9 @@ struct TrackArtist: Codable, Identifiable, Hashable {
         hasher.combine(name)
     }
 
-    var id: String { name }
+    var id: String {
+        name
+    }
 
     var mbid: String?
     var name: String

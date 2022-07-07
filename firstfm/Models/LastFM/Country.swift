@@ -2,7 +2,9 @@ import Foundation
 
 extension NSLocale {
     class func localeForCountry(countryName: String) -> String? {
-        return NSLocale.isoCountryCodes.first {self.countryNameFromLocaleCode(localeCode: $0 ) == countryName}
+        return NSLocale.isoCountryCodes.first {
+            self.countryNameFromLocaleCode(localeCode: $0) == countryName
+        }
     }
 
     private class func countryNameFromLocaleCode(localeCode: String) -> String {
@@ -24,7 +26,7 @@ struct Country: Codable {
     }
 
     func emoji() -> String {
-        let emoji =  self.flag(country: NSLocale.localeForCountry(countryName: self.name) ?? "⚠️")
+        let emoji = self.flag(country: NSLocale.localeForCountry(countryName: self.name) ?? "⚠️")
 
         print("\(self.name): \(emoji)")
 

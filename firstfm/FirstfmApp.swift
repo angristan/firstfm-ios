@@ -9,8 +9,9 @@ struct FirstfmApp: App {
         WindowGroup {
             TabView {
                 ContentView()
-            }.accentColor(.red)
-            .environmentObject(auth)
+            }
+                    .accentColor(.red)
+                    .environmentObject(auth)
         }
     }
 }

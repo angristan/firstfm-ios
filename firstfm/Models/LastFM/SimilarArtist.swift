@@ -12,29 +12,29 @@ struct SimilarArtists: Codable {
 
 extension SimilarArtist {
     static func fixture(
-        url: String = "https://last.fm",
-        name: String = "Red Velvet",
-        image: [LastFMImage] = [.fixture()]
+            url: String = "https://last.fm",
+            name: String = "Red Velvet",
+            image: [LastFMImage] = [.fixture()]
     ) -> SimilarArtist {
         SimilarArtist(
-            url: url,
-            name: name,
-            image: image)
+                url: url,
+                name: name,
+                image: image)
     }
 }
 
 extension SimilarArtists {
     static func fixture(
-        artists: [SimilarArtist] = [
-            .fixture(),
-            .fixture(),
-            .fixture(),
-            .fixture(),
-            .fixture()
-        ]
+            artists: [SimilarArtist] = [
+                .fixture(),
+                .fixture(),
+                .fixture(),
+                .fixture(),
+                .fixture()
+            ]
     ) -> SimilarArtists {
         SimilarArtists(
-            artist: artists
+                artist: artists
         )
     }
 }
