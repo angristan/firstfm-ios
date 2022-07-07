@@ -17,7 +17,7 @@ struct TopArtistAlbumsView: View {
                                 destination: AlbumView(album: album),
                                 label: {
                                     VStack {
-                                        KFImage.url(URL(string: album.image[0].url != "" ? album.image[0].url : "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")!)
+                                        KFImage.url(URL(string: album.image[3].url != "" ? album.image[3].url : "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp")!)
                                                 .resizable()
                                                 .cornerRadius(5)
                                                 .aspectRatio(contentMode: .fill)

@@ -52,16 +52,17 @@ class ArtistViewModel: ObservableObject {
                     self.setIsLoading()
                 }
 
-                for (index, album) in data.topalbums.album.enumerated() {
-                    // Get image URL for each track and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "album", name: album.name) { imageURL in
-                        if let imageURL = imageURL {
-                            DispatchQueue.main.async {
-                                self.albums[index].image[0].url = imageURL
-                            }
-                        }
-                    }
-                }
+                // Albums are still returned by the last.fm API, so we don't need to contact Spotify
+                // for (index, album) in data.topalbums.album.enumerated() {
+                //     // Get image URL for each track and trigger a View update through the observed object
+                //     SpotifyImage.findImage(type: "album", name: album.name) { imageURL in
+                //         if let imageURL = imageURL {
+                //             DispatchQueue.main.async {
+                //                 self.albums[index].image[0].url = imageURL
+                //             }
+                //         }
+                //     }
+                // }
             }
         }
     }
