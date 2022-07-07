@@ -73,15 +73,6 @@
       }
     },
     {
-      "identity" : "swiftuirefresh",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/timbersoftware/SwiftUIRefresh.git",
-      "state" : {
-        "revision" : "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
-        "version" : "0.0.3"
-      }
-    },
-    {
       "identity" : "valet",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/square/Valet.git",

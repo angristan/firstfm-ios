@@ -5,7 +5,6 @@ struct ChartList: View {
     @State var artistsLoaded = false
     @State var tracksLoaded = false
     @State private var selectedChartsIndex = 0
-    @State private var isPullLoaderShowing = false
 
     var body: some View {
         NavigationView {
@@ -43,9 +42,8 @@ struct ChartList: View {
                                         self.artistsLoaded = true
                                     }
                                 }
-                                .pullToRefresh(isShowing: $isPullLoaderShowing) {
+                                .refreshable() {
                                     self.charts.getChartingArtists()
-                                    self.isPullLoaderShowing = false
                                 }
                     }
                     if selectedChartsIndex == 1 {
@@ -63,9 +61,8 @@ struct ChartList: View {
                                         self.tracksLoaded = true
                                     }
                                 }
-                                .pullToRefresh(isShowing: $isPullLoaderShowing) {
+                                .refreshable() {
                                     self.charts.getChartingTracks()
-                                    self.isPullLoaderShowing = false
                                 }
                     }
 

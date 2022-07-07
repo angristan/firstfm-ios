@@ -1,11 +1,9 @@
 import SwiftUI
-import SwiftUIRefresh
 
 struct Scrobbles: View {
     @EnvironmentObject var auth: AuthViewModel
     @ObservedObject var vm = ScrobblesViewModel()
     @State var scrobblesLoaded = false
-    @State private var isPullLoaderShowing = false
 
     var body: some View {
         NavigationView {
@@ -37,9 +35,8 @@ struct Scrobbles: View {
                                         scrobblesLoaded = true
                                     }
                                 }
-                                .pullToRefresh(isShowing: $isPullLoaderShowing) {
+                                .refreshable() {
                                     vm.getUserScrobbles(page: 1, clear: true)
-                                    self.isPullLoaderShowing = false
                                 }
                     }
                     // Show loader above the rest of the ZStack

@@ -102,7 +102,6 @@
 		82D5B4D22696DBD700716931 /* ScrobblesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D12696DBD700716931 /* ScrobblesViewModel.swift */; };
 		82D5B4D42696DC7800716931 /* RecentTracksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D32696DC7800716931 /* RecentTracksResponse.swift */; };
 		82D5B4D62696E0E100716931 /* ScrobbledTrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5B4D52696E0E100716931 /* ScrobbledTrackRowView.swift */; };
-		82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 82E80C38269777C60098DC3C /* SwiftUIRefresh */; };
 		82EBE0F326B8988900FF2BA9 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 82EBE0F226B8988900FF2BA9 /* CryptoSwift */; };
 		82F0D54D2697AAC7007CEA98 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0D54C2697AAC7007CEA98 /* SearchViewModel.swift */; };
 		82FBAE472674B8FC000D8E29 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBAE462674B8FC000D8E29 /* Artist.swift */; };
@@ -216,7 +215,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E80C39269777C60098DC3C /* SwiftUIRefresh in Frameworks */,
 				825F0FAF26A60E5C007BA84B /* Valet in Frameworks */,
 				8253DC0C26A0E10100F5F426 /* NotificationBannerSwift in Frameworks */,
 				825F0FBA26A61ED2007BA84B /* Cache in Frameworks */,
@@ -505,7 +503,6 @@
 			name = firstfm;
 			packageProductDependencies = (
 				82505CE32675178B00CCCB58 /* Kingfisher */,
-				82E80C38269777C60098DC3C /* SwiftUIRefresh */,
 				8253DC0B26A0E10100F5F426 /* NotificationBannerSwift */,
 				825F0F8326A48597007BA84B /* FancyScrollView */,
 				825F0FAE26A60E5C007BA84B /* Valet */,
@@ -541,7 +538,6 @@
 			mainGroup = 82844DF42673991F00578DD4;
 			packageReferences = (
 				82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 				8253DC0A26A0E10100F5F426 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */,
 				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
@@ -934,14 +930,6 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.3;
-			};
-		};
 		82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
@@ -977,11 +965,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */;
 			productName = Cache;
-		};
-		82E80C38269777C60098DC3C /* SwiftUIRefresh */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 82E80C37269777C50098DC3C /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
-			productName = SwiftUIRefresh;
 		};
 		82EBE0F226B8988900FF2BA9 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
