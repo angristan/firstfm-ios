@@ -1,7 +1,12 @@
 import Foundation
 import CryptoSwift
+import os
 
 class LastFMAPI {
+    private static let logger = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: LastFMAPI.self)
+    )
     // swiftlint:disable force_cast
     static let lastFMAPIKey = Bundle.main.object(forInfoDictionaryKey: "LASTFM_API_KEY") as! String
     // swiftlint:disable force_cast
@@ -35,10 +40,7 @@ class LastFMAPI {
         toSign += lastFMSharedSecret
 
         let data: Data = "\(argsString)&api_sig=\(toSign.md5())".data(using: .utf8)!
-
-        print("argsString: \(argsString)")
-        print("toSign: \(toSign)")
-        print("api_sig: \(toSign.md5())")
+        logger.info("Sending request with args: \(fullArgs)")
 
         request.httpMethod = method
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -53,7 +55,7 @@ class LastFMAPI {
                             let nsHTTPResponse = response as? HTTPURLResponse
 
                             if let statusCode = nsHTTPResponse?.statusCode {
-                                print("LastFMAPI status code = \(statusCode)")
+                                logger.info("status code of request \(lastFMMethod): \(statusCode)")
                                 if statusCode != 200 {
                                     if lastFMMethod == "user.getFriends" && statusCode == 400 {
                                         // The API returns a 400 when the user has no friends 🤨
@@ -68,7 +70,7 @@ class LastFMAPI {
                         }
 
                         if let error = error {
-                            print(lastFMMethod + ":" + error.localizedDescription)
+                            logger.error("error for \(lastFMMethod): \(error.localizedDescription)")
                             callbackError = error
                         }
 
@@ -77,7 +79,7 @@ class LastFMAPI {
                             callbackData = jsonResponse
                         }
                     } catch {
-                        print(lastFMMethod + ":" + "\(error)")
+                        logger.error("error for \(lastFMMethod): \(error.localizedDescription)")
                         callbackError = error
                     }
 

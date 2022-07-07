@@ -1,7 +1,13 @@
 import SwiftUI
 import Kingfisher
+import Foundation
+import os
 
 struct AlbumRow: View {
+    private static let logger = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: AlbumRow.self)
+    )
     var album: ArtistAlbum
 
     var body: some View {
@@ -9,6 +15,7 @@ struct AlbumRow: View {
             KFImage.url(URL(string: album.image[0].url))
                     .resizable()
                     .onSuccess { res in
+                        AlbumRow.logger.info("Successfully loaded image for album \(album.name)")
                         print("Success: \(self.album.name) - \(res.cacheType)")
                     }
                     .onFailure { err in

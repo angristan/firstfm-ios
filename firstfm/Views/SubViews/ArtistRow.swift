@@ -1,7 +1,12 @@
 import SwiftUI
 import Kingfisher
+import os
 
 struct ArtistRow: View {
+    private static let logger = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: ArtistRow.self)
+    )
     var artist: Artist
 
     var body: some View {
@@ -10,11 +15,11 @@ struct ArtistRow: View {
             //                .frame(width: 50, height: 50)
             KFImage.url(URL(string: artist.image[0].url)!)
                     .resizable()
-                    .onSuccess { res in
-                        print("Success: \(self.artist.name) - \(res.cacheType)")
+                    .onSuccess { _ in
+                        ArtistRow.logger.log("Successfully loaded image for artist \(artist.name)")
                     }
                     .onFailure { err in
-                        print("Error \(self.artist): \(err)")
+                        ArtistRow.logger.error("Error while loading image for artist \(artist.name): \(err.localizedDescription, privacy: .public)")
                     }
                     //                .placeholder {
                     //                    ProgressView()

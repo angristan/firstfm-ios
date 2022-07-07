@@ -1,10 +1,16 @@
 import Foundation
 import Cache
+import os
 
 struct SpotifyImage: Codable {
     var url: String
     var height: Int
     var width: Int
+
+    private static let logger = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: LastFMAPI.self)
+    )
 
     static let DefaultImage = "https://lastfm.freetls.fastly.net/i/u/64s/4128a6eb29f94943c9d206c08e625904.webp"
 
@@ -42,13 +48,16 @@ struct SpotifyImage: Codable {
                                     if let response = response {
                                         let nsHTTPResponse = response as? HTTPURLResponse
                                         if let statusCode = nsHTTPResponse?.statusCode {
-                                            print("findImage status code = \(statusCode)")
+                                            logger.log("findImage for \"\(name)\" (\(type)) status code = \(statusCode)")
+                                            if statusCode != 200 {
+                                                completion(DefaultImage)
+                                            }
                                         }
                                         // TODO
                                     }
 
                                     if let error = error {
-                                        print(error)
+                                        logger.error("findImage error for \"\(name)\" (\(type)) = \(error.localizedDescription)")
                                         // TODO
                                         completion(DefaultImage)
                                     }
@@ -96,7 +105,7 @@ struct SpotifyImage: Codable {
                                         }
                                     }
                                 } catch {
-                                    print(error)
+                                    logger.error("findImage error for \"\(name)\" (\(type)) = \(String(describing: error))")
                                     completion(DefaultImage)
                                 }
                             })

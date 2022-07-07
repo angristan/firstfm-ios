@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import os
 
 struct SpotifyCredentialsResponse: Codable {
     var accessToken: String
@@ -12,6 +13,10 @@ struct SpotifyCredentialsResponse: Codable {
 }
 
 class SpotifyAPIService {
+    private static let logger = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: LastFMAPI.self)
+    )
 
     @AppStorage("spotify_tmp_token") var spotifyToken: String?
     @AppStorage("spotify_expires_at") var spotifyExpiresAt: String?
@@ -38,12 +43,12 @@ class SpotifyAPIService {
                             if let response = response {
                                 let nsHTTPResponse = response as? HTTPURLResponse
                                 if let statusCode = nsHTTPResponse?.statusCode {
-                                    print("renewSpotifyToken status code = \(statusCode)")
+                                    SpotifyAPIService.logger.log("renewSpotifyToken status code = \(statusCode)")
                                 }
                                 // TODO
                             }
                             if let error = error {
-                                print(error)
+                                SpotifyAPIService.logger.log("renewSpotifyToken error = \(error.localizedDescription)")
                                 // TODO
                                 completion("")
                             }
@@ -56,7 +61,7 @@ class SpotifyAPIService {
                                 }
                             }
                         } catch {
-                            print(error)
+                            SpotifyAPIService.logger.log("renewSpotifyToken error = \(error.localizedDescription)")
                             // TODO
                         }
                     })
