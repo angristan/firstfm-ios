@@ -16,13 +16,14 @@ struct Track: Codable, Identifiable {
 struct ScrobbledTrack: Codable, Identifiable, Equatable, Hashable {
     // swiftlint:disable:next operator_whitespace
     static func ==(lhs: ScrobbledTrack, rhs: ScrobbledTrack) -> Bool {
-        lhs.name == rhs.name && lhs.artist == rhs.artist && lhs.date == rhs.date
+        lhs.name == rhs.name && lhs.artist == rhs.artist && lhs.date == rhs.date && lhs.loved == rhs.loved
     }
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(artist)
         hasher.combine(date)
+        hasher.combine(loved)
     }
 
     var id: String {
