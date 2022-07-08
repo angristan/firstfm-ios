@@ -17,16 +17,22 @@ struct SettingsView: View {
                     }
                     switch settings.cacheSize {
                     case .success(let size):
-                        Text("Disk cache size: \(Double(size) / 1024 / 1024) MB")
+                        Text("Disk cache size: \(Int(size) / 1024 / 1024) MB")
                     case .failure(let error):
                         Text("Failed to get cache size: \(error.errorDescription ?? "unknown error")")
                     }
-                    Label {
-                        Text("Clear cache")
-                                .font(.body)
-                                .foregroundColor(.primary)
-                    } icon: {
-                        Image(systemName: "trash")
+                    Button(action: {
+                        settings.clearCache()
+                        settings.getCacheSize()
+
+                    }) {
+                        Label {
+                            Text("Clear cache")
+                                    .font(.body)
+                                    .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "trash")
+                        }
                     }
                 }
 
