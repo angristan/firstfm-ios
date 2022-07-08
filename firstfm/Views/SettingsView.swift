@@ -51,12 +51,14 @@ struct SettingsView: View {
                 }
 
                 Section(header: Text("About the app"), footer: Text("Version 1.x.x")) {
-                    Label {
-                        Text("Source code and issues")
-                                .font(.body)
-                                .foregroundColor(.primary)
-                    } icon: {
-                        Image(systemName: "link")
+                    Link(destination: URL(string: "https://github.com/angristan/firstfm-ios")!) {
+                        Label {
+                            Text("Source code and issues")
+                                    .font(.body)
+                                    .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "link")
+                        }
                     }
                 }
             }
