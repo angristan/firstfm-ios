@@ -19,7 +19,7 @@ struct ArtistBioView: View {
                                 }
                             }
                         })
-
+                        .textSelection(.enabled)
             }
         }
     }
