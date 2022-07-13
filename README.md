@@ -66,7 +66,7 @@ album), and uses the images returned by Spotify. This means that:
     + async mechanism are used.
 - Artwork do not always match in cases of homonyms ☹️
 
-*Update*: The app now uses a self-made API: [spotify-search-proxy](https://github.com/angristan/spotify-search-proxy),
+**Update**: The app now uses a self-made API: [spotify-search-proxy](https://github.com/angristan/spotify-search-proxy),
 which adds another layer of cache in front of the Spotify API.
 
 ### Listenings reports
