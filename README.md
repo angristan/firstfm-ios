@@ -34,7 +34,7 @@ Copy `firstfm/Config/Secrets.example.xcconfig` to `firstfm/Config/Secrets.xcconf
 ```swift
 SPOTIFY_API_TOKEN =
         LASTFM_API_KEY =
-        LASTFM_API_SHARED_SECRET =     
+        LASTFM_API_SHARED_SECRET =      
 ```
 
 #### Last.fm API key
@@ -65,6 +65,9 @@ album), and uses the images returned by Spotify. This means that:
   whole app slower. Luckily, the app does not suffer much from this since the Spotify API is very fast, and memoization
     + async mechanism are used.
 - Artwork do not always match in cases of homonyms ☹️
+
+*Update*: The app now uses a self-made API: [spotify-search-proxy](https://github.com/angristan/spotify-search-proxy),
+which adds another layer of cache in front of the Spotify API.
 
 ### Listenings reports
 

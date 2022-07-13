@@ -114,7 +114,7 @@ class ProfileViewModel: ObservableObject {
 
                 for (index, track) in tracks.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "track", name: "\(track.name) \(track.artist.name)") { imageURL in
+                    SpotifyImageProxy.findImage(type: "track", name: "\(track.name) \(track.artist.name)") { imageURL in
                         if let imageURL = imageURL {
                             tracks[index].image[0].url = imageURL
                         }
@@ -173,7 +173,7 @@ class ProfileViewModel: ObservableObject {
 
                 for (index, artist) in data.topartists.artist.enumerated() {
                     // Get image URL for each artist and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.topArtists[index].image[0].url = imageURL
@@ -228,7 +228,7 @@ class ProfileViewModel: ObservableObject {
                 }
 
                 for (index, track) in data.toptracks.track.enumerated() {
-                    SpotifyImage.findImage(type: "track", name: track.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "track", name: track.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.topTracks[index].image[0].url = imageURL
@@ -284,7 +284,7 @@ class ProfileViewModel: ObservableObject {
                 }
 
                 for (index, track) in data.topalbums.album.enumerated() {
-                    SpotifyImage.findImage(type: "album", name: track.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "album", name: track.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.topAlbums[index].image[0].url = imageURL

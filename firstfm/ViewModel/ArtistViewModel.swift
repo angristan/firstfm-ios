@@ -55,7 +55,7 @@ class ArtistViewModel: ObservableObject {
                 // Albums are still returned by the last.fm API, so we don't need to contact Spotify
                 // for (index, album) in data.topalbums.album.enumerated() {
                 //     // Get image URL for each track and trigger a View update through the observed object
-                //     SpotifyImage.findImage(type: "album", name: album.name) { imageURL in
+                //     SpotifyImageProxy.findImage(type: "album", name: album.name) { imageURL in
                 //         if let imageURL = imageURL {
                 //             DispatchQueue.main.async {
                 //                 self.albums[index].image[0].url = imageURL
@@ -90,7 +90,7 @@ class ArtistViewModel: ObservableObject {
 
                 for (index, track) in data.toptracks.track.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "track", name: track.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "track", name: track.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.tracks[index].image[0].url = imageURL
@@ -124,7 +124,7 @@ class ArtistViewModel: ObservableObject {
 
                 for (index, artist) in data.artist.similar.artist.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.artist?.similar.artist[index].image[0].url = imageURL

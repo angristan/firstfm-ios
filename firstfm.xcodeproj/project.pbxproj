@@ -14,6 +14,7 @@
 		4A69011C26A34962001561C8 /* ArtistTopTracksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69011B26A34962001561C8 /* ArtistTopTracksResponse.swift */; };
 		4A69012626A3A08F001561C8 /* SpotifyAlbumSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69012526A3A08F001561C8 /* SpotifyAlbumSearchResponse.swift */; };
 		4A8C296126983B7300F55ECC /* LastFMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C296026983B7300F55ECC /* LastFMAPI.swift */; };
+		79B5417BABC76AD02AB6CA83 /* SpotifyImageProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B54C72F7F54A629912F48F /* SpotifyImageProxy.swift */; };
 		820455DA267A72390009A418 /* SpotifyToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455D9267A72390009A418 /* SpotifyToken.swift */; };
 		820455DC267AA8E70009A418 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DB267AA8E70009A418 /* LoginView.swift */; };
 		820455DE267AB7D70009A418 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820455DD267AB7D70009A418 /* ProfileView.swift */; };
@@ -117,6 +118,7 @@
 		4A69011B26A34962001561C8 /* ArtistTopTracksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTopTracksResponse.swift; sourceTree = "<group>"; };
 		4A69012526A3A08F001561C8 /* SpotifyAlbumSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAlbumSearchResponse.swift; sourceTree = "<group>"; };
 		4A8C296026983B7300F55ECC /* LastFMAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMAPI.swift; sourceTree = "<group>"; };
+		79B54C72F7F54A629912F48F /* SpotifyImageProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyImageProxy.swift; sourceTree = "<group>"; };
 		820455D9267A72390009A418 /* SpotifyToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyToken.swift; sourceTree = "<group>"; };
 		820455DB267AA8E70009A418 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		820455DD267AB7D70009A418 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				825F0F9B26A5EABE007BA84B /* SpotifyArtist.swift */,
 				82A006C0267963BB0009BD71 /* SpotifyImage.swift */,
 				825F0F9D26A5EAE7007BA84B /* SpotifyAlbum.swift */,
+				79B54C72F7F54A629912F48F /* SpotifyImageProxy.swift */,
 			);
 			path = Spotify;
 			sourceTree = "<group>";
@@ -539,11 +542,11 @@
 			packageReferences = (
 				82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				8253DC0A26A0E10100F5F426 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
-				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */,
-				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */,
-				825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */,
-				82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView.git" */,
+				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect.git" */,
+				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet.git" */,
+				825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache.git" */,
+				82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -684,6 +687,7 @@
 				4A69011626A34477001561C8 /* ArtistViewModel.swift in Sources */,
 				82861BE526984FBA009E52AC /* TrendsMapView.swift in Sources */,
 				826CBA992678EB8800B11170 /* ArtistView.swift in Sources */,
+				79B5417BABC76AD02AB6CA83 /* SpotifyImageProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +902,7 @@
 				minimumVersion = 3.0.7;
 			};
 		};
-		825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */ = {
+		825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nerdsupremacist/FancyScrollView.git";
 			requirement = {
@@ -906,7 +910,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
 			requirement = {
@@ -914,7 +918,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */ = {
+		825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/square/Valet.git";
 			requirement = {
@@ -922,7 +926,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */ = {
+		825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hyperoslo/Cache.git";
 			requirement = {
@@ -930,7 +934,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+		82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -953,22 +957,22 @@
 		};
 		825F0F8326A48597007BA84B /* FancyScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */;
+			package = 825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView.git" */;
 			productName = FancyScrollView;
 		};
 		825F0FAE26A60E5C007BA84B /* Valet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */;
+			package = 825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet.git" */;
 			productName = Valet;
 		};
 		825F0FB926A61ED2007BA84B /* Cache */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */;
+			package = 825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache.git" */;
 			productName = Cache;
 		};
 		82EBE0F226B8988900FF2BA9 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			package = 82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */;
 			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

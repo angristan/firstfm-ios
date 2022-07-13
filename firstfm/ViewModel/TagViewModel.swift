@@ -26,7 +26,7 @@ class TagViewModel: ObservableObject {
 
                 for (index, artist) in data.topartists.artist.enumerated() {
                     // Get image URL for each artist and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.artists[index].image[0].url = imageURL

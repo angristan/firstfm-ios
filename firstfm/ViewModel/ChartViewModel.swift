@@ -38,7 +38,7 @@ class ChartViewModel: ObservableObject {
 
                 for (index, artist) in data.artists.artist.enumerated() {
                     // Get image URL for each artist and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.artists[index].image[0].url = imageURL
@@ -72,7 +72,7 @@ class ChartViewModel: ObservableObject {
 
                 for (index, track) in data.tracks.track.enumerated() {
                     // Get image URL for each track and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "track", name: track.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "track", name: track.name) { imageURL in
                         if let imageURL = imageURL {
                             DispatchQueue.main.async {
                                 self.tracks[index].image[0].url = imageURL

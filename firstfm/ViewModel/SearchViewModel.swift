@@ -29,7 +29,7 @@ class SearchViewModel: ObservableObject {
 
                 for (index, artist) in artists.enumerated() {
                     // Get image URL for each artist and trigger a View update through the observed object
-                    SpotifyImage.findImage(type: "artist", name: artist.name) { imageURL in
+                    SpotifyImageProxy.findImage(type: "artist", name: artist.name) { imageURL in
                         if let imageURL = imageURL {
                             artists[index].image[0].url = imageURL
                         }
