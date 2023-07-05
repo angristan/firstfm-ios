@@ -1,15 +1,15 @@
 name: Push workflow
 
-on: [ push ]
+on: [push]
 
 jobs:
   build:
     name: build
-    runs-on: macos-12
+    runs-on: macos-13
     strategy:
       matrix:
         destination:
-          - "platform=iOS Simulator,OS=15.5,name=iPhone 12"
+          - 'platform=iOS Simulator,OS=16.4,name=iPhone 14 Pro'
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -22,7 +22,7 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_${{ env.XCODE_VERSION }}.app
         env:
-          XCODE_VERSION: 13.4.1
+          XCODE_VERSION: 14.3.1
       - name: Build
         run: |
           xcodebuild clean build -project firstfm.xcodeproj -scheme firstfm -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO

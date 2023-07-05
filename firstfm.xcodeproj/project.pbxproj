@@ -542,11 +542,11 @@
 			packageReferences = (
 				82505CE22675178B00CCCB58 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				8253DC0A26A0E10100F5F426 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
-				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView.git" */,
-				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect.git" */,
-				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet.git" */,
-				825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache.git" */,
-				82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */,
+				825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */,
+				825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */,
+				825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */,
+				82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 82844DFE2673991F00578DD4 /* Products */;
 			projectDirPath = "";
@@ -828,7 +828,7 @@
 				DEVELOPMENT_TEAM = 8ZMUZY4VF3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = firstfm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -850,7 +850,7 @@
 				DEVELOPMENT_TEAM = 8ZMUZY4VF3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = firstfm/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -902,7 +902,7 @@
 				minimumVersion = 3.0.7;
 			};
 		};
-		825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView.git" */ = {
+		825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nerdsupremacist/FancyScrollView.git";
 			requirement = {
@@ -910,7 +910,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect.git" */ = {
+		825F0F8526A48C9C007BA84B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
 			requirement = {
@@ -918,7 +918,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet.git" */ = {
+		825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/square/Valet.git";
 			requirement = {
@@ -926,7 +926,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache.git" */ = {
+		825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hyperoslo/Cache.git";
 			requirement = {
@@ -934,7 +934,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */ = {
+		82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -957,22 +957,22 @@
 		};
 		825F0F8326A48597007BA84B /* FancyScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView.git" */;
+			package = 825F0F8226A48597007BA84B /* XCRemoteSwiftPackageReference "FancyScrollView" */;
 			productName = FancyScrollView;
 		};
 		825F0FAE26A60E5C007BA84B /* Valet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet.git" */;
+			package = 825F0FAD26A60E5C007BA84B /* XCRemoteSwiftPackageReference "Valet" */;
 			productName = Valet;
 		};
 		825F0FB926A61ED2007BA84B /* Cache */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache.git" */;
+			package = 825F0FB826A61ED2007BA84B /* XCRemoteSwiftPackageReference "Cache" */;
 			productName = Cache;
 		};
 		82EBE0F226B8988900FF2BA9 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */;
+			package = 82EBE0F126B8988900FF2BA9 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
