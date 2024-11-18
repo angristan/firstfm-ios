@@ -5,11 +5,11 @@ on: [push]
 jobs:
   build:
     name: build
-    runs-on: macos-13
+    runs-on: macos-15
     strategy:
       matrix:
         destination:
-          - 'platform=iOS Simulator,OS=16.4,name=iPhone 14 Pro'
+          - "platform=iOS Simulator,OS=18.1,name=iPhone 16 Pro"
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -22,7 +22,7 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select --switch /Applications/Xcode_${{ env.XCODE_VERSION }}.app
         env:
-          XCODE_VERSION: 14.3.1
+          XCODE_VERSION: 16.1
       - name: Build
         run: |
           xcodebuild clean build -project firstfm.xcodeproj -scheme firstfm -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
@@ -32,7 +32,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: GitHub Action for SwiftLint
         uses: norio-nomura/action-swiftlint@3.2.1
 
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Lint Commit
@@ -56,11 +56,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 18
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
