@@ -1,33 +1,51 @@
 import Foundation
-import SwiftUI
 import NotificationBannerSwift
+import SwiftUI
 import Valet
 
 struct Nothing: Codable {
 }
 
 class ScrobbledTrackViewModel {
-    let myValet = getValet()
+    let valet = getValet()
 
     func loveTrack(track: ScrobbledTrack) {
-        let storedToken = try? myValet.string(forKey: "sk")
-
-        LastFMAPI.request(lastFMMethod: "track.love", args: ["artist": track.artist.name, "track": track.name, "sk": storedToken ?? ""]) { (_: Nothing?, error) -> Void in
-            if error != nil {
-                DispatchQueue.main.async {
-                    FloatingNotificationBanner(title: "Failed to like track", subtitle: error?.localizedDescription, style: .danger).show()
-                }
-            }
-        }
+        performTrackAction(
+            track: track, action: "track.love", successMessage: "Track liked successfully",
+            failureMessage: "Failed to like track")
     }
 
     func unloveTrack(track: ScrobbledTrack) {
-        let storedToken = try? myValet.string(forKey: "sk")
+        performTrackAction(
+            track: track, action: "track.unlove", successMessage: "Track unliked successfully",
+            failureMessage: "Failed to unlike track")
+    }
 
-        LastFMAPI.request(lastFMMethod: "track.unlove", args: ["artist": track.artist.name, "track": track.name, "sk": storedToken ?? ""]) { (_: Nothing?, error) -> Void in
-            if error != nil {
-                DispatchQueue.main.async {
-                    FloatingNotificationBanner(title: "Failed to unlike track", subtitle: error?.localizedDescription, style: .danger).show()
+    private func performTrackAction(
+        track: ScrobbledTrack, action: String, successMessage: String, failureMessage: String
+    ) {
+        guard let storedToken = try? valet.string(forKey: "sk") else {
+            DispatchQueue.main.async {
+                FloatingNotificationBanner(
+                    title: "Error", subtitle: "Failed to retrieve stored token", style: .danger
+                ).show()
+            }
+            return
+        }
+
+        LastFMAPI.request(
+            lastFMMethod: action,
+            args: ["artist": track.artist.name, "track": track.name, "sk": storedToken]
+        ) { (_: Nothing?, error) -> Void in
+            DispatchQueue.main.async {
+                if let error = error {
+                    FloatingNotificationBanner(
+                        title: failureMessage, subtitle: error.localizedDescription, style: .danger
+                    ).show()
+                } else {
+                    FloatingNotificationBanner(
+                        title: successMessage, subtitle: nil, style: .success
+                    ).show()
                 }
             }
         }
