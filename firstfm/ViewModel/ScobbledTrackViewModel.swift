@@ -2,11 +2,12 @@ import Foundation
 import NotificationBannerSwift
 import SwiftUI
 import Valet
+import Combine
 
 struct Nothing: Codable {
 }
 
-class ScrobbledTrackViewModel {
+class ScrobbledTrackViewModel: ObservableObject {
     let valet = getValet()
 
     func loveTrack(track: ScrobbledTrack) {
